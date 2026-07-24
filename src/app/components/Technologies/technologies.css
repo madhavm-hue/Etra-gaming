@@ -134,3 +134,29 @@
     min-height: 125px;
   }
 }
+.technology-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+
+  color: var(--accent-pink);
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.04);
+
+  margin-bottom: 28px;
+
+  transition: .3s;
+}
+
+.technology-card:hover .technology-icon {
+  transform: scale(1.15) rotate(-6deg);
+  color: white;
+  background: var(--accent-pink);
+}

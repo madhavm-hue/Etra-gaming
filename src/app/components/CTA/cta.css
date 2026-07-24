@@ -1,0 +1,239 @@
+.cta-section {
+  padding: 100px 0;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.cta-container {
+  width: min(100% - 40px, 1280px);
+  margin: 0 auto;
+}
+
+.cta-card {
+  position: relative;
+  min-height: 440px;
+  overflow: hidden;
+  padding: 70px;
+  display: flex;
+  align-items: center;
+  border-radius: 28px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10, 10, 35, 0.98),
+      rgba(40, 13, 64, 0.96)
+    );
+  box-shadow: 0 28px 70px var(--shadow-color);
+}
+
+.cta-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 3;
+  max-width: 690px;
+}
+
+.cta-label {
+  margin: 0;
+  color: #ff2ca8;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.cta-content h2 {
+  margin: 16px 0 0;
+  color: #ffffff;
+  font-size: clamp(40px, 5vw, 66px);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.cta-content h2 span {
+  color: #ff2ca8;
+}
+
+.cta-description {
+  max-width: 580px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.cta-button {
+  margin-top: 34px;
+  padding: 16px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff2ca8, #6d5cff);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  box-shadow: 0 16px 36px rgba(255, 44, 168, 0.28);
+  transition:
+    transform 0.3s ease,
+    gap 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  gap: 18px;
+  transform: translateY(-4px);
+  box-shadow: 0 22px 46px rgba(255, 44, 168, 0.42);
+}
+
+.cta-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(15px);
+  pointer-events: none;
+}
+
+.cta-glow-one {
+  top: -130px;
+  right: 80px;
+  width: 330px;
+  height: 330px;
+  background: rgba(255, 44, 168, 0.24);
+}
+
+.cta-glow-two {
+  right: 330px;
+  bottom: -200px;
+  width: 390px;
+  height: 390px;
+  background: rgba(109, 92, 255, 0.2);
+}
+
+.cta-decoration {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  width: 300px;
+  height: 300px;
+  transform: translateY(-50%);
+}
+
+.cta-ring {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+}
+
+.cta-ring-one {
+  inset: 0;
+  animation: ctaRotate 18s linear infinite;
+}
+
+.cta-ring-two {
+  inset: 52px;
+  border-color: rgba(255, 44, 168, 0.35);
+  animation: ctaRotateReverse 12s linear infinite;
+}
+
+.cta-orb {
+  position: absolute;
+  inset: 50%;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2ca8, #6d5cff);
+  box-shadow:
+    0 0 35px rgba(255, 44, 168, 0.65),
+    0 0 80px rgba(109, 92, 255, 0.35);
+  transform: translate(-50%, -50%);
+}
+
+@keyframes ctaRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ctaRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .cta-card {
+    min-height: 420px;
+    padding: 55px 42px;
+  }
+
+  .cta-decoration {
+    right: -80px;
+    opacity: 0.55;
+  }
+}
+
+@media (max-width: 700px) {
+  .cta-section {
+    padding: 76px 0;
+  }
+
+  .cta-container {
+    width: min(100% - 28px, 600px);
+  }
+
+  .cta-card {
+    min-height: 470px;
+    padding: 42px 26px;
+    align-items: flex-start;
+    border-radius: 22px;
+  }
+
+  .cta-content h2 {
+    font-size: 39px;
+  }
+
+  .cta-description {
+    font-size: 15px;
+  }
+
+  .cta-decoration {
+    top: auto;
+    right: -80px;
+    bottom: -120px;
+    width: 260px;
+    height: 260px;
+    transform: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .cta-container {
+    width: min(100% - 22px, 600px);
+  }
+
+  .cta-card {
+    padding: 36px 22px;
+  }
+
+  .cta-content h2 {
+    font-size: 34px;
+  }
+}

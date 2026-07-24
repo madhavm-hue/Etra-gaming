@@ -1,0 +1,191 @@
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: -40px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0;
+  background: rgba(255, 44, 168, 0.55);
+  box-shadow:
+    0 0 10px rgba(255, 44, 168, 0.45),
+    0 0 24px rgba(109, 92, 255, 0.25);
+  animation: particleFloat linear infinite;
+}
+
+.particle-1 {
+  left: 5%;
+  animation-duration: 17s;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  left: 11%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 21s;
+  animation-delay: 4s;
+}
+
+.particle-3 {
+  left: 18%;
+  animation-duration: 15s;
+  animation-delay: 7s;
+}
+
+.particle-4 {
+  left: 25%;
+  width: 7px;
+  height: 7px;
+  animation-duration: 23s;
+  animation-delay: 2s;
+}
+
+.particle-5 {
+  left: 31%;
+  width: 4px;
+  height: 4px;
+  animation-duration: 18s;
+  animation-delay: 9s;
+}
+
+.particle-6 {
+  left: 38%;
+  animation-duration: 25s;
+  animation-delay: 5s;
+}
+
+.particle-7 {
+  left: 44%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 16s;
+  animation-delay: 1s;
+}
+
+.particle-8 {
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  animation-duration: 22s;
+  animation-delay: 8s;
+}
+
+.particle-9 {
+  left: 56%;
+  animation-duration: 19s;
+  animation-delay: 3s;
+}
+
+.particle-10 {
+  left: 62%;
+  width: 4px;
+  height: 4px;
+  animation-duration: 24s;
+  animation-delay: 10s;
+}
+
+.particle-11 {
+  left: 68%;
+  animation-duration: 17s;
+  animation-delay: 6s;
+}
+
+.particle-12 {
+  left: 73%;
+  width: 7px;
+  height: 7px;
+  animation-duration: 26s;
+  animation-delay: 2s;
+}
+
+.particle-13 {
+  left: 79%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 20s;
+  animation-delay: 8s;
+}
+
+.particle-14 {
+  left: 84%;
+  animation-duration: 16s;
+  animation-delay: 4s;
+}
+
+.particle-15 {
+  left: 89%;
+  width: 4px;
+  height: 4px;
+  animation-duration: 23s;
+  animation-delay: 11s;
+}
+
+.particle-16 {
+  left: 94%;
+  animation-duration: 18s;
+  animation-delay: 5s;
+}
+
+.particle-17 {
+  left: 35%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 27s;
+  animation-delay: 13s;
+}
+
+.particle-18 {
+  left: 66%;
+  width: 6px;
+  height: 6px;
+  animation-duration: 21s;
+  animation-delay: 12s;
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.6);
+  }
+
+  12% {
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translate3d(35px, -55vh, 0) scale(1);
+  }
+
+  88% {
+    opacity: 0.35;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-25px, -115vh, 0) scale(0.7);
+  }
+}
+
+@media (max-width: 900px) {
+  .particle:nth-child(n + 11) {
+    display: none;
+  }
+
+  .particle {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particles {
+    display: none;
+  }
+}

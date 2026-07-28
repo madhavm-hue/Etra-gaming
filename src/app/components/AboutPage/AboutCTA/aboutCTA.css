@@ -1,0 +1,282 @@
+.about-cta {
+  position: relative;
+
+  width: 100%;
+  padding: 120px 8%;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  overflow: hidden;
+}
+
+.about-cta::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(255, 47, 159, 0.08),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(112, 70, 255, 0.07),
+      transparent 34%
+    );
+
+  pointer-events: none;
+}
+
+.about-cta-container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+  padding: 85px 50px;
+
+  text-align: center;
+
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 47, 159, 0.07),
+      rgba(112, 70, 255, 0.04)
+    ),
+    var(--card-background);
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.about-cta-container::before {
+  content: "";
+
+  position: absolute;
+  top: -120px;
+  left: -120px;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 47, 159, 0.18);
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.about-cta-container::after {
+  content: "";
+
+  position: absolute;
+  right: -120px;
+  bottom: -120px;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background: rgba(112, 70, 255, 0.14);
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.about-cta-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Tag */
+
+.about-cta span {
+  display: inline-block;
+  margin-bottom: 18px;
+
+  color: #ff2f9f;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Heading */
+
+.about-cta h2 {
+  max-width: 900px;
+
+  margin: 0 auto 24px;
+
+  color: var(--foreground);
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+/* Description */
+
+.about-cta p {
+  max-width: 720px;
+
+  margin: 0 auto 45px;
+
+  color: var(--text-secondary);
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* Buttons */
+
+.about-cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  flex-wrap: wrap;
+}
+
+.about-cta .primary-btn,
+.about-cta .secondary-btn {
+  min-width: 170px;
+  min-height: 54px;
+
+  padding: 0 32px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Primary button */
+
+.about-cta .primary-btn {
+  border: 1px solid transparent;
+
+  background: linear-gradient(
+    90deg,
+    #ff6534,
+    #ff2f9f
+  );
+
+  color: #ffffff;
+
+  box-shadow: 0 14px 35px rgba(255, 47, 159, 0.22);
+}
+
+.about-cta .primary-btn:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 20px 45px rgba(255, 47, 159, 0.36);
+}
+
+/* Secondary button */
+
+.about-cta .secondary-btn {
+  border: 1px solid var(--border-color);
+
+  background: transparent;
+  color: var(--foreground);
+}
+
+.about-cta .secondary-btn:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(255, 47, 159, 0.4);
+
+  background: rgba(255, 47, 159, 0.08);
+
+  box-shadow: 0 16px 35px rgba(255, 47, 159, 0.1);
+}
+
+/* Light theme */
+
+[data-theme="light"] .about-cta-container,
+.light .about-cta-container {
+  box-shadow: 0 28px 70px rgba(25, 25, 35, 0.09);
+}
+
+[data-theme="light"] .about-cta .secondary-btn,
+.light .about-cta .secondary-btn {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+  .about-cta {
+    padding: 100px 6%;
+  }
+
+  .about-cta-container {
+    padding: 72px 40px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .about-cta {
+    padding: 80px 20px;
+  }
+
+  .about-cta-container {
+    padding: 58px 24px;
+
+    border-radius: 24px;
+  }
+
+  .about-cta h2 {
+    font-size: 2.2rem;
+  }
+
+  .about-cta p {
+    margin-bottom: 35px;
+
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .about-cta-buttons {
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .about-cta .primary-btn,
+  .about-cta .secondary-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}

@@ -1,3 +1,4 @@
+import Particles from "./components/Particles/Particles";
 import Cursor from "./components/Cursor/Cursor";
 import Reveal from "./components/Reveal/Reveal";
 import Navbar from "./components/Navbar/Navbar";
@@ -16,6 +17,7 @@ export default function Home() {
     <>
     <Cursor/>
       <Loader />
+       <Particles />
    <Navbar />
 
 <Hero />

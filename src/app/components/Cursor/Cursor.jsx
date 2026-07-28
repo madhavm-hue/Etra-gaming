@@ -12,60 +12,48 @@ export default function Cursor() {
     const cursor = cursorRef.current;
     if (!cursor) return;
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let animationId;
+    let mouseX = -100;
+    let mouseY = -100;
+    let currentX = -100;
+    let currentY = -100;
+    let animationFrame;
 
-    const handleMouseMove = (e) => {
+    const moveCursor = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     };
 
-    const handleMouseEnter = () => {
-      cursor.style.width = "55px";
-      cursor.style.height = "55px";
-      cursor.style.background = "rgba(255,44,168,.15)";
-      cursor.style.border = "2px solid #ff2ca8";
-    };
+    const hoverHandler = (e) => {
+      const target = e.target.closest(
+        "a, button, input, textarea, select, label"
+      );
 
-    const handleMouseLeave = () => {
-      cursor.style.width = "18px";
-      cursor.style.height = "18px";
-      cursor.style.background = "#ff2ca8";
-      cursor.style.border = "none";
+      if (target) {
+        cursor.classList.add("cursor-hover");
+      } else {
+        cursor.classList.remove("cursor-hover");
+      }
     };
 
     const animate = () => {
       currentX += (mouseX - currentX) * 0.18;
       currentY += (mouseY - currentY) * 0.18;
 
-      cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      cursor.style.transform = `translate3d(${currentX}px, ${currentY}px,0)`;
 
-      animationId = requestAnimationFrame(animate);
+      animationFrame = requestAnimationFrame(animate);
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
-
-    const hoverElements = document.querySelectorAll("a, button");
-
-    hoverElements.forEach((element) => {
-      element.addEventListener("mouseenter", handleMouseEnter);
-      element.addEventListener("mouseleave", handleMouseLeave);
-    });
+    document.addEventListener("mousemove", moveCursor);
+    document.addEventListener("mouseover", hoverHandler);
 
     animate();
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mousemove", moveCursor);
+      document.removeEventListener("mouseover", hoverHandler);
 
-      hoverElements.forEach((element) => {
-        element.removeEventListener("mouseenter", handleMouseEnter);
-        element.removeEventListener("mouseleave", handleMouseLeave);
-      });
-
-      cancelAnimationFrame(animationId);
+      cancelAnimationFrame(animationFrame);
     };
   }, []);
 

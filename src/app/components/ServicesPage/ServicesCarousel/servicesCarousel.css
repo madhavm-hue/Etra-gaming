@@ -1,0 +1,374 @@
+.services-carousel {
+  width: 100%;
+  padding: 150px 7% 110px;
+  background: var(--background);
+  color: var(--foreground);
+  overflow: hidden;
+}
+/* Heading */
+
+.services-carousel-header {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+
+.services-carousel-header > span {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #ff4e9f;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.services-carousel-header h2 {
+  margin: 0 0 20px;
+  color: var(--foreground);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.15;
+}
+
+.services-carousel-header p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* Carousel Controls */
+
+.services-carousel-controls {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Carousel */
+
+.services-carousel-area {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.services-carousel-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+
+  padding: 10px 4px 25px;
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.services-carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Arrow Buttons */
+
+.carousel-arrow {
+  position: static;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 78, 159, 0.55);
+  border-radius: 50%;
+
+  background: transparent;
+  color: #ff4e9f;
+
+  font-size: 22px;
+  cursor: pointer;
+
+  box-shadow: none;
+  transform: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  transform: scale(1.08);
+  background: #ff4e9f;
+  color: #ffffff;
+  border-color: #ff4e9f;
+  box-shadow: 0 12px 28px rgba(255, 78, 159, 0.28);
+}
+
+.carousel-arrow-left {
+  left: -26px;
+}
+
+.carousel-arrow-right {
+  right: -26px;
+}
+
+/* Service Card */
+
+.service-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  min-width: 0;
+
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+
+  background: var(--card-background);
+
+  scroll-snap-align: start;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 78, 159, 0.45);
+  box-shadow: 0 24px 55px rgba(255, 78, 159, 0.13);
+}
+
+/* Card Image */
+
+.service-card > img {
+  width: 100%;
+  height: 260px;
+
+  display: block;
+  object-fit: cover;
+
+  user-select: none;
+  pointer-events: none;
+
+  transition: transform 0.55s ease;
+}
+
+.service-card:hover > img {
+  transform: scale(1.06);
+}
+
+/* Card Content */
+
+.service-card-content {
+  position: relative;
+  min-height: 390px;
+  padding: 32px 28px 30px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Icon */
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+
+  margin-top: -64px;
+  margin-bottom: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 78, 159, 0.5);
+  border-radius: 18px;
+
+  background: var(--card-background);
+  color: #ff4e9f;
+
+  font-size: 26px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: rotate(-5deg) scale(1.08);
+  background: rgba(255, 78, 159, 0.12);
+}
+
+/* Text */
+
+.service-card-content h3 {
+  margin: 0 0 14px;
+  color: var(--foreground);
+  font-size: 1.35rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.service-card-content > p {
+  margin: 0 0 22px;
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+/* Features */
+
+.service-card-content ul {
+  margin: 0 0 28px;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+
+  list-style: none;
+}
+
+.service-card-content li {
+  position: relative;
+  padding-left: 18px;
+
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+
+.service-card-content li::before {
+  content: "";
+
+  position: absolute;
+  top: 8px;
+  left: 0;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: #ff4e9f;
+
+  box-shadow: 0 0 10px rgba(255, 78, 159, 0.65);
+}
+
+/* Learn More */
+
+.service-card-content button {
+  width: fit-content;
+  margin-top: auto;
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+  color: #ff4e9f;
+
+  cursor: pointer;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  transition: transform 0.3s ease;
+}
+
+.service-card-content button:hover {
+  transform: translateX(6px);
+}
+
+/* Tablet */
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+  .services-carousel {
+    padding: 95px 6%;
+  }
+
+  .services-carousel-controls {
+    margin-bottom: 18px;
+  }
+
+  .service-card {
+    flex: 0 0 calc((100% - 24px) / 2);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .services-carousel {
+    padding: 80px 20px;
+  }
+
+  .services-carousel-header {
+    margin-bottom: 30px;
+  }
+
+  .services-carousel-header h2 {
+    font-size: 2.15rem;
+  }
+
+  .services-carousel-controls {
+    justify-content: center;
+    margin-bottom: 18px;
+    gap: 10px;
+  }
+
+  .carousel-arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .services-carousel-wrapper {
+    gap: 18px;
+    padding: 10px 0 22px;
+  }
+
+  .service-card {
+    flex: 0 0 88%;
+  }
+
+  .service-card > img {
+    height: 230px;
+  }
+
+  .service-card-content {
+    min-height: 380px;
+    padding: 30px 24px 26px;
+  }
+
+  .service-icon {
+    width: 58px;
+    height: 58px;
+    margin-top: -59px;
+    font-size: 23px;
+  }
+}

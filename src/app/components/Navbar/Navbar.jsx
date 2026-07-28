@@ -1,47 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import "./navbar.css";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 const navLinks = [
-  { label: "Home", href: "#home", id: "home" },
-  { label: "About", href: "#studio", id: "studio" },
-  { label: "Services", href: "#services", id: "services" },
-  { label: "Portfolio", href: "#portfolio", id: "portfolio" },
-  { label: "Technology", href: "#technology", id: "technology" },
-  { label: "Contact", href: "#contact", id: "contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Technology", href: "/technology" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-
-  useEffect(() => {
-    const sections = navLinks
-      .map((link) => document.getElementById(link.id))
-      .filter(Boolean);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSection = entries.find((entry) => entry.isIntersecting);
-
-        if (visibleSection) {
-          setActiveSection(visibleSection.target.id);
-        }
-      },
-      {
-        rootMargin: "-35% 0px -55% 0px",
-        threshold: 0,
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
 
   const closeMenu = () => {
     setOpen(false);
@@ -50,38 +26,38 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <div className="nav-wrap">
-        <a href="#home" className="logo" onClick={closeMenu}>
+        <Link href="/" className="logo" onClick={closeMenu}>
           <span>E</span>TRA
           <small>animation &amp; game development</small>
-        </a>
+        </Link>
 
         <nav className={`nav-menu ${open ? "show-menu" : ""}`}>
           {navLinks.map((link) => (
-            <a
-              key={link.id}
+            <Link
+              key={link.href}
               href={link.href}
-              className={activeSection === link.id ? "active" : ""}
+              className={pathname === link.href ? "active" : ""}
               onClick={closeMenu}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
 
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="mobile-nav-button"
             onClick={closeMenu}
           >
             Let&apos;s Talk
-          </a>
+          </Link>
         </nav>
 
         <div className="nav-actions">
           <ThemeToggle />
 
-          <a href="#contact" className="nav-button">
+          <Link href="/contact" className="nav-button">
             Let&apos;s Talk
-          </a>
+          </Link>
         </div>
 
         <button

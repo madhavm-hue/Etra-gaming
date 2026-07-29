@@ -29,27 +29,35 @@ const processSteps = [
 
 export default function Process() {
   return (
-    <section className="process-section" id="process">
-      <div className="process-container">
-        <div className="process-heading">
-          <p>How We Work</p>
-          <h2>From idea to immersive experience</h2>
-          <span>
+    <section className="home-process-section" id="process">
+      <div className="home-process-container">
+        <div className="home-process-heading">
+          <p className="home-process-label">How We Work</p>
+
+          <h2 className="home-process-title">
+            From idea to immersive experience
+          </h2>
+
+          <span className="home-process-description">
             A focused creative process that keeps every project clear,
             collaborative and production-ready.
           </span>
         </div>
 
-        <div className="process-grid">
+        <div className="home-process-grid">
           {processSteps.map((step) => (
-            <article className="process-card" key={step.number}>
-              <div className="process-number">{step.number}</div>
+            <article className="home-process-card" key={step.number}>
+              <div className="home-process-number">{step.number}</div>
 
-              <div className="process-dot" />
+              <div className="home-process-dot" />
 
-              <h3>{step.title}</h3>
+              <h3 className="home-process-card-title">
+                {step.title}
+              </h3>
 
-              <p>{step.description}</p>
+              <p className="home-process-card-description">
+                {step.description}
+              </p>
             </article>
           ))}
         </div>

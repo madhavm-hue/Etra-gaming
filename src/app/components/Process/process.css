@@ -1,21 +1,21 @@
-.process-section {
+.home-process-section {
   padding: 100px 0;
   overflow: hidden;
   background: var(--bg-secondary);
 }
 
-.process-container {
+.home-process-container {
   width: min(100% - 40px, 1280px);
   margin: 0 auto;
 }
 
-.process-heading {
+.home-process-heading {
   max-width: 680px;
   margin: 0 auto 60px;
   text-align: center;
 }
 
-.process-heading > p {
+.home-process-label {
   margin: 0;
   color: var(--accent-pink);
   font-size: 12px;
@@ -24,7 +24,7 @@
   text-transform: uppercase;
 }
 
-.process-heading h2 {
+.home-process-title {
   margin: 12px 0 0;
   color: var(--text-primary);
   font-size: clamp(32px, 4vw, 48px);
@@ -32,7 +32,7 @@
   line-height: 1.1;
 }
 
-.process-heading span {
+.home-process-description {
   display: block;
   margin-top: 18px;
   color: var(--text-secondary);
@@ -40,14 +40,14 @@
   line-height: 1.75;
 }
 
-.process-grid {
+.home-process-grid {
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
 
-.process-grid::before {
+.home-process-grid::before {
   content: "";
   position: absolute;
   top: 83px;
@@ -65,7 +65,7 @@
   opacity: 0.65;
 }
 
-.process-card {
+.home-process-card {
   position: relative;
   z-index: 1;
   min-height: 300px;
@@ -80,13 +80,13 @@
     box-shadow 0.35s ease;
 }
 
-.process-card:hover {
+.home-process-card:hover {
   transform: translateY(-8px);
   border-color: rgba(255, 44, 168, 0.42);
   box-shadow: 0 28px 58px var(--shadow-color);
 }
 
-.process-number {
+.home-process-number {
   color: transparent;
   font-size: 54px;
   font-weight: 950;
@@ -95,7 +95,7 @@
   opacity: 0.45;
 }
 
-.process-dot {
+.home-process-dot {
   position: relative;
   width: 18px;
   height: 18px;
@@ -108,14 +108,14 @@
     0 0 22px rgba(255, 44, 168, 0.75);
 }
 
-.process-card h3 {
+.home-process-card-title {
   margin: 0 0 14px;
   color: var(--text-primary);
   font-size: 22px;
   font-weight: 850;
 }
 
-.process-card p {
+.home-process-card-description {
   margin: 0;
   color: var(--text-secondary);
   font-size: 14px;
@@ -123,40 +123,40 @@
 }
 
 @media (max-width: 1000px) {
-  .process-grid {
+  .home-process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .process-grid::before {
+  .home-process-grid::before {
     display: none;
   }
 }
 
 @media (max-width: 700px) {
-  .process-section {
+  .home-process-section {
     padding: 76px 0;
   }
 
-  .process-container {
+  .home-process-container {
     width: min(100% - 28px, 600px);
   }
 
-  .process-heading {
+  .home-process-heading {
     margin-bottom: 38px;
     text-align: left;
   }
 
-  .process-grid {
+  .home-process-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  .process-card {
+  .home-process-card {
     min-height: auto;
     padding: 26px 24px;
   }
 
-  .process-number {
+  .home-process-number {
     font-size: 46px;
   }
 }

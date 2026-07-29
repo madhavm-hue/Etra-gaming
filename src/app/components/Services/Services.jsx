@@ -41,29 +41,43 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="services-section" id="services">
-      <div className="services-container">
-        <div className="services-heading">
-          <p className="services-label">What We Do</p>
-          <h2>Services built for immersive experiences</h2>
-          <p className="services-intro">
+    <section className="home-services-section" id="services">
+      <div className="home-services-container">
+        <div className="home-services-heading">
+          <p className="home-services-label">What We Do</p>
+
+          <h2 className="home-services-title">
+            Services built for immersive experiences
+          </h2>
+
+          <p className="home-services-intro">
             We combine creativity, technology and production expertise to bring
             ambitious gaming and animation ideas to life.
           </p>
         </div>
 
-        <div className="services-grid">
+        <div className="home-services-grid">
           {services.map((service) => (
-            <article className="service-card" key={service.title}>
-              <div className="service-icon" aria-hidden="true">
+            <article
+              className="home-service-card"
+              key={service.title}
+            >
+              <div
+                className="home-service-icon"
+                aria-hidden="true"
+              >
                 {service.icon}
               </div>
 
-              <h3>{service.title}</h3>
+              <h3 className="home-service-title">
+                {service.title}
+              </h3>
 
-              <p>{service.description}</p>
+              <p className="home-service-description">
+                {service.description}
+              </p>
 
-              <a href="#contact" className="service-link">
+              <a href="/contact" className="home-service-link">
                 Learn More
                 <span aria-hidden="true">→</span>
               </a>

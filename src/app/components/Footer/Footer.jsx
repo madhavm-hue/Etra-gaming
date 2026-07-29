@@ -53,7 +53,7 @@ export default function Footer() {
           <h4>Contact</h4>
 
           <p>hello@etra.com</p>
-          <p>Nagercoil, Tamil Nadu</p>
+          <p>Chennai, Tamil Nadu</p>
 
           <button
             className="scroll-top"

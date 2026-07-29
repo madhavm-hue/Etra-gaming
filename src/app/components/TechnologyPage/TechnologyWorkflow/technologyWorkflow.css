@@ -1,0 +1,287 @@
+.technology-workflow-section {
+  padding: 110px 0;
+  background: var(--bg-primary);
+  transition: background-color 0.35s ease;
+}
+
+.technology-workflow-container {
+  width: min(100% - 40px, 1280px);
+  margin: 0 auto;
+}
+
+.technology-workflow-card {
+  position: relative;
+  min-height: 530px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: stretch;
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  background: var(--card-bg);
+  box-shadow: 0 28px 70px var(--shadow-color);
+}
+
+.technology-workflow-image-wrap {
+  position: relative;
+  min-height: 530px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(109, 92, 255, 0.28),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 44, 168, 0.16),
+      rgba(109, 92, 255, 0.12)
+    );
+}
+
+.technology-workflow-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 28px 35px rgba(0, 0, 0, 0.25));
+  transition: transform 0.6s ease;
+}
+
+.technology-workflow-card:hover .technology-workflow-image {
+  transform: scale(1.04);
+}
+
+.technology-workflow-image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 55%,
+      var(--card-bg) 100%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 50%,
+      rgba(5, 5, 15, 0.48) 100%
+    );
+  pointer-events: none;
+}
+
+.technology-workflow-image-tag {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+  z-index: 4;
+  padding: 14px 17px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 13px;
+  background: rgba(8, 8, 18, 0.52);
+  backdrop-filter: blur(14px);
+  color: #ffffff;
+}
+
+.technology-workflow-image-tag span {
+  color: var(--accent-pink);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 1.3px;
+}
+
+.technology-workflow-image-tag p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.technology-workflow-content {
+  position: relative;
+  z-index: 4;
+  padding: 65px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.technology-workflow-label {
+  margin: 0;
+  color: var(--accent-pink);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.technology-workflow-title {
+  margin: 15px 0 0;
+  color: var(--text-primary);
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 950;
+  line-height: 1.05;
+  letter-spacing: -1.8px;
+  text-transform: uppercase;
+}
+
+.technology-workflow-title span {
+  background: linear-gradient(
+    90deg,
+    var(--accent-orange),
+    var(--accent-pink)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.technology-workflow-description {
+  max-width: 550px;
+  margin: 23px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.technology-workflow-features {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.technology-workflow-feature {
+  min-height: 120px;
+  padding: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  border: 1px solid var(--card-border);
+  border-radius: 15px;
+  background: var(--bg-primary);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.technology-workflow-feature:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 44, 168, 0.38);
+  box-shadow: 0 18px 38px var(--shadow-color);
+}
+
+.technology-workflow-feature-icon {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 120, 70, 0.17),
+    rgba(255, 44, 168, 0.16)
+  );
+  color: var(--accent-pink);
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.technology-workflow-feature h3 {
+  margin: 1px 0 0;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.technology-workflow-feature p {
+  margin: 7px 0 0;
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.technology-workflow-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.technology-workflow-glow-one {
+  top: -150px;
+  right: -100px;
+  width: 330px;
+  height: 330px;
+  background: rgba(109, 92, 255, 0.15);
+}
+
+.technology-workflow-glow-two {
+  left: 25%;
+  bottom: -180px;
+  width: 380px;
+  height: 380px;
+  background: rgba(255, 44, 168, 0.12);
+}
+
+@media (max-width: 1000px) {
+  .technology-workflow-card {
+    grid-template-columns: 1fr;
+  }
+
+  .technology-workflow-image-wrap {
+    min-height: 470px;
+  }
+
+  .technology-workflow-image-overlay {
+    background: linear-gradient(
+      180deg,
+      transparent 60%,
+      var(--card-bg) 100%
+    );
+  }
+
+  .technology-workflow-content {
+    padding: 55px 45px;
+  }
+}
+
+@media (max-width: 650px) {
+  .technology-workflow-section {
+    padding: 76px 0;
+  }
+
+  .technology-workflow-container {
+    width: min(100% - 28px, 650px);
+  }
+
+  .technology-workflow-card {
+    border-radius: 22px;
+  }
+
+  .technology-workflow-image-wrap {
+    min-height: 380px;
+  }
+
+  .technology-workflow-content {
+    padding: 44px 22px;
+  }
+
+  .technology-workflow-title {
+    font-size: clamp(34px, 10vw, 48px);
+    letter-spacing: -1.5px;
+  }
+
+  .technology-workflow-features {
+    grid-template-columns: 1fr;
+  }
+
+  .technology-workflow-image-tag {
+    left: 18px;
+    bottom: 18px;
+  }
+}

@@ -1,0 +1,248 @@
+.technology-companies-section {
+  position: relative;
+  overflow: hidden;
+  padding: 105px 0;
+  background: var(--bg-primary);
+  transition: background-color 0.35s ease;
+}
+
+.technology-companies-section::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 520px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255, 44, 168, 0.08);
+  filter: blur(120px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.technology-companies-container {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 40px, 1280px);
+  margin: 0 auto;
+}
+
+.technology-companies-heading {
+  max-width: 690px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.technology-companies-label {
+  margin: 0;
+  color: var(--accent-pink);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.technology-companies-title {
+  margin: 13px 0 0;
+  color: var(--text-primary);
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+}
+
+.technology-companies-description {
+  max-width: 620px;
+  margin: 20px auto 0;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.technology-companies-track-wrapper {
+  position: relative;
+  margin-top: 54px;
+  overflow: hidden;
+}
+
+.technology-companies-track-wrapper::before,
+.technology-companies-track-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100px;
+  pointer-events: none;
+}
+
+.technology-companies-track-wrapper::before {
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    var(--bg-primary),
+    transparent
+  );
+}
+
+.technology-companies-track-wrapper::after {
+  right: 0;
+  background: linear-gradient(
+    -90deg,
+    var(--bg-primary),
+    transparent
+  );
+}
+
+.technology-companies-track {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.technology-company-card {
+  min-height: 175px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 17px;
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      transparent
+    ),
+    var(--card-bg);
+  box-shadow: 0 14px 34px var(--shadow-color);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.technology-company-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(255, 44, 168, 0.38);
+  box-shadow: 0 24px 48px var(--shadow-color);
+}
+
+.technology-company-logo {
+  width: 84px;
+  height: 84px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 120, 70, 0.14),
+      rgba(255, 44, 168, 0.14)
+    ),
+    var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 950;
+  letter-spacing: -0.5px;
+  text-align: center;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.technology-company-card:hover
+  .technology-company-logo {
+  transform: rotate(-5deg) scale(1.05);
+  background: linear-gradient(
+    135deg,
+    var(--accent-orange),
+    var(--accent-pink)
+  );
+  color: #ffffff;
+}
+
+.technology-company-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.55px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.technology-company-card:hover p {
+  color: var(--text-primary);
+}
+
+.technology-companies-bottom {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.technology-companies-bottom span {
+  height: 1px;
+  background: var(--card-border);
+}
+
+.technology-companies-bottom p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1150px) {
+  .technology-companies-track {
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 750px) {
+  .technology-companies-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .technology-companies-track-wrapper::before,
+  .technology-companies-track-wrapper::after {
+    display: none;
+  }
+
+  .technology-companies-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .technology-companies-bottom span {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .technology-companies-section {
+    padding: 76px 0;
+  }
+
+  .technology-companies-container {
+    width: min(100% - 28px, 500px);
+  }
+
+  .technology-companies-track {
+    grid-template-columns: 1fr;
+  }
+
+  .technology-company-card {
+    min-height: 155px;
+  }
+}

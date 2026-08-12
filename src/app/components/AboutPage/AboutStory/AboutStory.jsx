@@ -10,15 +10,20 @@ export default function AboutStory() {
           <span className="story-tag">OUR STORY</span>
 
           <h2>
-            Every Great Experience
+            Every great experience
             <br />
-            Starts with a Vision.
+            starts with a vision.
           </h2>
 
           <p>
             Founded with a passion for creativity and technology, ETRA has
             evolved into a studio delivering immersive games, animation and
             interactive digital experiences for brands and audiences worldwide.
+          </p>
+
+          <p>
+            Our mission is to transform ideas into meaningful experiences
+            through art, technology and innovation.
           </p>
 
           <a href="#about-values" className="story-btn">

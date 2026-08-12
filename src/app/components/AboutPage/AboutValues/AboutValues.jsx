@@ -12,22 +12,22 @@ const values = [
   {
     icon: <FaLightbulb />,
     title: "Innovation",
-    desc: "We embrace creativity and emerging technologies to build unique gaming experiences.",
+    desc: "We embrace creativity and emerging technologies to create unique experiences.",
   },
   {
     icon: <FaHeart />,
     title: "Passion",
-    desc: "Every project is crafted with dedication, creativity and attention to detail.",
+    desc: "Every project is crafted with dedication and love for what we do.",
   },
   {
     icon: <FaUsers />,
     title: "Collaboration",
-    desc: "We believe teamwork and strong communication create exceptional results.",
+    desc: "We believe teamwork and open communication lead to exceptional results.",
   },
   {
     icon: <FaStar />,
     title: "Excellence",
-    desc: "We constantly refine our work to deliver premium quality experiences.",
+    desc: "We constantly refine our skills to deliver the highest quality in every detail.",
   },
 ];
 
@@ -38,7 +38,7 @@ export default function AboutValues() {
 
         <div className="about-values-heading">
           <span>OUR VALUES</span>
-          <h2>What Drives ETRA</h2>
+          <h2>The principles that drive us forward.</h2>
         </div>
 
         <div className="about-values-grid">

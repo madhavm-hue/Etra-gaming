@@ -9,41 +9,39 @@ export default function AboutStudio() {
 
         <div className="studio-heading">
           <span>OUR STUDIO</span>
-          <h2>Behind Every Great Experience</h2>
+
+          <h2>Behind every great experience.</h2>
 
           <p>
-            Every project begins with creativity, collaboration and
-            innovation. Our studio transforms ideas into immersive
-            gaming experiences.
+            Our studio transforms ideas into immersive gaming experiences.
+            We combine artisty, technology and collaboration to bring worlds to 
+            life with precision and passion.
           </p>
+
+          <button className="story-btn">
+            See Our Studio
+          </button>
         </div>
 
         <div className="studio-gallery">
 
           <div className="studio-large">
             <img
-             src="/images/hero/gaming-girl-removebg-preview.png"
-              alt="Studio"
+              src="/images/hero/gaming-girl-removebg-preview.png"
+              alt="ETRA Studio"
             />
           </div>
 
           <div className="studio-small-grid">
-
             <img
-             src="/images/hero/gaming-girl-removebg-preview.png"
-              alt="Studio"
+              src="/images/hero/gaming-girl-removebg-preview.png"
+              alt="ETRA Studio"
             />
 
             <img
-             src="/images/hero/gaming-girl-removebg-preview.png"
-              alt="Studio"
+              src="/images/hero/gaming-girl-removebg-preview.png"
+              alt="ETRA Studio"
             />
-
-            <img
-             src="/images/hero/gaming-girl-removebg-preview.png"
-              alt="Studio"
-            />
-
           </div>
 
         </div>

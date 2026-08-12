@@ -53,10 +53,10 @@
 
   color: var(--foreground);
 
-  font-size: clamp(3rem, 6vw, 5.4rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -2px;
+  font-size: clamp(2.4rem, 3.6vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
 }
 
 .about-hero-title span {

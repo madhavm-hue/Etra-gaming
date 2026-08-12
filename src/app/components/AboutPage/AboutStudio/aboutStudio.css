@@ -36,13 +36,18 @@
   max-width: 1400px;
 
   margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 32% 68%;
+  align-items: center;
+  gap: 55px;
 }
 
 /* Heading */
 
 .studio-heading {
-  max-width: 760px;
-  margin-bottom: 52px;
+  max-width: 420px;
+  margin-bottom: 0;
 }
 
 .studio-heading span {
@@ -69,7 +74,7 @@
 }
 
 .studio-heading p {
-  margin: 0;
+  margin: 0 0 28px;
 
   color: var(--text-secondary);
 
@@ -80,9 +85,13 @@
 /* Gallery */
 
 .studio-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 20px;
+
+  align-items: stretch;
 }
 
 /* Large image */
@@ -91,7 +100,7 @@
   position: relative;
 
   width: 100%;
-  height: 560px;
+  height: 430px;
 
   overflow: hidden;
 
@@ -171,17 +180,22 @@
   transform: scale(1.045);
 }
 
-/* Small image grid */
+/* Small images */
 
 .studio-small-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+
+  gap: 20px;
+
+  height: 430px;
 }
 
 .studio-small-grid img {
   width: 100%;
-  height: 290px;
+  height: 100%;
+  min-height: 0;
 
   display: block;
 
@@ -204,7 +218,7 @@
 }
 
 .studio-small-grid img:hover {
-  transform: translateY(-7px) scale(1.015);
+  transform: translateY(-5px) scale(1.015);
 
   border-color: rgba(255, 47, 159, 0.45);
 
@@ -238,20 +252,25 @@
     padding: 95px 6%;
   }
 
+  .about-studio-container {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .studio-heading {
+    max-width: 700px;
+  }
+
+  .studio-gallery {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
   .studio-large {
-    height: 440px;
+    height: 400px;
   }
 
   .studio-small-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .studio-small-grid img {
-    height: 260px;
-  }
-
-  .studio-small-grid img:last-child {
-    grid-column: 1 / -1;
+    height: 400px;
   }
 }
 
@@ -262,8 +281,13 @@
     padding: 80px 20px;
   }
 
+  .about-studio-container {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
   .studio-heading {
-    margin-bottom: 40px;
+    max-width: 100%;
     text-align: center;
   }
 
@@ -277,6 +301,7 @@
   }
 
   .studio-gallery {
+    grid-template-columns: 1fr;
     gap: 18px;
   }
 
@@ -286,16 +311,16 @@
   }
 
   .studio-small-grid {
+    height: auto;
+
     grid-template-columns: 1fr;
+    grid-template-rows: none;
+
     gap: 18px;
   }
 
   .studio-small-grid img {
     height: 240px;
     border-radius: 18px;
-  }
-
-  .studio-small-grid img:last-child {
-    grid-column: auto;
   }
 }

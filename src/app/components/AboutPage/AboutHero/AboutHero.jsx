@@ -19,9 +19,8 @@ export default function AboutHero() {
           </h1>
 
           <p className="about-hero-description">
-            We are a creative studio crafting immersive games, cinematic
-            animation and interactive digital experiences that bring bold
-            ideas to life.
+            We are a creative studio crafting immersive games, 
+            cinematic animation and interactive digital experiences that inspire and engage audiences worldwide.
           </p>
 
           <a href="#about-story" className="about-hero-button">
@@ -34,23 +33,13 @@ export default function AboutHero() {
           <div className="about-hero-image-wrapper">
             <img
               src="/images/hero/gaming-girl-removebg-preview.png"
-              alt="ETRA creative gaming studio"
+              alt="ETRA creative studio"
               className="about-hero-image"
             />
 
             <div className="about-hero-image-overlay" />
-
-            <div className="about-hero-floating-card">
-              <span>CREATIVE STUDIO</span>
-              <strong>Ideas into experiences</strong>
-            </div>
           </div>
         </div>
-      </div>
-
-      <div className="about-hero-scroll">
-        <span>Scroll to explore</span>
-        <div className="about-hero-scroll-line" />
       </div>
     </section>
   );

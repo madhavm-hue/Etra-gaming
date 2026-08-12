@@ -8,26 +8,20 @@ export default function AboutCTA() {
     <section className="about-cta">
       <div className="about-cta-container">
 
-        <span>LET'S BUILD TOGETHER</span>
-
         <h2>
-          Ready to Create Your
+          Ready to create your
           <br />
-          Next Digital Experience?
+          next digital experience?
         </h2>
 
         <p>
-          Whether it's game development, animation, interactive experiences,
-          or immersive technology, our team is ready to bring your ideas to life.
+          Whether it’s game development, animation, interactive experiences,
+          or immersive technology, our team is here to bring your vision to life.
         </p>
 
         <div className="about-cta-buttons">
           <Link href="/contact" className="primary-btn">
-            Start Your Project
-          </Link>
-
-          <Link href="/portfolio" className="secondary-btn">
-            View Portfolio
+            Let&apos;s Create Together
           </Link>
         </div>
 

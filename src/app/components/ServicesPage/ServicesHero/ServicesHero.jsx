@@ -8,30 +8,52 @@ export default function ServicesHero() {
     <section className="services-hero">
       <div className="services-hero-container">
 
+        {/* LEFT CONTENT */}
         <div className="services-hero-content">
+
           <span className="services-hero-tag">
-            SERVICES
+            OUR SERVICES
           </span>
 
-          <h1>
-            What We Do
-            <br />
-            <span>Exceptionally</span>
-          </h1>
+        <h1>
+  We build digital
+  <br />
+  experiences that <span>move.</span>
+</h1>
 
-          <p>
-            End-to-end creative and development services that bring
-            ideas to life through art, technology and passion.
+          <p className="services-hero-description">
+            High-end 3D visualization, CGI, animation and real-time interactive
+            <br className="services-description-break" />
+            experiences for automotive, aerospace, technology and industrial brands.
           </p>
 
-          <Link href="#core-services" className="services-hero-btn">
-            Let&apos;s Build Together
-            <span>→</span>
-          </Link>
+          <div className="services-hero-buttons">
+
+            <Link
+              href="/portfolio"
+              className="services-hero-btn services-hero-primary"
+            >
+              VIEW OUR WORK
+              <span aria-hidden="true">→</span>
+            </Link>
+
+            <Link
+              href="/contact"
+              className="services-hero-btn services-hero-secondary"
+            >
+              DISCUSS A PROJECT
+              <span aria-hidden="true">→</span>
+            </Link>
+
+          </div>
+
         </div>
 
+
+        {/* RIGHT VISUAL */}
         <div className="services-hero-visual">
-          <div className="services-hero-glow"></div>
+
+          <div className="services-hero-glow" />
 
           <img
             src="/images/hero/gaming-girl-removebg-preview.png"
@@ -39,9 +61,10 @@ export default function ServicesHero() {
             className="services-hero-image"
           />
 
-          <span className="hero-circle hero-circle-one"></span>
-          <span className="hero-circle hero-circle-two"></span>
-          <span className="hero-dot"></span>
+          <span className="hero-circle hero-circle-one" />
+          <span className="hero-circle hero-circle-two" />
+          <span className="hero-dot" />
+
         </div>
 
       </div>

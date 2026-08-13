@@ -1,3 +1,7 @@
+"use client";
+
+import "./servicesTech.css";
+
 import {
   SiUnrealengine,
   SiUnity,
@@ -7,76 +11,180 @@ import {
   SiGit,
 } from "react-icons/si";
 
-import { TbCube3dSphere } from "react-icons/tb";
-import { FaFilm, FaImage } from "react-icons/fa6";
+import {
+  TbCube3dSphere,
+  TbBrandCinema4D,
+} from "react-icons/tb";
 
-import "./servicesTech.css";
+import {
+  FaFilm,
+  FaCubes,
+  FaLayerGroup,
+  FaCodeBranch,
+  FaPenNib,
+  FaImage,
+} from "react-icons/fa6";
 
-const technologies = [
+
+const technologyGroups = [
   {
-    name: "Unreal Engine",
-    icon: <SiUnrealengine />,
+    title: "REAL-TIME",
+    tools: [
+      {
+        name: "Unreal Engine",
+        icon: <SiUnrealengine />,
+      },
+      {
+        name: "Unity",
+        icon: <SiUnity />,
+      },
+      {
+        name: "Real-Time Tools",
+        icon: <FaCodeBranch />,
+      },
+    ],
   },
+
   {
-    name: "Unity",
-    icon: <SiUnity />,
+    title: "3D CREATION",
+    tools: [
+      {
+        name: "Autodesk Maya",
+        icon: <SiAutodesk />,
+      },
+      {
+        name: "Blender",
+        icon: <SiBlender />,
+      },
+      {
+        name: "ZBrush",
+        icon: <TbCube3dSphere />,
+      },
+      {
+        name: "3ds Max",
+        icon: <TbBrandCinema4D />,
+      },
+    ],
   },
+
   {
-    name: "Blender",
-    icon: <SiBlender />,
+    title: "TEXTURING & LOOK DEV",
+    tools: [
+      {
+        name: "Substance 3D",
+        icon: <FaLayerGroup />,
+      },
+      {
+        name: "Mari",
+        icon: <FaCubes />,
+      },
+      {
+        name: "Quixel Megascans",
+        icon: <TbCube3dSphere />,
+      },
+    ],
   },
+
   {
-    name: "Autodesk Maya",
-    icon: <SiAutodesk />,
+    title: "VFX & ANIMATION",
+    tools: [
+      {
+        name: "Houdini",
+        icon: <FaCubes />,
+      },
+      {
+        name: "After Effects",
+        icon: <FaFilm />,
+      },
+      {
+        name: "Nuke",
+        icon: <FaFilm />,
+      },
+    ],
   },
+
   {
-    name: "ZBrush",
-    icon: <TbCube3dSphere />,
+    title: "PRODUCTIVITY",
+    tools: [
+      {
+        name: "Photoshop",
+        icon: <FaImage />,
+      },
+      {
+        name: "Illustrator",
+        icon: <FaPenNib />,
+      },
+      {
+        name: "Figma",
+        icon: <SiFigma />,
+      },
+    ],
   },
+
   {
-    name: "After Effects",
-    icon: <FaFilm />,
-  },
-{
-  name: "Photoshop",
-  icon: <FaImage />,
-},
-  {
-    name: "Figma",
-    icon: <SiFigma />,
-  },
-  {
-    name: "Git",
-    icon: <SiGit />,
+    title: "PIPELINE & TOOLS",
+    tools: [
+      {
+        name: "Perforce",
+        icon: <FaCodeBranch />,
+      },
+      {
+        name: "Git",
+        icon: <SiGit />,
+      },
+      {
+        name: "ShotGrid",
+        icon: <FaLayerGroup />,
+      },
+    ],
   },
 ];
+
 
 export default function ServicesTech() {
   return (
     <section className="services-tech">
-      <div className="services-tech-header">
-        <span>TOOLS & TECHNOLOGIES</span>
+      <div className="services-tech-container">
 
-        <h2>
-          Built With Powerful
-          <br />
-          Creative Technology
-        </h2>
+        <div className="services-tech-header">
+          <span>
+            TECHNOLOGIES WE USE
+          </span>
+        </div>
 
-        <p>
-          We combine industry-leading software, real-time engines and creative
-          tools to build high-quality visual and interactive experiences.
-        </p>
-      </div>
+        <div className="services-tech-grid">
+          {technologyGroups.map((group) => (
+            <div
+              className="services-tech-column"
+              key={group.title}
+            >
+              <h3>
+                {group.title}
+              </h3>
 
-      <div className="services-tech-grid">
-        {technologies.map((technology) => (
-          <article className="tech-card" key={technology.name}>
-            <div className="tech-icon">{technology.icon}</div>
+              <div className="services-tech-list">
+                {group.tools.map((tool) => (
+                  <div
+                    className="services-tech-item"
+                    key={tool.name}
+                  >
+                    <div
+                      className="services-tech-icon"
+                      aria-hidden="true"
+                    >
+                      {tool.icon}
+                    </div>
 
-            <h3>{technology.name}</h3>
-          </article>
-        ))}
+                    <span>
+                      {tool.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

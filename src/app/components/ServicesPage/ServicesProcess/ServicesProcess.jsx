@@ -3,66 +3,84 @@ import "./servicesProcess.css";
 const processSteps = [
   {
     number: "01",
-    title: "Discovery",
+    title: "Brief",
     description:
-      "We understand your vision, audience, goals and creative requirements.",
+      "We understand your goals and requirements.",
   },
   {
     number: "02",
-    title: "Pre-Production",
+    title: "Creative Direction",
     description:
-      "We plan the concept, storyboard, art direction and complete production flow.",
+      "Concepts and strategies crafted for your vision.",
   },
   {
     number: "03",
-    title: "Production",
+    title: "Asset Production",
     description:
-      "Our team creates animation, game assets, cinematics and interactive content.",
+      "3D assets, art and technology built with precision.",
   },
   {
     number: "04",
-    title: "Review & Polish",
+    title: "Look Development",
     description:
-      "We refine visuals, performance, sound and every important production detail.",
+      "Lighting, materials and details refined.",
   },
   {
     number: "05",
-    title: "Final Delivery",
+    title: "Real-Time / Animation",
     description:
-      "The completed project is optimized, tested and delivered in the required format.",
+      "Bringing everything to life in real-time or animation.",
+  },
+  {
+    number: "06",
+    title: "Review & Feedback",
+    description:
+      "Collaborative reviews to ensure perfection.",
+  },
+  {
+    number: "07",
+    title: "Optimization",
+    description:
+      "Performance optimization for all platforms.",
+  },
+  {
+    number: "08",
+    title: "Delivery",
+    description:
+      "Final delivery, support and ongoing partnership.",
   },
 ];
 
 export default function ServicesProcess() {
   return (
     <section className="services-process">
-      <div className="services-process-header">
-        <span>OUR PROCESS</span>
+      <div className="services-process-container">
 
-        <h2>
-          From First Idea
-          <br />
-          To Final Experience
-        </h2>
+        <div className="services-process-header">
+          <span>OUR PROCESS</span>
 
-        <p>
-          A clear and collaborative production pipeline that keeps every project
-          focused, creative and efficient.
-        </p>
-      </div>
+          <h2>
+            A proven pipeline for exceptional results.
+          </h2>
+        </div>
 
-      <div className="services-process-grid">
-        {processSteps.map((step) => (
-          <article className="process-card" key={step.number}>
-            <div className="process-number">{step.number}</div>
+        <div className="services-process-grid">
+          {processSteps.map((step) => (
+            <article
+              className="process-card"
+              key={step.number}
+            >
+              <div className="process-number">
+                {step.number}
+              </div>
 
-            <div className="process-line" />
+              <h3>{step.title}</h3>
 
-            <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))}
+        </div>
 
-            <p>{step.description}</p>
-          </article>
-        ))}
       </div>
     </section>
   );

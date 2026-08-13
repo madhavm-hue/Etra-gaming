@@ -6,28 +6,23 @@ export default function ServicesCTA() {
     <section className="services-cta">
       <div className="services-cta-box">
 
-        <span>LET'S BUILD TOGETHER</span>
+        <div className="services-cta-content">
+          <h2>
+            Have a project in mind?
+          </h2>
 
-        <h2>
-          Ready To Bring Your
-          <br />
-          Vision To Life?
-        </h2>
-
-        <p>
-          Whether it's game development, animation, cinematics or interactive
-          experiences, our team is ready to turn your ideas into reality.
-        </p>
-
-        <div className="services-cta-buttons">
-          <Link href="/contact" className="cta-primary">
-            Start Your Project
-          </Link>
-
-          <Link href="/portfolio" className="cta-secondary">
-            View Portfolio
-          </Link>
+          <p>
+            Let&apos;s create something extraordinary together.
+          </p>
         </div>
+
+        <Link
+          href="/contact"
+          className="services-cta-button"
+        >
+          DISCUSS A PROJECT
+          <span aria-hidden="true">↗</span>
+        </Link>
 
       </div>
     </section>

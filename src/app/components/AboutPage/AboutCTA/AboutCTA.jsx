@@ -7,7 +7,6 @@ export default function AboutCTA() {
   return (
     <section className="about-cta">
       <div className="about-cta-container">
-
         <h2>
           Ready to create your
           <br />
@@ -15,16 +14,21 @@ export default function AboutCTA() {
         </h2>
 
         <p>
-          Whether it’s game development, animation, interactive experiences,
+          Whether it&apos;s game development, animation, interactive experiences,
           or immersive technology, our team is here to bring your vision to life.
         </p>
 
         <div className="about-cta-buttons">
           <Link href="/contact" className="primary-btn">
-            Let&apos;s Create Together
+            <span className="btn-text">
+              Let&apos;s Create Together
+            </span>
+
+            <span className="btn-arrow" aria-hidden="true">
+              ↗
+            </span>
           </Link>
         </div>
-
       </div>
     </section>
   );

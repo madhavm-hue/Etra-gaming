@@ -6,6 +6,7 @@ import "./servicesHero.css";
 export default function ServicesHero() {
   return (
     <section className="services-hero">
+
       <div className="services-hero-container">
 
         {/* LEFT CONTENT */}
@@ -15,16 +16,17 @@ export default function ServicesHero() {
             OUR SERVICES
           </span>
 
-        <h1>
-  We build digital
-  <br />
-  experiences that <span>move.</span>
-</h1>
+          <h1>
+            We build digital
+            <br />
+            experiences that{" "}
+            <span>move.</span>
+          </h1>
 
-          <p className="services-hero-description">
-            High-end 3D visualization, CGI, animation and real-time interactive
-            <br className="services-description-break" />
-            experiences for automotive, aerospace, technology and industrial brands.
+          <p>
+            High-end 3D visualization, CGI, animation and real-time
+            interactive experiences for automotive, aerospace,
+            technology and industrial brands.
           </p>
 
           <div className="services-hero-buttons">
@@ -34,7 +36,7 @@ export default function ServicesHero() {
               className="services-hero-btn services-hero-primary"
             >
               VIEW OUR WORK
-              <span aria-hidden="true">→</span>
+              <span>→</span>
             </Link>
 
             <Link
@@ -42,11 +44,10 @@ export default function ServicesHero() {
               className="services-hero-btn services-hero-secondary"
             >
               DISCUSS A PROJECT
-              <span aria-hidden="true">→</span>
+              <span>→</span>
             </Link>
 
           </div>
-
         </div>
 
 
@@ -55,19 +56,31 @@ export default function ServicesHero() {
 
           <div className="services-hero-glow" />
 
-          <img
-            src="/images/hero/gaming-girl-removebg-preview.png"
-            alt="ETRA creative services"
-            className="services-hero-image"
-          />
+          <div className="services-hero-image-box">
 
-          <span className="hero-circle hero-circle-one" />
-          <span className="hero-circle hero-circle-two" />
-          <span className="hero-dot" />
+            <img
+              src="/images/hero/Image15-removebg-preview.png"
+              alt="ETRA animation and digital experience"
+              className="services-hero-image"
+            />
+
+          </div>
+
+
+          {/* DECORATIONS */}
+
+          <div className="hero-circle hero-circle-one" />
+
+          <div className="hero-circle hero-circle-two" />
+
+          <div className="hero-dot hero-dot-one" />
+
+          <div className="hero-dot hero-dot-two" />
 
         </div>
 
       </div>
+
     </section>
   );
 }

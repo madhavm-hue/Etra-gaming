@@ -13,20 +13,20 @@ import { FaMicrochip } from "react-icons/fa6";
 
 const industries = [
   {
-    title: "Industrial & Manufacturing",
-    icon: <FaIndustry />,
-  },
-  {
-    title: "Technology",
-    icon: <FaMicrochip />,
-  },
-  {
     title: "Gaming & Entertainment",
     icon: <FaGamepad />,
   },
   {
     title: "Architecture & Real Estate",
     icon: <FaBuilding />,
+  },
+  {
+    title: "Industrial & Manufacturing",
+    icon: <FaIndustry />,
+  },
+  {
+    title: "AR / VR",
+    icon: <FaMicrochip />,
   },
   {
     title: "Consumer Products",

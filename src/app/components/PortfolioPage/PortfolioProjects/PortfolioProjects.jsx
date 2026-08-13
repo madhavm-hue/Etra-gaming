@@ -1,16 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import "./portfolioProjects.css";
-
-const categories = [
-  "All Work",
-  "Games",
-  "Animation",
-  "Cinematics",
-  "Environment",
-  "Art Services",
-];
 
 const projects = [
   {
@@ -72,19 +62,16 @@ const projects = [
 ];
 
 export default function PortfolioProjects() {
-  const [activeCategory, setActiveCategory] = useState("All Work");
-
-  const filteredProjects =
-    activeCategory === "All Work"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
-
   return (
     <section className="portfolio-projects-section">
       <div className="portfolio-projects-container">
+
+        {/* HEADING */}
         <div className="portfolio-projects-heading">
           <div>
-            <p className="portfolio-projects-label">Selected Work</p>
+            <p className="portfolio-projects-label">
+              Selected Work
+            </p>
 
             <h2 className="portfolio-projects-title">
               Projects that bring ideas to life
@@ -97,25 +84,41 @@ export default function PortfolioProjects() {
           </p>
         </div>
 
-        <div className="portfolio-filter">
-          {categories.map((category) => (
-            <button
-              key={category}
-              type="button"
-              className={
-                activeCategory === category
-                  ? "portfolio-filter-button active"
-                  : "portfolio-filter-button"
-              }
-              onClick={() => setActiveCategory(category)}
+
+        {/* FEATURED VIDEO */}
+        <div className="portfolio-video-section">
+          <div className="portfolio-video-wrap">
+            <video
+              className="portfolio-showreel-video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
             >
-              {category}
-            </button>
-          ))}
+              <source
+                src="/images/hero/Messengers_compressed.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
         </div>
 
+
+        {/* ALL WORK */}
+        <div className="portfolio-filter">
+          <button
+            type="button"
+            className="portfolio-filter-button active"
+          >
+            All Work
+          </button>
+        </div>
+
+
+        {/* ALL PROJECTS */}
         <div className="portfolio-projects-grid">
-          {filteredProjects.map((project) => (
+          {projects.map((project) => (
             <article
               className="portfolio-project-card"
               key={project.title}
@@ -149,6 +152,7 @@ export default function PortfolioProjects() {
             </article>
           ))}
         </div>
+
       </div>
     </section>
   );

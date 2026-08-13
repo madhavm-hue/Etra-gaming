@@ -14,8 +14,10 @@ export default function Cursor() {
 
     let mouseX = -100;
     let mouseY = -100;
+
     let currentX = -100;
     let currentY = -100;
+
     let animationFrame;
 
     const moveCursor = (e) => {
@@ -36,26 +38,59 @@ export default function Cursor() {
     };
 
     const animate = () => {
-      currentX += (mouseX - currentX) * 0.18;
-      currentY += (mouseY - currentY) * 0.18;
+      /*
+        Previously: 0.18
+        Now: 0.35
 
-      cursor.style.transform = `translate3d(${currentX}px, ${currentY}px,0)`;
+        Higher value = faster cursor response
+        but still keeps smooth movement.
+      */
+      currentX += (mouseX - currentX) * 0.35;
+      currentY += (mouseY - currentY) * 0.35;
+
+      cursor.style.transform = `
+        translate3d(
+          ${currentX}px,
+          ${currentY}px,
+          0
+        )
+      `;
 
       animationFrame = requestAnimationFrame(animate);
     };
 
-    document.addEventListener("mousemove", moveCursor);
-    document.addEventListener("mouseover", hoverHandler);
+    document.addEventListener(
+      "mousemove",
+      moveCursor,
+      { passive: true }
+    );
+
+    document.addEventListener(
+      "mouseover",
+      hoverHandler
+    );
 
     animate();
 
     return () => {
-      document.removeEventListener("mousemove", moveCursor);
-      document.removeEventListener("mouseover", hoverHandler);
+      document.removeEventListener(
+        "mousemove",
+        moveCursor
+      );
+
+      document.removeEventListener(
+        "mouseover",
+        hoverHandler
+      );
 
       cancelAnimationFrame(animationFrame);
     };
   }, []);
 
-  return <div ref={cursorRef} className="custom-cursor" />;
+  return (
+    <div
+      ref={cursorRef}
+      className="custom-cursor"
+    />
+  );
 }

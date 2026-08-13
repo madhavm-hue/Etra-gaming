@@ -1,5 +1,6 @@
 import "./cta.css";
 import MagneticButton from "../MagneticButton/MagneticButton";
+
 export default function CTA() {
   return (
     <section className="cta-section" id="contact">
@@ -9,25 +10,23 @@ export default function CTA() {
           <div className="cta-glow cta-glow-two" />
 
           <div className="cta-content">
-            <p className="cta-label">Start a Project</p>
+            <div className="cta-text">
+              <h2>Have a project in mind?</h2>
 
-            <h2>
-              Have an idea?
-              <span> Let’s bring it to life.</span>
-            </h2>
-             <MagneticButton
-    href="mailto:contact@etragaming.com"
-    className="cta-button"
-  >
-    Start a Project
-    <span aria-hidden="true">→</span>
-  </MagneticButton>
+              <p>
+                Let&apos;s create something extraordinary together.
+              </p>
+            </div>
 
-            <p className="cta-description">
-              Partner with ETRA to create immersive games, animation,
-              cinematics and interactive digital experiences.
-            </p>
-
+            <MagneticButton
+             href="/contact"
+              className="cta-button"
+            >
+              <span>DISCUSS A PROJECT</span>
+              <span className="cta-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </MagneticButton>
           </div>
 
           <div className="cta-decoration" aria-hidden="true">

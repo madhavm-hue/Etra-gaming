@@ -1,13 +1,49 @@
 "use client";
+
 import MagneticButton from "../MagneticButton/MagneticButton";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import "./hero.css";
+
+const heroSlides = [
+  {
+    id: "01",
+    image: "/images/hero/gaming-girl-removebg-preview.png",
+  },
+  {
+    id: "02",
+    image: "/images/hero/gaming-girl-removebg-preview.png",
+  },
+  {
+    id: "03",
+    image: "/images/hero/gaming-girl-removebg-preview.png",
+  },
+  {
+    id: "04",
+    image: "/images/hero/gaming-girl-removebg-preview.png",
+  },
+  {
+    id: "05",
+    image: "/images/hero/gaming-girl-removebg-preview.png",
+  },
+];
 
 export default function Hero() {
   const heroRef = useRef(null);
   const artRef = useRef(null);
   const imageRef = useRef(null);
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const slider = setInterval(() => {
+      setCurrentSlide((current) =>
+        current === heroSlides.length - 1 ? 0 : current + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(slider);
+  }, []);
 
   const handleMouseMove = (event) => {
     if (window.innerWidth <= 900) return;
@@ -70,29 +106,39 @@ export default function Hero() {
 
         <div className="hero-inner">
           <div className="hero-content">
-            <p className="hero-tag">We Create</p>
+            <p className="hero-tag">
+              Digital Experiences That Move
+            </p>
 
             <h1 className="hero-title">
+              We Create
+              <br />
               Imagination
               <span>In Motion</span>
             </h1>
 
             <p className="hero-desc">
-              ETRA Animation &amp; Game Development crafts immersive experiences
-              that entertain, inspire and leave a lasting impact.
+              ETRA is a digital production studio delivering high-end 3D, CGI,
+              animation and real-time experiences for forward-thinking brands.
             </p>
 
-         <div className="hero-buttons">
-  <MagneticButton href="#portfolio" className="hero-primary">
-    Explore Our Work
-    <span aria-hidden="true">→</span>
-  </MagneticButton>
+            <div className="hero-buttons">
+              <MagneticButton
+                href="#portfolio"
+                className="hero-primary"
+              >
+                View Our Work
+                <span aria-hidden="true">↗</span>
+              </MagneticButton>
 
-  <MagneticButton href="#services" className="hero-secondary">
-    Our Services
-    <span aria-hidden="true">▦</span>
-  </MagneticButton>
-</div>
+              <MagneticButton
+                href="#contact"
+                className="hero-secondary"
+              >
+                Discuss a Project
+                <span aria-hidden="true">↗</span>
+              </MagneticButton>
+            </div>
           </div>
 
           <div ref={artRef} className="hero-art">
@@ -105,8 +151,9 @@ export default function Hero() {
 
             <div ref={imageRef} className="art-card">
               <Image
-                src="/images/hero/gaming-girl-removebg-preview.png"
-                alt="ETRA gaming character holding a game controller"
+                key={currentSlide}
+                src={heroSlides[currentSlide].image}
+                alt={`ETRA hero slide ${heroSlides[currentSlide].id}`}
                 width={900}
                 height={1100}
                 className="hero-image"
@@ -115,15 +162,26 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="hero-pagination" aria-hidden="true">
+          <div className="hero-pagination">
             <span className="hero-page-dot" />
-            <span className="hero-page-current">01</span>
+
+            <span className="hero-page-current">
+              {heroSlides[currentSlide].id}
+            </span>
 
             <div className="hero-page-line">
-              <span />
+              <span
+                style={{
+                  height: `${
+                    ((currentSlide + 1) / heroSlides.length) * 100
+                  }%`,
+                }}
+              />
             </div>
 
-            <span className="hero-page-total">05</span>
+            <span className="hero-page-total">
+              {String(heroSlides.length).padStart(2, "0")}
+            </span>
           </div>
 
           <a href="#portfolio" className="scroll-explore">

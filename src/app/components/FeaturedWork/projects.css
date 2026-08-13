@@ -1,6 +1,9 @@
 .projects-section {
-  padding: 86px 0;
+  padding: 86px 0 96px;
+  overflow: hidden;
+
   background: var(--bg-primary);
+
   transition: background-color 0.35s ease;
 }
 
@@ -9,40 +12,62 @@
   margin: 0 auto;
 }
 
+/* =========================
+   Heading
+========================= */
+
 .projects-head {
-  margin-bottom: 34px;
+  margin-bottom: 28px;
+
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+
   gap: 24px;
 }
 
 .projects-label {
   margin: 0;
+
   color: var(--accent-pink);
+
   font-size: 12px;
   font-weight: 900;
+
   letter-spacing: 1.5px;
+
   text-transform: uppercase;
 }
 
 .projects-head h2 {
   margin: 8px 0 0;
+
   color: var(--text-primary);
+
   font-size: clamp(25px, 3vw, 38px);
   font-weight: 800;
+
   line-height: 1.15;
 }
 
 .projects-view-all {
+  padding-bottom: 4px;
+
   display: inline-flex;
   align-items: center;
+
   gap: 10px;
+
   color: var(--accent-pink);
+
   font-size: 11px;
   font-weight: 900;
+
   letter-spacing: 0.5px;
+
+  text-decoration: none;
   text-transform: uppercase;
+
   transition:
     gap 0.25s ease,
     color 0.25s ease;
@@ -50,22 +75,77 @@
 
 .projects-view-all:hover {
   gap: 15px;
+
   color: var(--accent-orange);
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+/* =========================
+   Carousel
+========================= */
+
+.projects-carousel {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 8px 0 18px;
 }
 
+/* =========================
+   Infinite Moving Track
+========================= */
+
+.projects-track {
+  display: flex;
+  align-items: stretch;
+
+  gap: 16px;
+
+  /*
+    Important for infinite carousel.
+    Track should contain the complete
+    original + duplicated image set.
+  */
+  width: max-content;
+
+  will-change: transform;
+
+  /*
+    JS requestAnimationFrame handles
+    the movement, so no CSS transition.
+  */
+  transition: none;
+}
+
+/* =========================
+   Image Card
+========================= */
+
 .project-card {
-  min-width: 0;
+  position: relative;
+
+  /*
+    Container max-width = 1280px
+    4 cards visible:
+    (1280 - 48px gaps) / 4 = 308px
+  */
+  width: 308px;
+  height: 300px;
+
+  flex: 0 0 308px;
+
   overflow: hidden;
+
   border: 1px solid var(--card-border);
-  border-radius: 14px;
+  border-radius: 10px;
+
   background: var(--card-bg);
-  box-shadow: 0 16px 42px var(--shadow-color);
+
+  box-shadow:
+    0 16px 42px var(--shadow-color);
+
   transition:
     transform 0.35s ease,
     border-color 0.35s ease,
@@ -73,100 +153,102 @@
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
+
   border-color: rgba(245, 0, 135, 0.35);
-  box-shadow: 0 24px 55px var(--shadow-color);
+
+  box-shadow:
+    0 24px 55px var(--shadow-color);
 }
 
-.project-image-wrap {
-  position: relative;
-  min-height: 270px;
-  overflow: hidden;
-}
+/* =========================
+   Image
+========================= */
 
-.project-thumb {
-  position: absolute;
-  inset: 0;
-  background-position: center;
-  background-size: cover;
+.project-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  user-select: none;
+
   transform: scale(1);
-  transition: transform 0.65s ease;
+
+  transition:
+    transform 0.65s ease,
+    filter 0.35s ease;
 }
 
-.project-card:hover .project-thumb {
-  transform: scale(1.08);
+.project-card:hover .project-image {
+  transform: scale(1.045);
 }
 
-.project-overlay {
+/* =========================
+   Subtle Overlay
+========================= */
+
+.project-card::after {
+  content: "";
+
   position: absolute;
   inset: 0;
+
+  pointer-events: none;
+
   background:
     linear-gradient(
       180deg,
-      rgba(7, 7, 27, 0.04) 20%,
-      rgba(7, 7, 27, 0.4) 58%,
-      rgba(7, 7, 27, 0.94) 100%
+      transparent 65%,
+      rgba(7, 7, 27, 0.1) 100%
     );
 }
 
-.project-info {
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 2;
-  padding: 22px 18px 18px;
+/* =========================
+   Large Desktop
+========================= */
+
+@media (min-width: 1400px) {
+  .project-card {
+    width: 308px;
+    flex-basis: 308px;
+
+    height: 300px;
+  }
 }
 
-.project-category {
-  display: block;
-  margin-bottom: 7px;
-  color: #ff2ca8;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
-
-.project-title-row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.project-title-row h3 {
-  margin: 0;
-  color: #ffffff;
-  font-size: 17px;
-  font-weight: 900;
-  line-height: 1.15;
-  text-transform: uppercase;
-}
-
-.project-arrow {
-  flex-shrink: 0;
-  color: #ffffff;
-  font-size: 20px;
-  line-height: 1;
-  transform: translateX(0);
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.project-card:hover .project-arrow {
-  color: #ff2ca8;
-  transform: translateX(5px);
-}
+/* =========================
+   Tablet
+========================= */
 
 @media (max-width: 1100px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .project-card {
+    width: 290px;
+    flex-basis: 290px;
 
-  .project-image-wrap {
-    min-height: 320px;
+    height: 290px;
   }
 }
+
+/* =========================
+   Small Tablet
+========================= */
+
+@media (max-width: 850px) {
+  .project-card {
+    width: 280px;
+    flex-basis: 280px;
+
+    height: 280px;
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
 
 @media (max-width: 700px) {
   .projects-section {
@@ -178,21 +260,40 @@
   }
 
   .projects-head {
+    margin-bottom: 26px;
+
     align-items: flex-start;
     flex-direction: column;
-    margin-bottom: 26px;
+
+    gap: 16px;
   }
 
   .projects-head h2 {
     font-size: 28px;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .projects-track {
+    gap: 14px;
   }
 
-  .project-image-wrap {
-    min-height: 300px;
+  .project-card {
+    width: 280px;
+    flex-basis: 280px;
+
+    height: 300px;
+  }
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 480px) {
+  .project-card {
+    width: 265px;
+    flex-basis: 265px;
+
+    height: 270px;
   }
 }
 
@@ -201,15 +302,25 @@
     width: min(100% - 22px, 600px);
   }
 
-  .project-image-wrap {
-    min-height: 260px;
+  .projects-head h2 {
+    font-size: 26px;
   }
 
-  .project-info {
-    padding: 18px 15px 15px;
-  }
+  .project-card {
+    width: 245px;
+    flex-basis: 245px;
 
-  .project-title-row h3 {
-    font-size: 16px;
+    height: 245px;
+  }
+}
+
+/* =========================
+   Reduced Motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-image {
+    transition: none;
   }
 }

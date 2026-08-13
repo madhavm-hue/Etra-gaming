@@ -7,50 +7,48 @@ import About from "./components/About/About";
 import Services from "./components/Services/Services";
 import Projects from "./components/FeaturedWork/Projects";
 import Process from "./components/Process/Process";
-import Technologies from "./components/Technologies/Technologies";
-import TrustedBy from "./components/TrustedBy/TrustedBy";
 import CTA from "./components/CTA/CTA";
 import Loader from "./components/Loader/Loader";
 import Footer from "./components/Footer/Footer";
+
 export default function Home() {
   return (
     <>
-    <Cursor/>
+      <Cursor />
       <Loader />
-       <Particles />
-   <Navbar />
+      <Particles />
 
-<Hero />
+      <Navbar />
 
-<Reveal>
-  <Projects />
-</Reveal>
+      {/* Hero */}
+      <Hero />
 
-<Reveal delay={0.05}>
-  <Services />
-</Reveal>
+      {/* What We Do / Services */}
+      <Reveal delay={0.05}>
+        <Services />
+      </Reveal>
 
-<Reveal delay={0.1}>
-  <About />
-</Reveal>
+      {/* Selected Work */}
+      <Reveal delay={0.1}>
+        <Projects />
+      </Reveal>
 
-<Reveal delay={0.15}>
-  <Process />
-</Reveal>
+      {/* Inside ETRA Studio */}
+      <Reveal delay={0.15}>
+        <About />
+      </Reveal>
 
-<Reveal delay={0.2}>
-  <Technologies />
-</Reveal>
+      {/* Our Process */}
+      <Reveal delay={0.2}>
+        <Process />
+      </Reveal>
 
-<Reveal delay={0.25}>
-  <TrustedBy />
-</Reveal>
+      {/* CTA */}
+      <Reveal delay={0.25}>
+        <CTA />
+      </Reveal>
 
-<Reveal delay={0.3}>
-  <CTA />
-</Reveal>
-
-<Footer />
+      <Footer />
     </>
   );
 }

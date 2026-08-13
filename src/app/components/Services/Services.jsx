@@ -1,59 +1,63 @@
+import Link from "next/link";
 import "./services.css";
 
 const services = [
   {
-    title: "Game Development",
-    icon: "🎮",
-    description:
-      "From concept to launch, we build immersive and engaging game experiences.",
-  },
-  {
-    title: "3D Animation",
+    title: "3D & CGI Production",
     icon: "◈",
     description:
-      "High-quality 3D animation created for games, films and digital experiences.",
+      "High-end 3D animation, CGI and visualization that bring ideas to life.",
   },
   {
-    title: "Cinematics",
-    icon: "▶",
-    description:
-      "Cinematic trailers and visual storytelling designed to create strong impact.",
-  },
-  {
-    title: "Environment Art",
-    icon: "▣",
-    description:
-      "Detailed worlds and environments built with strong mood, depth and realism.",
-  },
-  {
-    title: "Art Services",
+    title: "Digital Art",
     icon: "✦",
     description:
-      "Creative support for characters, props, concepts and production-ready assets.",
+      "3D assets and environments crafted with precision and creativity.",
   },
   {
-    title: "Live Ops & Support",
-    icon: "↻",
+    title: "Interactive Experiences",
+    icon: "🎮",
     description:
-      "Ongoing updates, optimization and production support after launch.",
+      "Real-time experiences across web, mobile, AR, VR and beyond.",
   },
+  {
+    title: "Real-Time Solutions",
+    icon: "◉",
+    description:
+      "Visualization and simulation using cutting-edge engines and workflows.",
+  },
+  {
+    title: "Game Development",
+    icon: "▣",
+    description:
+      "End-to-end game development for PC, console and mobile platforms.",
+  },
+
 ];
 
 export default function Services() {
   return (
     <section className="home-services-section" id="services">
       <div className="home-services-container">
+
         <div className="home-services-heading">
-          <p className="home-services-label">What We Do</p>
+          <div className="home-services-heading-left">
+            <p className="home-services-label">
+              What We Do
+            </p>
 
-          <h2 className="home-services-title">
-            Services built for immersive experiences
-          </h2>
+            <h2 className="home-services-title">
+              End-to-end services built around your vision.
+            </h2>
+          </div>
 
-          <p className="home-services-intro">
-            We combine creativity, technology and production expertise to bring
-            ambitious gaming and animation ideas to life.
-          </p>
+          <Link
+            href="/services"
+            className="home-services-view-all"
+          >
+            View All Services
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
 
         <div className="home-services-grid">
@@ -77,13 +81,17 @@ export default function Services() {
                 {service.description}
               </p>
 
-              <a href="/contact" className="home-service-link">
-                Learn More
-                <span aria-hidden="true">→</span>
-              </a>
+              <Link
+                href="/services"
+                className="home-service-link"
+                aria-label={`View ${service.title} service`}
+              >
+                <span aria-hidden="true">↗</span>
+              </Link>
             </article>
           ))}
         </div>
+
       </div>
     </section>
   );

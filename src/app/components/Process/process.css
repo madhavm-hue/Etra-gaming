@@ -9,15 +9,28 @@
   margin: 0 auto;
 }
 
+/* =========================
+   HEADING
+========================= */
+
 .home-process-heading {
-  max-width: 680px;
-  margin: 0 auto 60px;
-  text-align: center;
+  width: 100%;
+  max-width: none;
+
+  margin: 0 0 55px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  text-align: left;
 }
 
 .home-process-label {
-  margin: 0;
+  margin: 0 0 14px;
+
   color: var(--accent-pink);
+
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 1.8px;
@@ -25,35 +38,59 @@
 }
 
 .home-process-title {
-  margin: 12px 0 0;
+  margin: 0;
+
   color: var(--text-primary);
+
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 850;
   line-height: 1.1;
+  letter-spacing: -0.5px;
+
+  text-align: left;
 }
+
+/* Not currently used - kept for safety */
 
 .home-process-description {
   display: block;
+
+  max-width: 650px;
   margin-top: 18px;
+
   color: var(--text-secondary);
+
   font-size: 15px;
   line-height: 1.75;
 }
 
+/* =========================
+   PROCESS GRID
+========================= */
+
 .home-process-grid {
   position: relative;
+
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+
   gap: 24px;
 }
 
+/* Connector Line */
+
 .home-process-grid::before {
   content: "";
+
   position: absolute;
+  z-index: 0;
+
   top: 83px;
   left: 12%;
   right: 12%;
+
   height: 2px;
+
   background: linear-gradient(
     90deg,
     transparent,
@@ -62,18 +99,29 @@
     var(--accent-pink),
     transparent
   );
+
   opacity: 0.65;
 }
+
+/* =========================
+   PROCESS CARD
+========================= */
 
 .home-process-card {
   position: relative;
   z-index: 1;
+
   min-height: 300px;
+
   padding: 30px 26px;
+
   border: 1px solid var(--card-border);
   border-radius: 20px;
+
   background: var(--card-bg);
+
   box-shadow: 0 18px 45px var(--shadow-color);
+
   transition:
     transform 0.35s ease,
     border-color 0.35s ease,
@@ -82,45 +130,80 @@
 
 .home-process-card:hover {
   transform: translateY(-8px);
+
   border-color: rgba(255, 44, 168, 0.42);
+
   box-shadow: 0 28px 58px var(--shadow-color);
 }
 
+/* =========================
+   NUMBER
+========================= */
+
 .home-process-number {
   color: transparent;
+
   font-size: 54px;
   font-weight: 950;
   line-height: 1;
+
   -webkit-text-stroke: 1px var(--accent-pink);
+
   opacity: 0.45;
 }
 
+/* =========================
+   DOT
+========================= */
+
 .home-process-dot {
   position: relative;
+
   width: 18px;
   height: 18px;
+
   margin: 18px 0 26px;
+
   border: 4px solid var(--card-bg);
   border-radius: 50%;
+
   background: var(--accent-pink);
+
   box-shadow:
     0 0 0 1px var(--accent-pink),
     0 0 22px rgba(255, 44, 168, 0.75);
 }
 
+/* =========================
+   CARD TITLE
+========================= */
+
 .home-process-card-title {
   margin: 0 0 14px;
+
   color: var(--text-primary);
+
   font-size: 22px;
   font-weight: 850;
+  line-height: 1.25;
 }
+
+/* =========================
+   CARD DESCRIPTION
+========================= */
 
 .home-process-card-description {
   margin: 0;
+
   color: var(--text-secondary);
+
   font-size: 14px;
   line-height: 1.75;
 }
+
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 1000px) {
   .home-process-grid {
@@ -131,6 +214,10 @@
     display: none;
   }
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
   .home-process-section {
@@ -143,6 +230,13 @@
 
   .home-process-heading {
     margin-bottom: 38px;
+
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .home-process-title {
+    font-size: 30px;
     text-align: left;
   }
 
@@ -153,6 +247,7 @@
 
   .home-process-card {
     min-height: auto;
+
     padding: 26px 24px;
   }
 

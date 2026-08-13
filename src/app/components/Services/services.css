@@ -1,6 +1,8 @@
 .home-services-section {
   padding: 92px 0 110px;
+
   background: var(--bg-primary);
+
   transition: background-color 0.35s ease;
 }
 
@@ -9,53 +11,130 @@
   margin: 0 auto;
 }
 
+/* =========================
+   Heading
+========================= */
+
 .home-services-heading {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
+  width: 100%;
+  margin: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  text-align: left;
+}
+
+.home-services-heading-left {
+  max-width: 820px;
 }
 
 .home-services-label {
   margin: 0;
+
   color: var(--accent-pink);
+
   font-size: 12px;
   font-weight: 900;
+
   letter-spacing: 1.6px;
+
   text-transform: uppercase;
 }
 
 .home-services-title {
   margin: 10px 0 0;
+
   color: var(--text-primary);
+
   font-size: clamp(30px, 4vw, 46px);
   font-weight: 850;
+
   line-height: 1.1;
 }
 
-.home-services-intro {
-  max-width: 610px;
-  margin: 18px auto 0;
-  color: var(--text-secondary);
-  font-size: 15px;
-  line-height: 1.7;
+/* =========================
+   View All Services
+========================= */
+
+.home-services-view-all {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding-bottom: 5px;
+
+  color: var(--accent-pink);
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    gap 0.25s ease,
+    color 0.25s ease;
 }
 
-.home-services-grid {
-  margin-top: 52px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+.home-services-view-all span {
+  font-size: 20px;
+  line-height: 1;
 }
+
+.home-services-view-all:hover {
+  gap: 17px;
+
+  color: var(--accent-orange);
+}
+
+/* =========================
+   Services Grid
+   5 Cards - Single Row
+========================= */
+
+.home-services-grid {
+  width: 100%;
+
+  margin-top: 52px;
+
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+/* =========================
+   Card
+========================= */
 
 .home-service-card {
   position: relative;
-  min-height: 300px;
+
+  min-width: 0;
+  min-height: 340px;
+
   overflow: hidden;
-  padding: 30px;
+
+  padding: 26px 20px;
+
   border: 1px solid var(--card-border);
   border-radius: 18px;
+
   background: var(--card-bg);
-  box-shadow: 0 16px 40px var(--shadow-color);
+
+  box-shadow:
+    0 16px 40px var(--shadow-color);
+
   transition:
     transform 0.35s ease,
     border-color 0.35s ease,
@@ -64,18 +143,25 @@
 
 .home-service-card::before {
   content: "";
+
   position: absolute;
   top: -70px;
   right: -70px;
+
   width: 160px;
   height: 160px;
+
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 44, 168, 0.18),
-    transparent 68%
-  );
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 44, 168, 0.18),
+      transparent 68%
+    );
+
   opacity: 0;
+
   transition:
     opacity 0.35s ease,
     transform 0.5s ease;
@@ -83,32 +169,49 @@
 
 .home-service-card:hover {
   transform: translateY(-9px);
+
   border-color: rgba(255, 44, 168, 0.4);
-  box-shadow: 0 26px 58px var(--shadow-color);
+
+  box-shadow:
+    0 26px 58px var(--shadow-color);
 }
 
 .home-service-card:hover::before {
   opacity: 1;
+
   transform: scale(1.25);
 }
+
+/* =========================
+   Icon
+========================= */
 
 .home-service-icon {
   position: relative;
   z-index: 1;
+
   width: 54px;
   height: 54px;
+
   margin-bottom: 28px;
+
   display: grid;
   place-items: center;
+
   border: 1px solid rgba(255, 44, 168, 0.22);
   border-radius: 14px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 44, 168, 0.14),
-    rgba(109, 92, 255, 0.14)
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 44, 168, 0.14),
+      rgba(109, 92, 255, 0.14)
+    );
+
   color: var(--accent-pink);
+
   font-size: 24px;
+
   transition:
     transform 0.35s ease,
     background 0.35s ease,
@@ -117,59 +220,132 @@
 
 .home-service-card:hover .home-service-icon {
   transform: rotate(-5deg) scale(1.08);
-  background: linear-gradient(135deg, #ff2ca8, #6d5cff);
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff2ca8,
+      #6d5cff
+    );
+
   color: #ffffff;
 }
+
+/* =========================
+   Title
+========================= */
 
 .home-service-title {
   position: relative;
   z-index: 1;
+
   margin: 0 0 14px;
+
   color: var(--text-primary);
-  font-size: 20px;
+
+  font-size: 18px;
   font-weight: 850;
+
   line-height: 1.25;
 }
+
+/* =========================
+   Description
+========================= */
 
 .home-service-description {
   position: relative;
   z-index: 1;
+
   margin: 0;
+
   color: var(--text-secondary);
-  font-size: 14px;
+
+  font-size: 13px;
+
   line-height: 1.7;
 }
 
+/* =========================
+   Card Arrow
+========================= */
+
 .home-service-link {
   position: absolute;
-  left: 30px;
-  bottom: 28px;
+  right: 20px;
+  bottom: 24px;
   z-index: 1;
+
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+
   color: var(--accent-pink);
-  font-size: 12px;
+
+  font-size: 20px;
   font-weight: 900;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
+
+  text-decoration: none;
+
   transition:
-    gap 0.25s ease,
+    transform 0.25s ease,
     color 0.25s ease;
 }
 
 .home-service-link:hover {
-  gap: 13px;
   color: var(--accent-orange);
+
+  transform: translate(3px, -3px);
 }
 
-@media (max-width: 1000px) {
+/* =========================
+   Smaller Desktop
+========================= */
+
+@media (max-width: 1180px) {
+  .home-services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+  }
+
+  .home-service-card {
+    min-height: 300px;
+
+    padding: 28px;
+  }
+
+  .home-service-link {
+    right: 28px;
+  }
+}
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 800px) {
+  .home-services-heading {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 22px;
+  }
+
+  .home-services-view-all {
+    align-self: flex-start;
+  }
+
   .home-services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 700px) {
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
   .home-services-section {
     padding: 70px 0 82px;
   }
@@ -178,30 +354,33 @@
     width: min(100% - 28px, 600px);
   }
 
-  .home-services-heading {
-    text-align: left;
-  }
-
-  .home-services-intro {
-    margin-left: 0;
+  .home-services-title {
+    font-size: 30px;
   }
 
   .home-services-grid {
     margin-top: 36px;
+
     grid-template-columns: 1fr;
+
     gap: 16px;
   }
 
   .home-service-card {
     min-height: 280px;
+
     padding: 26px;
   }
 
   .home-service-link {
-    left: 26px;
+    right: 26px;
     bottom: 24px;
   }
 }
+
+/* =========================
+   Small Mobile
+========================= */
 
 @media (max-width: 390px) {
   .home-services-container {
@@ -214,16 +393,18 @@
 
   .home-service-card {
     min-height: 270px;
+
     padding: 23px;
   }
 
   .home-service-icon {
     width: 50px;
     height: 50px;
+
     margin-bottom: 23px;
   }
 
   .home-service-link {
-    left: 23px;
+    right: 23px;
   }
 }

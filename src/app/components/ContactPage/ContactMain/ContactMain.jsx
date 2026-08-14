@@ -14,10 +14,9 @@ import {
 
 import "./contactMain.css";
 
-
 export default function ContactMain() {
   return (
-    <section className="contact-main" id="contact-form">
+    <section className="contact-main">
 
       {/* LEFT - CONTACT FORM */}
       <div className="contact-form-card">
@@ -38,35 +37,19 @@ export default function ContactMain() {
             />
           </div>
 
-
           <input
             type="text"
             placeholder="Company / Studio"
           />
-
-
-          <select defaultValue="">
-            <option value="" disabled>
-              Project Type
-            </option>
-
-            <option>Game Development</option>
-            <option>3D Animation</option>
-            <option>Cinematics</option>
-            <option>Environment Art</option>
-          </select>
-
 
           <textarea
             rows="6"
             placeholder="Tell us about your project"
           />
 
-
           <button type="submit">
             SEND MESSAGE
           </button>
-
 
           <p>
             We respect your privacy. Your information will never be shared.
@@ -74,7 +57,6 @@ export default function ContactMain() {
 
         </form>
       </div>
-
 
       {/* RIGHT - CONTACT INFORMATION */}
       <div className="contact-info-card">
@@ -85,7 +67,6 @@ export default function ContactMain() {
           Reach out to us for project enquiries, collaborations and
           creative partnerships.
         </p>
-
 
         {/* PHONE */}
         <div className="info-item">
@@ -99,7 +80,6 @@ export default function ContactMain() {
             </a>
           </div>
         </div>
-
 
         {/* LOCATION */}
         <div className="info-item">
@@ -118,7 +98,6 @@ export default function ContactMain() {
           </div>
         </div>
 
-
         {/* WORKING HOURS */}
         <div className="info-item">
           <FiClock />
@@ -131,7 +110,6 @@ export default function ContactMain() {
             </span>
           </div>
         </div>
-
 
         {/* SOCIAL LINKS */}
         <div className="social-links">

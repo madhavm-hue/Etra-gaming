@@ -1,21 +1,28 @@
 .contact-studios {
   position: relative;
+
   width: 100%;
+
   padding: 110px 7%;
 
-  background: var(--background);
-  color: var(--foreground);
-
   overflow: hidden;
+
+  background: var(--background);
+
+  color: var(--foreground);
 }
 
-/* Background Glow */
+
+/* =========================
+BACKGROUND GLOW
+========================= */
 
 .contact-studios::before {
   content: "";
 
   position: absolute;
-  top: 15%;
+
+  top: 12%;
   right: -180px;
 
   width: 420px;
@@ -24,17 +31,20 @@
   border-radius: 50%;
 
   background: rgba(255, 47, 159, 0.08);
+
   filter: blur(120px);
 
   pointer-events: none;
 }
 
+
 .contact-studios::after {
   content: "";
 
   position: absolute;
+
   left: -160px;
-  bottom: 0;
+  bottom: -40px;
 
   width: 360px;
   height: 360px;
@@ -42,25 +52,33 @@
   border-radius: 50%;
 
   background: rgba(112, 70, 255, 0.08);
+
   filter: blur(110px);
 
   pointer-events: none;
 }
 
-/* Header */
 
+/* =========================
+HEADER
+========================= */
+
+.contact-studios-heading,
 .contact-studios-header {
   position: relative;
+
   z-index: 2;
 
   max-width: 760px;
 
-  margin: 0 auto 65px;
+  margin: 0 auto 56px;
 
   text-align: center;
 }
 
-.contact-studios-header span {
+
+.contact-studios-heading > span,
+.contact-studios-header > span {
   display: inline-block;
 
   margin-bottom: 14px;
@@ -69,201 +87,482 @@
 
   font-size: 0.88rem;
   font-weight: 700;
+
   letter-spacing: 3px;
+
+  text-transform: uppercase;
 }
 
+
+.contact-studios-heading h2,
 .contact-studios-header h2 {
   margin: 0 0 18px;
 
+  color: var(--foreground);
+
   font-size: clamp(2.3rem, 4vw, 3.8rem);
+
   line-height: 1.15;
 
-  color: var(--foreground);
+  letter-spacing: -1.5px;
 }
 
-.contact-studios-header p {
+
+.contact-studios-heading > p,
+.contact-studios-header > p {
+  max-width: 680px;
+
+  margin: 0 auto;
+
   color: var(--text-secondary);
+
+  font-size: 1rem;
 
   line-height: 1.8;
 }
 
-/* Grid */
+
+/* =========================
+SINGLE CHENNAI CARD AREA
+========================= */
 
 .contact-studios-grid {
   position: relative;
+
   z-index: 2;
 
-  max-width: 1450px;
+  width: 100%;
+  max-width: 1050px;
 
   margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-/* Card */
-
-.studio-card {
-  overflow: hidden;
-
-  border: 1px solid var(--border-color);
-  border-radius: 22px;
-
-  background: var(--card-background);
-
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    border-color .35s ease;
-}
-
-.studio-card:hover {
-  transform: translateY(-8px);
-
-  border-color: rgba(255,47,159,.45);
-
-  box-shadow: 0 22px 55px rgba(255,47,159,.12);
-}
-
-/* Image */
-
-.studio-image {
-  position: relative;
-
-  height: 240px;
-
-  background:
-    radial-gradient(circle at center,
-    rgba(255,47,159,.15),
-    transparent 70%),
-    var(--card-background);
-}
-
-.studio-image img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
 
   display: block;
 }
 
-/* Badge */
+
+/* =========================
+CARD
+========================= */
+
+.studio-card {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 26px;
+
+  background: var(--card-background);
+
+  box-shadow:
+    0 24px 65px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+
+.studio-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(255, 47, 159, 0.38);
+
+  box-shadow:
+    0 30px 75px rgba(255, 47, 159, 0.10);
+}
+
+
+/* =========================
+MAP
+========================= */
+
+.studio-map {
+  position: relative;
+
+  width: 100%;
+
+  height: 400px;
+
+  overflow: hidden;
+
+  background: #0c0b1c;
+}
+
+
+.studio-map iframe {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  border: 0;
+
+  filter:
+    saturate(0.82)
+    contrast(1.03);
+
+  transition:
+    filter 0.35s ease,
+    transform 0.45s ease;
+}
+
+
+.studio-card:hover .studio-map iframe {
+  filter:
+    saturate(1)
+    contrast(1.03);
+}
+
+
+/* =========================
+LOCATION BADGE
+========================= */
 
 .studio-location-badge {
   position: absolute;
-  left: 18px;
-  bottom: 18px;
+
+  top: 374px;
+  left: 32px;
+
+  z-index: 4;
 
   display: inline-flex;
+
   align-items: center;
+
   gap: 8px;
 
-  padding: 8px 14px;
+  min-height: 42px;
 
-  border: 1px solid rgba(255,255,255,.15);
+  padding: 0 16px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
+
   border-radius: 999px;
 
-  background: rgba(15,15,15,.65);
-  backdrop-filter: blur(10px);
+  background:
+    rgba(8, 7, 25, 0.82);
 
-  color: #fff;
+  color: #ffffff;
 
-  font-size: .82rem;
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
-/* Content */
+
+.studio-location-badge svg {
+  color: #ff2f9f;
+
+  font-size: 16px;
+}
+
+
+/* =========================
+CONTENT
+========================= */
 
 .studio-content {
-  padding: 24px;
+  position: relative;
+
+  padding:
+    42px 34px 34px;
 
   display: flex;
-  align-items: center;
+
+  align-items: flex-end;
+
   justify-content: space-between;
-  gap: 18px;
+
+  gap: 32px;
 }
 
+
+.studio-content > div {
+  max-width: 700px;
+}
+
+
 .studio-content h3 {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 
   color: var(--foreground);
 
-  font-size: 1.35rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+
+  font-weight: 800;
+
+  line-height: 1.2;
 }
 
+
 .studio-content p {
+  margin: 0 0 12px;
+
+  color: var(--foreground);
+
+  font-size: 0.95rem;
+
+  font-weight: 650;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+ADDRESS
+========================= */
+
+.studio-content address {
   margin: 0;
 
   color: var(--text-secondary);
 
-  line-height: 1.7;
+  font-size: 0.95rem;
+
+  font-style: normal;
+
+  line-height: 1.8;
 }
 
-.studio-content button {
-  width: 52px;
-  height: 52px;
 
-  display: flex;
+/* =========================
+DIRECTIONS BUTTON
+========================= */
+
+.studio-direction-button {
+  min-height: 52px;
+
+  padding: 0 20px;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
 
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
+  gap: 10px;
 
-  background: transparent;
+  border:
+    1px solid rgba(255, 47, 159, 0.35);
+
+  border-radius: 12px;
+
+  background:
+    rgba(255, 47, 159, 0.06);
+
   color: var(--foreground);
 
-  cursor: pointer;
+  font-size: 0.82rem;
 
-  transition: .3s ease;
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.studio-content button:hover {
-  transform: rotate(45deg);
 
-  background: #ff2f9f;
-  color: #fff;
+.studio-direction-button svg {
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
+}
+
+
+.studio-direction-button:hover {
+  transform: translateY(-3px);
 
   border-color: #ff2f9f;
+
+  background: #ff2f9f;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 14px 32px rgba(255, 47, 159, 0.22);
 }
 
-/* Tablet */
 
-@media (max-width:1100px){
-
-.contact-studios{
-padding:95px 6%;
+.studio-direction-button:hover svg {
+  transform:
+    translate(2px, -2px);
 }
 
-.contact-studios-grid{
-grid-template-columns:1fr 1fr;
-}
+
+/* =========================
+TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+  .contact-studios {
+    padding: 95px 6%;
+  }
+
+
+  .contact-studios-grid {
+    max-width: 900px;
+  }
+
+
+  .studio-map {
+    height: 360px;
+  }
+
+
+  .studio-location-badge {
+    top: 334px;
+  }
 
 }
 
-/* Mobile */
 
-@media (max-width:700px){
+/* =========================
+SMALL TABLET
+========================= */
 
-.contact-studios{
-padding:80px 20px;
+@media (max-width: 800px) {
+
+  .contact-studios {
+    padding: 82px 24px;
+  }
+
+
+  .contact-studios-heading,
+  .contact-studios-header {
+    margin-bottom: 44px;
+  }
+
+
+  .studio-map {
+    height: 320px;
+  }
+
+
+  .studio-location-badge {
+    top: 294px;
+
+    left: 24px;
+  }
+
+
+  .studio-content {
+    padding:
+      40px 26px 28px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 24px;
+  }
+
+
+  .studio-direction-button {
+    align-self: flex-start;
+  }
+
 }
 
-.contact-studios-header{
-margin-bottom:45px;
-}
 
-.contact-studios-grid{
-grid-template-columns:1fr;
-}
+/* =========================
+MOBILE
+========================= */
 
-.studio-image{
-height:220px;
-}
+@media (max-width: 600px) {
 
-.studio-content{
-padding:20px;
-}
+  .contact-studios {
+    padding:
+      72px 16px;
+  }
+
+
+  .contact-studios-heading h2,
+  .contact-studios-header h2 {
+    font-size:
+      clamp(
+        2rem,
+        10vw,
+        2.8rem
+      );
+
+    letter-spacing: -1px;
+  }
+
+
+  .contact-studios-heading > p,
+  .contact-studios-header > p {
+    font-size: 0.92rem;
+  }
+
+
+  .studio-card {
+    border-radius: 20px;
+  }
+
+
+  .studio-map {
+    height: 280px;
+  }
+
+
+  .studio-location-badge {
+    top: 256px;
+
+    left: 18px;
+
+    min-height: 38px;
+
+    padding: 0 13px;
+
+    font-size: 0.76rem;
+  }
+
+
+  .studio-content {
+    padding:
+      38px 20px 24px;
+  }
+
+
+  .studio-content h3 {
+    font-size: 1.45rem;
+  }
+
+
+  .studio-content p,
+  .studio-content address {
+    font-size: 0.88rem;
+  }
+
+
+  .studio-direction-button {
+    width: 100%;
+
+    min-height: 50px;
+  }
 
 }

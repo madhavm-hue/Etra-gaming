@@ -59,7 +59,7 @@ export default function ServicesHero() {
           <div className="services-hero-image-box">
 
             <img
-              src="/images/hero/Image15-removebg-preview.png"
+              src="/images/hero/elephant.png"
               alt="ETRA animation and digital experience"
               className="services-hero-image"
             />

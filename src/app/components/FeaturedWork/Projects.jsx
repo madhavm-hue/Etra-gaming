@@ -4,27 +4,13 @@ import { useEffect, useRef } from "react";
 import "./projects.css";
 
 const projects = [
-  {
-    image: "/images/hero/Image30.jpg",
-  },
-  {
-    image: "/images/hero/Image21.jpg",
-  },
-  {
-    image: "/images/hero/Image20.jpg",
-  },
-  {
-    image: "/images/hero/Image13.jpg",
-  },
-  {
-    image: "/images/hero/Image11.jpg",
-  },
-  {
-    image: "/images/hero/Image03.jpg",
-  },
-  {
-    image: "/images/hero/Image01.jpg",
-  },
+  { image: "/images/hero/Image30.jpg" },
+  { image: "/images/hero/Image21.jpg" },
+  { image: "/images/hero/Image20.jpg" },
+  { image: "/images/hero/Image13.jpg" },
+  { image: "/images/hero/Image11.jpg" },
+  { image: "/images/hero/Image03.jpg" },
+  { image: "/images/hero/Image01.jpg" },
 ];
 
 export default function Projects() {
@@ -38,24 +24,11 @@ export default function Projects() {
     let animationFrame;
     let position = 0;
 
-    /*
-      Smaller number = slower movement
-      Bigger number = faster movement
-    */
     const speed = 0.45;
 
     const animate = () => {
       position -= speed;
 
-      /*
-        We duplicated the complete project list once.
-
-        So when the first complete set has moved out,
-        reset the track back to the beginning.
-
-        Because the second set is identical,
-        the user will not notice the reset.
-      */
       const halfWidth = track.scrollWidth / 2;
 
       if (Math.abs(position) >= halfWidth) {
@@ -74,25 +47,12 @@ export default function Projects() {
     };
   }, []);
 
-  /*
-    Duplicate the same 7 images.
-
-    Original:
-    1 2 3 4 5 6 7
-
-    Duplicate:
-    1 2 3 4 5 6 7
-
-    Result:
-    1 2 3 4 5 6 7 1 2 3 4 5 6 7...
-  */
   const carouselProjects = [...projects, ...projects];
 
   return (
-    <section className="projects-section" id="portfolio">
+    <section className="projects-section">
       <div className="projects-container">
 
-        {/* Heading */}
         <div className="projects-head">
           <div>
             <p className="projects-label">
@@ -113,9 +73,7 @@ export default function Projects() {
           </a>
         </div>
 
-        {/* Infinite Carousel */}
         <div className="projects-carousel">
-
           <div
             ref={trackRef}
             className="projects-track"
@@ -134,7 +92,6 @@ export default function Projects() {
               </div>
             ))}
           </div>
-
         </div>
 
       </div>

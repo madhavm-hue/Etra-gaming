@@ -12,19 +12,20 @@ const heroSlides = [
   },
   {
     id: "02",
-    image: "/images/hero/gaming-girl-removebg-preview.png",
+    image: "/images/hero/pigeon.png",
   },
   {
     id: "03",
-    image: "/images/hero/gaming-girl-removebg-preview.png",
+    image: "/images/hero/pig.png",
   },
   {
     id: "04",
-    image: "/images/hero/gaming-girl-removebg-preview.png",
+    image: "/images/hero/yellowboy.png",
+    className: "hero-image-boy",
   },
   {
     id: "05",
-    image: "/images/hero/gaming-girl-removebg-preview.png",
+    image: "/images/hero/goats.png",
   },
 ];
 
@@ -93,18 +94,21 @@ export default function Hero() {
     }
   };
 
+  const activeSlide = heroSlides[currentSlide];
+
   return (
     <main>
       <section
         ref={heroRef}
         className="hero-section"
-        id="home"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="hero-mouse-glow" aria-hidden="true" />
+        <div className="hero-mouse-glow" />
 
         <div className="hero-inner">
+
+          {/* LEFT CONTENT */}
           <div className="hero-content">
             <p className="hero-tag">
               Digital Experiences That Move
@@ -141,7 +145,11 @@ export default function Hero() {
             </div>
           </div>
 
-          <div ref={artRef} className="hero-art">
+          {/* RIGHT ART */}
+          <div
+            ref={artRef}
+            className="hero-art"
+          >
             <div className="hero-glow" />
 
             <div className="shape shape-one" />
@@ -149,24 +157,30 @@ export default function Hero() {
             <div className="shape shape-three" />
             <div className="shape shape-four" />
 
-            <div ref={imageRef} className="art-card">
+            <div
+              ref={imageRef}
+              className="art-card"
+            >
               <Image
                 key={currentSlide}
-                src={heroSlides[currentSlide].image}
-                alt={`ETRA hero slide ${heroSlides[currentSlide].id}`}
+                src={activeSlide.image}
+                alt={`ETRA hero slide ${activeSlide.id}`}
                 width={900}
                 height={1100}
-                className="hero-image"
+                className={`hero-image ${
+                  activeSlide.className || ""
+                }`}
                 priority
               />
             </div>
           </div>
 
+          {/* PAGINATION */}
           <div className="hero-pagination">
             <span className="hero-page-dot" />
 
             <span className="hero-page-current">
-              {heroSlides[currentSlide].id}
+              {activeSlide.id}
             </span>
 
             <div className="hero-page-line">
@@ -184,13 +198,18 @@ export default function Hero() {
             </span>
           </div>
 
-          <a href="#portfolio" className="scroll-explore">
+          {/* SCROLL */}
+          <a
+            href="#portfolio"
+            className="scroll-explore"
+          >
             <span className="scroll-mouse">
               <span />
             </span>
 
             <span>Scroll to Explore</span>
           </a>
+
         </div>
       </section>
     </main>

@@ -84,9 +84,12 @@ export default function PortfolioProjects() {
           </p>
         </div>
 
-
         {/* FEATURED VIDEO */}
-        <div className="portfolio-video-section">
+        <div
+          id="showreel"
+          className="portfolio-video-section"
+          style={{ scrollMarginTop: "120px" }}
+        >
           <div className="portfolio-video-wrap">
             <video
               className="portfolio-showreel-video"
@@ -104,7 +107,6 @@ export default function PortfolioProjects() {
           </div>
         </div>
 
-
         {/* ALL WORK */}
         <div className="portfolio-filter">
           <button
@@ -114,7 +116,6 @@ export default function PortfolioProjects() {
             All Work
           </button>
         </div>
-
 
         {/* ALL PROJECTS */}
         <div className="portfolio-projects-grid">

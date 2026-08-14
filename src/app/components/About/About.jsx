@@ -1,11 +1,14 @@
+import Link from "next/link";
 import "./about.css";
 
 export default function About() {
   return (
-    <section className="about-section" id="studio">
+    <section className="about-section">
       <div className="about-container">
+
         <div className="showreel-card">
           <div className="about-visual">
+
             <div className="about-overlay" />
 
             <div className="showreel-content">
@@ -23,10 +26,10 @@ export default function About() {
                 about creating extraordinary digital experiences.
               </p>
 
-              <button
-                type="button"
+              <Link
+                href="/portfolio#showreel"
                 className="showreel-button"
-                aria-label="Play ETRA studio showreel"
+                aria-label="View ETRA studio showreel"
               >
                 <span className="play-icon" aria-hidden="true">
                   ▶
@@ -36,10 +39,12 @@ export default function About() {
                   <small>Watch Our</small>
                   Studio Showreel
                 </span>
-              </button>
+              </Link>
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );

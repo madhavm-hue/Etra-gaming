@@ -93,13 +93,7 @@ export default function ServicesCarousel() {
             </h2>
           </div>
 
-          <a
-            href="#core-services"
-            className="services-view-all"
-          >
-            VIEW ALL SERVICES
-            <span aria-hidden="true">→</span>
-          </a>
+       
         </div>
 
         <div className="services-static-grid">

@@ -1,296 +1,398 @@
+/* =========================================
+   PORTFOLIO PROJECTS
+========================================= */
+
 .portfolio-projects-section {
   position: relative;
-  padding: 105px 0;
-  background: var(--bg-secondary);
+  width: 100%;
+  padding: 105px 0 120px;
   overflow: hidden;
-  transition: background-color 0.35s ease;
+  background: var(--bg-primary);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
+
+/* =========================================
+   CONTAINER
+========================================= */
+
 .portfolio-projects-container {
-  width: min(100% - 40px, 1280px);
+  position: relative;
+  z-index: 2;
+
+  width: min(100% - 40px, 1380px);
   margin: 0 auto;
 }
 
 
-/* =========================
+/* =========================================
    HEADING
-========================= */
+========================================= */
 
 .portfolio-projects-heading {
+  margin-bottom: 55px;
+
   display: grid;
-  grid-template-columns: 1fr 0.7fr;
+  grid-template-columns:
+    minmax(0, 1.3fr)
+    minmax(300px, 0.7fr);
+
   align-items: end;
-  gap: 50px;
+  gap: 60px;
 }
 
+
 .portfolio-projects-label {
-  margin: 0;
+  margin: 0 0 14px;
 
   color: var(--accent-pink);
 
   font-size: 12px;
   font-weight: 900;
-  letter-spacing: 1.7px;
+
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+
+.portfolio-projects-title {
+  max-width: 700px;
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  font-weight: 900;
+
+  line-height: 1.05;
+  letter-spacing: -2px;
 
   text-transform: uppercase;
 }
 
-.portfolio-projects-title {
-  max-width: 680px;
-
-  margin: 12px 0 0;
-
-  color: var(--text-primary);
-
-  font-size: clamp(34px, 4vw, 52px);
-  font-weight: 900;
-
-  line-height: 1.08;
-  letter-spacing: -1.5px;
-}
 
 .portfolio-projects-description {
-  max-width: 470px;
-
+  max-width: 520px;
   margin: 0;
 
   color: var(--text-secondary);
 
   font-size: 15px;
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 
-/* =========================
-   VIDEO
-========================= */
+/* =========================================
+   FEATURED VIDEO
+   KEEP COMPACT SIZE
+========================================= */
 
 .portfolio-video-section {
   width: 100%;
-
-  margin-top: 55px;
+  margin-bottom: 54px;
 
   display: flex;
   justify-content: center;
-  align-items: center;
 }
+
 
 .portfolio-video-wrap {
   position: relative;
 
-  /* medium size */
-  width: min(100%, 760px);
-
-  aspect-ratio: 16 / 9;
+  width: min(100%, 1120px);
 
   overflow: hidden;
 
-  border: 1px solid rgba(255, 44, 168, 0.2);
-  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  border-radius: 26px;
 
-  background: #000;
-
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.25),
-    0 0 45px rgba(255, 44, 168, 0.06);
-
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.portfolio-video-wrap:hover {
-  transform: translateY(-5px);
-
-  border-color: rgba(255, 44, 168, 0.4);
+  background: #07071a;
 
   box-shadow:
-    0 32px 70px rgba(0, 0, 0, 0.3),
-    0 0 55px rgba(255, 44, 168, 0.1);
+    0 25px 65px rgba(0, 0, 0, 0.18);
 }
+
 
 .portfolio-showreel-video {
+  display: block;
+
   width: 100%;
   height: 100%;
 
-  display: block;
+  aspect-ratio: 16 / 7;
 
   object-fit: cover;
   object-position: center;
-transform: scale(1.25);
-  transform-origin: center;
-
-  background: #000;
-
-  transition: transform 0.5s ease;
 }
 
 
-/* =========================
-   ALL WORK
-========================= */
+/* =========================================
+   FILTER
+========================================= */
 
 .portfolio-filter {
-  margin-top: 55px;
+  margin-bottom: 32px;
 
   display: flex;
   align-items: center;
 }
 
-.portfolio-filter-button {
-  min-height: 42px;
 
-  padding: 0 20px;
+.portfolio-filter-button {
+  min-height: 44px;
+
+  padding: 0 22px;
 
   border: 1px solid var(--card-border);
   border-radius: 999px;
 
-  background: var(--card-bg);
+  background: transparent;
 
   color: var(--text-secondary);
 
-  font-size: 12px;
-  font-weight: 850;
-  letter-spacing: 0.3px;
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
+
+.portfolio-filter-button:hover,
 .portfolio-filter-button.active {
-  border-color: transparent;
-
-  background: linear-gradient(
-    100deg,
-    var(--accent-orange),
-    var(--accent-pink)
-  );
-
   color: #ffffff;
 
-  box-shadow:
-    0 12px 28px rgba(255, 44, 168, 0.2);
+  border-color: rgba(255, 44, 168, 0.5);
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(255, 91, 35, 0.14),
+      rgba(255, 44, 168, 0.16)
+    );
 }
 
 
-/* =========================
+.portfolio-filter-button:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
    PROJECT GRID
-========================= */
+========================================= */
 
 .portfolio-projects-grid {
-  margin-top: 34px;
-
   display: grid;
 
   grid-template-columns:
     repeat(4, minmax(0, 1fr));
 
-  gap: 20px;
+  gap: 24px;
 }
 
 
-/* =========================
+/* =========================================
    PROJECT CARD
-========================= */
+========================================= */
 
 .portfolio-project-card {
+  position: relative;
+
+  min-width: 0;
+
   overflow: hidden;
 
   border: 1px solid var(--card-border);
-  border-radius: 18px;
+  border-radius: 22px;
 
   background: var(--card-bg);
 
   box-shadow:
-    0 16px 40px var(--shadow-color);
+    0 18px 45px rgba(0, 0, 0, 0.08);
 
   transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
+
 
 .portfolio-project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-7px);
 
   border-color:
-    rgba(255, 44, 168, 0.38);
+    rgba(255, 44, 168, 0.32);
 
   box-shadow:
-    0 26px 58px var(--shadow-color);
+    0 28px 65px rgba(0, 0, 0, 0.18),
+    0 0 35px rgba(255, 44, 168, 0.06);
 }
 
 
-/* =========================
-   PROJECT IMAGE
-========================= */
+/* =========================================
+   IMAGE WRAPPER
+========================================= */
 
 .portfolio-project-image-wrap {
   position: relative;
 
-  height: 250px;
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
 
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at 50% 35%,
-      rgba(109, 92, 255, 0.25),
-      transparent 40%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(255, 44, 168, 0.12),
-      rgba(109, 92, 255, 0.1)
-    );
+  background: var(--card-bg);
 }
+
+
+/* =========================================
+   PROJECT IMAGE
+   BLACK BAR FIX
+========================================= */
 
 .portfolio-project-image {
-  position: relative;
-  z-index: 1;
+  position: absolute;
 
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
 
-  object-fit: contain;
-  object-position: center bottom;
+  width: 124%;
+  height: 124%;
 
-  transition: transform 0.5s ease;
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+
+  filter:
+    saturate(1.04)
+    contrast(1.03)
+    brightness(1.01);
+
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+
+  will-change: transform;
 }
+
+
+/* Project Orion */
+.portfolio-project-card:nth-child(2)
+.portfolio-project-image {
+  width: 132%;
+  height: 132%;
+}
+
+
+/* Echoes Of Legend */
+.portfolio-project-card:nth-child(5)
+.portfolio-project-image {
+  width: 128%;
+  height: 128%;
+}
+
+
+/* Wasteland Explorer */
+.portfolio-project-card:nth-child(6)
+.portfolio-project-image {
+  width: 127%;
+  height: 127%;
+}
+
+
+/* The Last Stand */
+.portfolio-project-card:nth-child(7)
+.portfolio-project-image {
+  width: 128%;
+  height: 128%;
+}
+
+
+/* Next Gen Arena */
+.portfolio-project-card:nth-child(8)
+.portfolio-project-image {
+  width: 128%;
+  height: 128%;
+}
+
+
+/* =========================================
+   IMAGE HOVER
+========================================= */
 
 .portfolio-project-card:hover
 .portfolio-project-image {
-  transform: scale(1.07);
+  transform:
+    translate(-50%, -50%)
+    scale(1.055);
+
+  filter:
+    saturate(1.11)
+    contrast(1.05)
+    brightness(1.03);
 }
+
+
+/* =========================================
+   IMAGE OVERLAY
+========================================= */
 
 .portfolio-project-overlay {
   position: absolute;
+
   inset: 0;
 
-  z-index: 2;
+  z-index: 1;
 
   background:
     linear-gradient(
       180deg,
-      transparent 45%,
-      rgba(5, 5, 12, 0.55) 100%
+      rgba(4, 4, 20, 0.02) 0%,
+      rgba(4, 4, 20, 0.02) 45%,
+      rgba(4, 4, 20, 0.18) 75%,
+      rgba(4, 4, 20, 0.42) 100%
     );
 
   pointer-events: none;
 }
 
 
-/* =========================
-   CATEGORY
-========================= */
+/* =========================================
+   CATEGORY BADGE
+========================================= */
 
 .portfolio-project-category {
   position: absolute;
 
-  top: 18px;
-  left: 18px;
+  top: 16px;
+  left: 16px;
 
   z-index: 3;
 
-  padding: 8px 12px;
+  min-height: 32px;
+
+  padding: 0 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   border:
     1px solid rgba(255, 255, 255, 0.18);
@@ -298,11 +400,12 @@ transform: scale(1.25);
   border-radius: 999px;
 
   background:
-    rgba(8, 8, 18, 0.48);
-
-  backdrop-filter: blur(12px);
+    rgba(7, 6, 25, 0.62);
 
   color: #ffffff;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
   font-size: 10px;
   font-weight: 900;
@@ -310,61 +413,87 @@ transform: scale(1.25);
   letter-spacing: 0.7px;
 
   text-transform: uppercase;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 
-/* =========================
+/* =========================================
    ARROW
-========================= */
+========================================= */
 
 .portfolio-project-arrow {
   position: absolute;
 
-  right: 18px;
-  bottom: 18px;
+  right: 16px;
+  bottom: 16px;
 
   z-index: 3;
 
   width: 44px;
   height: 44px;
 
-  display: grid;
-  place-items: center;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border: 0;
+
   border-radius: 50%;
 
   background: #ffffff;
 
   color: #111111;
 
+  font-size: 20px;
+
   cursor: pointer;
 
-  font-size: 18px;
-  font-weight: 900;
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.2);
 
   transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease;
+    transform 0.35s ease,
+    color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.portfolio-project-arrow:hover {
-  transform: rotate(45deg);
 
-  background: var(--accent-pink);
+.portfolio-project-card:hover
+.portfolio-project-arrow {
+  transform:
+    translateY(-3px)
+    rotate(45deg);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent-orange),
+      var(--accent-pink)
+    );
 
   color: #ffffff;
+
+  box-shadow:
+    0 15px 30px
+    rgba(255, 44, 168, 0.28);
 }
 
 
-/* =========================
+/* =========================================
    CARD CONTENT
-========================= */
+========================================= */
 
 .portfolio-project-content {
-  padding: 23px 22px 25px;
+  position: relative;
+
+  padding: 21px 22px 25px;
 }
+
 
 .portfolio-project-content h3 {
   margin: 0;
@@ -375,142 +504,199 @@ transform: scale(1.25);
   font-weight: 850;
 
   line-height: 1.25;
+
+  letter-spacing: -0.4px;
 }
+
 
 .portfolio-project-content p {
   margin: 12px 0 0;
 
   color: var(--text-secondary);
 
-  font-size: 13px;
+  font-size: 13.5px;
+
   line-height: 1.7;
 }
 
 
-/* =========================
-   LIGHT MODE VIDEO
-========================= */
+/* =========================================
+   LIGHT MODE
+========================================= */
 
-html[data-theme="light"] .portfolio-video-wrap {
-  border-color:
-    rgba(255, 44, 168, 0.14);
-
+html[data-theme="light"]
+.portfolio-project-card {
   box-shadow:
-    0 22px 55px rgba(30, 25, 35, 0.13);
+    0 16px 40px rgba(20, 15, 40, 0.07);
 }
 
 
-/* =========================
-   LAPTOP
-========================= */
+html[data-theme="light"]
+.portfolio-project-card:hover {
+  box-shadow:
+    0 28px 60px rgba(20, 15, 40, 0.12);
+}
 
-@media (max-width: 1100px) {
+
+/* =========================================
+   SMALL DESKTOP
+========================================= */
+
+@media (max-width: 1200px) {
+
   .portfolio-projects-grid {
     grid-template-columns:
       repeat(3, minmax(0, 1fr));
   }
 
   .portfolio-video-wrap {
-    width: min(100%, 720px);
+    width: min(100%, 1000px);
   }
 }
 
 
-/* =========================
+/* =========================================
    TABLET
-========================= */
+========================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
+
+  .portfolio-projects-section {
+    padding: 90px 0 100px;
+  }
+
+
   .portfolio-projects-heading {
     grid-template-columns: 1fr;
 
-    align-items: start;
+    gap: 22px;
 
-    gap: 18px;
+    margin-bottom: 42px;
   }
+
+
+  .portfolio-projects-description {
+    max-width: 620px;
+  }
+
 
   .portfolio-projects-grid {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
   }
 
-  .portfolio-video-section {
-    margin-top: 42px;
-  }
 
   .portfolio-video-wrap {
-    width: min(100%, 680px);
+    width: 100%;
+  }
+
+
+  .portfolio-showreel-video {
+    aspect-ratio: 16 / 8;
   }
 }
 
 
-/* =========================
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
 @media (max-width: 600px) {
+
   .portfolio-projects-section {
-    padding: 76px 0;
+    padding: 75px 0 85px;
   }
+
 
   .portfolio-projects-container {
-    width: min(100% - 28px, 600px);
+    width:
+      min(
+        100% - 28px,
+        600px
+      );
   }
+
 
   .portfolio-projects-title {
-    font-size: 34px;
+    font-size:
+      clamp(
+        2rem,
+        10vw,
+        3rem
+      );
+
+    letter-spacing: -1.3px;
   }
 
-  .portfolio-projects-description {
-    font-size: 14px;
+
+  .portfolio-projects-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
   }
 
-  .portfolio-video-section {
-    margin-top: 34px;
-  }
 
   .portfolio-video-wrap {
     width: 100%;
 
-    border-radius: 15px;
+    border-radius: 20px;
   }
 
-  .portfolio-filter {
-    margin-top: 38px;
+
+  .portfolio-showreel-video {
+    aspect-ratio: 16 / 9;
   }
 
-  .portfolio-filter-button {
-    min-height: 38px;
-
-    padding: 0 16px;
-
-    font-size: 11px;
-  }
-
-  .portfolio-projects-grid {
-    margin-top: 26px;
-
-    grid-template-columns: 1fr;
-
-    gap: 16px;
-  }
 
   .portfolio-project-image-wrap {
-    height: 290px;
-  }
-}
-
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 390px) {
-  .portfolio-projects-container {
-    width: min(100% - 22px, 600px);
+    aspect-ratio: 16 / 9;
   }
 
-  .portfolio-project-image-wrap {
-    height: 250px;
+
+  .portfolio-project-image {
+    width: 124%;
+    height: 124%;
+  }
+
+
+  .portfolio-project-card:hover
+  .portfolio-project-image {
+    transform:
+      translate(-50%, -50%)
+      scale(1.035);
+  }
+
+
+  .portfolio-project-category {
+    top: 14px;
+    left: 14px;
+  }
+
+
+  .portfolio-project-arrow {
+    right: 14px;
+    bottom: 14px;
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 19px;
+  }
+
+
+  .portfolio-project-content {
+    padding: 20px 20px 23px;
+  }
+
+
+  .portfolio-project-content h3 {
+    font-size: 18px;
+  }
+
+
+  .portfolio-project-content p {
+    font-size: 13px;
   }
 }

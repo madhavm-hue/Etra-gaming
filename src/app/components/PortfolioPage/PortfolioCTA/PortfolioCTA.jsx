@@ -5,11 +5,11 @@ export default function PortfolioCTA() {
   return (
     <section className="portfolio-cta-section">
       <div className="portfolio-cta-container">
-        <div className="portfolio-cta-glow portfolio-cta-glow-one" />
-        <div className="portfolio-cta-glow portfolio-cta-glow-two" />
 
         <div className="portfolio-cta-content">
-          <p className="portfolio-cta-label">Let&apos;s Create Together</p>
+          <p className="portfolio-cta-label">
+            Let&apos;s Create Together
+          </p>
 
           <h2 className="portfolio-cta-title">
             Have an idea?
@@ -35,13 +35,6 @@ export default function PortfolioCTA() {
           </div>
         </div>
 
-        <div className="portfolio-cta-decoration">
-          <div className="portfolio-cta-circle portfolio-cta-circle-one" />
-          <div className="portfolio-cta-circle portfolio-cta-circle-two" />
-          <div className="portfolio-cta-orbit" />
-          <div className="portfolio-cta-dot portfolio-cta-dot-one" />
-          <div className="portfolio-cta-dot portfolio-cta-dot-two" />
-        </div>
       </div>
     </section>
   );

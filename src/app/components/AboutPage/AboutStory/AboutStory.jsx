@@ -33,7 +33,7 @@ export default function AboutStory() {
 
         <div className="about-story-image">
           <img
-            src="/images/hero/gaming-girl-removebg-preview.png"
+            src="/images/hero/rat.png"
             alt="Our Story"
           />
         </div>

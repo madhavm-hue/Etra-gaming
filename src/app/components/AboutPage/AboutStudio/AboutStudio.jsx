@@ -27,7 +27,7 @@ export default function AboutStudio() {
 
           <div className="studio-large">
             <img
-              src="/images/hero/gaming-girl-removebg-preview.png"
+              src="/images/hero/Image16.jpg"
               alt="ETRA Studio"
             />
           </div>

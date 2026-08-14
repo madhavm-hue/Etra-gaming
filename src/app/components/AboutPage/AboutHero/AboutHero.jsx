@@ -51,7 +51,7 @@ export default function AboutHero() {
         <div className="about-hero-visual">
           <div className="about-hero-image-wrapper">
             <img
-              src="/images/hero/gaming-girl-removebg-preview.png"
+              src="/images/hero/pink-girl.png"
               alt="ETRA creative studio"
               className="about-hero-image"
             />

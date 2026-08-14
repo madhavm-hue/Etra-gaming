@@ -8,7 +8,7 @@ import "./hero.css";
 const heroSlides = [
   {
     id: "01",
-    image: "/images/hero/gaming-girl-removebg-preview.png",
+    image: "/images/hero/Hero1.png",
   },
   {
     id: "02",

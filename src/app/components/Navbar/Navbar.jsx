@@ -3,64 +3,94 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { FiHome } from "react-icons/fi";
 
 import "./navbar.css";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
-
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Contact", href: "/contact" },
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "About",
+    href: "/about",
+  },
+  {
+    label: "Services",
+    href: "/services",
+  },
+  {
+    label: "Portfolio",
+    href: "/portfolio",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
 ];
-
 
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-
   const closeMenu = () => {
     setOpen(false);
   };
-
 
   return (
     <header className="site-header">
       <div className="nav-wrap">
 
-        {/* LOGO */}
-        <Link
-          href="/"
-          className="logo"
-          onClick={closeMenu}
-        >
-          <span>E</span>TRA
-          <small>
-            animation &amp; game development
-          </small>
-        </Link>
+        {/* LEFT BRAND AREA */}
+        <div className="navbar-brand">
 
+          {/* ETRA DREAMS HOME */}
+          <a
+            href="https://etradreams.com"
+            className="dreams-home-button"
+            aria-label="Go to ETRA Dreams home"
+            title="ETRA Dreams"
+          >
+            <FiHome />
+          </a>
+
+          {/* ETRA ANIMATION LOGO */}
+          <Link
+            href="/"
+            className="logo"
+            onClick={closeMenu}
+          >
+            <span>E</span>TRA
+
+            <small>
+              animation &amp; game development
+            </small>
+          </Link>
+
+        </div>
 
         {/* NAVIGATION */}
         <nav
-          className={`nav-menu ${open ? "show-menu" : ""}`}
+          className={`nav-menu ${
+            open ? "show-menu" : ""
+          }`}
         >
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={
-                pathname === link.href ? "active" : ""
+                pathname === link.href
+                  ? "active"
+                  : ""
               }
               onClick={closeMenu}
             >
               {link.label}
             </Link>
           ))}
-
 
           {/* MOBILE CONTACT BUTTON */}
           <Link
@@ -72,9 +102,9 @@ export default function Navbar() {
           </Link>
         </nav>
 
-
         {/* RIGHT ACTIONS */}
         <div className="nav-actions">
+
           <ThemeToggle />
 
           <Link
@@ -83,8 +113,8 @@ export default function Navbar() {
           >
             Let&apos;s Talk
           </Link>
-        </div>
 
+        </div>
 
         {/* MOBILE MENU */}
         <button

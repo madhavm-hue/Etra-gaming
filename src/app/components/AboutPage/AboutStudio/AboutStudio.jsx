@@ -27,19 +27,19 @@ export default function AboutStudio() {
 
           <div className="studio-large">
             <img
-              src="/images/hero/Image16.jpg"
+              src="/images/hero/Studio_02.png"
               alt="ETRA Studio"
             />
           </div>
 
           <div className="studio-small-grid">
             <img
-              src="/images/hero/gaming-girl-removebg-preview.png"
+              src="/images/hero/Studio_03.png"
               alt="ETRA Studio"
             />
 
             <img
-              src="/images/hero/gaming-girl-removebg-preview.png"
+              src="/images/hero/Studio_04.png"
               alt="ETRA Studio"
             />
           </div>

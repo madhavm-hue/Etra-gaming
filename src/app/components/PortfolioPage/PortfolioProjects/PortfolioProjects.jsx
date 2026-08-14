@@ -5,56 +5,48 @@ import "./portfolioProjects.css";
 const projects = [
   {
     title: "Beyond The Horizon",
-    category: "Games",
     image: "/images/hero/Messenger_0035.png",
     description:
       "A cinematic action adventure experience with immersive world building.",
   },
   {
     title: "Project Orion",
-    category: "Cinematics",
     image: "/images/hero/Reel_0542.png",
     description:
       "A futuristic cinematic sequence built with strong visual storytelling.",
   },
   {
     title: "Forgotten Realms",
-    category: "Environment",
     image: "/images/hero/Crock_1055.png",
     description:
       "A detailed fantasy environment created with atmosphere, depth and mood.",
   },
   {
     title: "Velocity Unbound",
-    category: "Games",
     image: "/images/hero/Messenger_0285.png",
     description:
       "A fast-paced racing concept focused on speed, energy and visual impact.",
   },
   {
     title: "Echoes Of Legend",
-    category: "Animation",
     image: "/images/hero/Reel_2031.png",
     description:
       "A character-driven animation crafted with expressive motion and detail.",
   },
   {
     title: "Wasteland Explorer",
-    category: "Art Services",
     image: "/images/hero/Messenger_0110.png",
     description:
       "Production-ready concept art and assets for a post-apocalyptic world.",
   },
   {
     title: "The Last Stand",
-    category: "Cinematics",
     image: "/images/hero/Messenger_0186.png",
     description:
       "A dramatic cinematic project with dynamic lighting and composition.",
   },
   {
     title: "Next Gen Arena",
-    category: "Environment",
     image: "/images/hero/Reel_2617.png",
     description:
       "A next-generation arena environment designed for competitive gameplay.",
@@ -117,7 +109,7 @@ export default function PortfolioProjects() {
           </button>
         </div>
 
-        {/* ALL PROJECTS */}
+        {/* PROJECT GRID */}
         <div className="portfolio-projects-grid">
           {projects.map((project) => (
             <article
@@ -133,10 +125,6 @@ export default function PortfolioProjects() {
 
                 <div className="portfolio-project-overlay" />
 
-                <span className="portfolio-project-category">
-                  {project.category}
-                </span>
-
                 <button
                   type="button"
                   className="portfolio-project-arrow"
@@ -148,7 +136,10 @@ export default function PortfolioProjects() {
 
               <div className="portfolio-project-content">
                 <h3>{project.title}</h3>
-                <p>{project.description}</p>
+
+                <p>
+                  {project.description}
+                </p>
               </div>
             </article>
           ))}

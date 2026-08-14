@@ -124,22 +124,12 @@ export default function PortfolioProjects() {
                 />
 
                 <div className="portfolio-project-overlay" />
-
-                <button
-                  type="button"
-                  className="portfolio-project-arrow"
-                  aria-label={`View ${project.title}`}
-                >
-                  ↗
-                </button>
               </div>
 
               <div className="portfolio-project-content">
                 <h3>{project.title}</h3>
 
-                <p>
-                  {project.description}
-                </p>
+                <p>{project.description}</p>
               </div>
             </article>
           ))}

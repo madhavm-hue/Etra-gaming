@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import "./portfolioProjects.css";
 
 const projects = [
@@ -53,7 +54,39 @@ const projects = [
   },
 ];
 
+const SHOWREEL_START_TIME = 4;
+
 export default function PortfolioProjects() {
+  const videoRef = useRef(null);
+
+  const handleLoadedMetadata = () => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    video.currentTime = SHOWREEL_START_TIME;
+
+    video.play().catch(() => {});
+  };
+
+  const handleTimeUpdate = () => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    /*
+      When the video reaches the end,
+      restart from the point after the intro.
+    */
+    if (
+      video.duration &&
+      video.currentTime >= video.duration - 0.15
+    ) {
+      video.currentTime = SHOWREEL_START_TIME;
+      video.play().catch(() => {});
+    }
+  };
+
   return (
     <section className="portfolio-projects-section">
       <div className="portfolio-projects-container">
@@ -84,15 +117,17 @@ export default function PortfolioProjects() {
         >
           <div className="portfolio-video-wrap">
             <video
+              ref={videoRef}
               className="portfolio-showreel-video"
               autoPlay
               muted
-              loop
               playsInline
-              preload="metadata"
+              preload="auto"
+              onLoadedMetadata={handleLoadedMetadata}
+              onTimeUpdate={handleTimeUpdate}
             >
               <source
-                src="/images/hero/Messengers_compressed.mp4"
+                src="/images/hero/showreel_2.mp4"
                 type="video/mp4"
               />
             </video>

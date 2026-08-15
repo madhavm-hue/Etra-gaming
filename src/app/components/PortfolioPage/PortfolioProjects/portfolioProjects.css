@@ -8,6 +8,7 @@
   padding: 105px 0 120px;
   overflow: hidden;
   background: var(--bg-primary);
+
   transition:
     background-color 0.35s ease,
     color 0.35s ease;
@@ -35,11 +36,13 @@
   margin-bottom: 55px;
 
   display: grid;
+
   grid-template-columns:
     minmax(0, 1.3fr)
     minmax(300px, 0.7fr);
 
   align-items: end;
+
   gap: 60px;
 }
 
@@ -53,12 +56,14 @@
   font-weight: 900;
 
   letter-spacing: 1.8px;
+
   text-transform: uppercase;
 }
 
 
 .portfolio-projects-title {
   max-width: 700px;
+
   margin: 0;
 
   color: var(--text-primary);
@@ -67,6 +72,7 @@
   font-weight: 900;
 
   line-height: 1.05;
+
   letter-spacing: -2px;
 
   text-transform: uppercase;
@@ -75,25 +81,28 @@
 
 .portfolio-projects-description {
   max-width: 520px;
+
   margin: 0;
 
   color: var(--text-secondary);
 
   font-size: 15px;
+
   line-height: 1.8;
 }
 
 
 /* =========================================
    FEATURED VIDEO
-   KEEP COMPACT SIZE
 ========================================= */
 
 .portfolio-video-section {
   width: 100%;
+
   margin-bottom: 54px;
 
   display: flex;
+
   justify-content: center;
 }
 
@@ -103,9 +112,12 @@
 
   width: min(100%, 1120px);
 
+  aspect-ratio: 16 / 7;
+
   overflow: hidden;
 
   border: 1px solid var(--card-border);
+
   border-radius: 26px;
 
   background: #07071a;
@@ -116,15 +128,29 @@
 
 
 .portfolio-showreel-video {
-  display: block;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
 
   width: 100%;
   height: 100%;
 
-  aspect-ratio: 16 / 7;
+  display: block;
 
   object-fit: cover;
-  object-position: center;
+
+  object-position: center center;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.17);
+
+  transform-origin: center center;
+
+  pointer-events: none;
+
+  will-change: transform;
 }
 
 
@@ -136,6 +162,7 @@
   margin-bottom: 32px;
 
   display: flex;
+
   align-items: center;
 }
 
@@ -146,6 +173,7 @@
   padding: 0 22px;
 
   border: 1px solid var(--card-border);
+
   border-radius: 999px;
 
   background: transparent;
@@ -153,9 +181,11 @@
   color: var(--text-secondary);
 
   font-size: 11px;
+
   font-weight: 900;
 
   letter-spacing: 0.7px;
+
   text-transform: uppercase;
 
   cursor: pointer;
@@ -214,6 +244,7 @@
   overflow: hidden;
 
   border: 1px solid var(--card-border);
+
   border-radius: 22px;
 
   background: var(--card-bg);
@@ -259,7 +290,6 @@
 
 /* =========================================
    PROJECT IMAGE
-   BLACK BAR FIX
 ========================================= */
 
 .portfolio-project-image {
@@ -274,6 +304,7 @@
   display: block;
 
   object-fit: cover;
+
   object-position: center;
 
   transform:
@@ -294,6 +325,7 @@
 
 
 /* Project Orion */
+
 .portfolio-project-card:nth-child(2)
 .portfolio-project-image {
   width: 132%;
@@ -302,6 +334,7 @@
 
 
 /* Echoes Of Legend */
+
 .portfolio-project-card:nth-child(5)
 .portfolio-project-image {
   width: 128%;
@@ -310,6 +343,7 @@
 
 
 /* Wasteland Explorer */
+
 .portfolio-project-card:nth-child(6)
 .portfolio-project-image {
   width: 127%;
@@ -318,6 +352,7 @@
 
 
 /* The Last Stand */
+
 .portfolio-project-card:nth-child(7)
 .portfolio-project-image {
   width: 128%;
@@ -326,6 +361,7 @@
 
 
 /* Next Gen Arena */
+
 .portfolio-project-card:nth-child(8)
 .portfolio-project-image {
   width: 128%;
@@ -391,7 +427,9 @@
   padding: 0 14px;
 
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
 
   border:
@@ -405,9 +443,11 @@
   color: #ffffff;
 
   backdrop-filter: blur(12px);
+
   -webkit-backdrop-filter: blur(12px);
 
   font-size: 10px;
+
   font-weight: 900;
 
   letter-spacing: 0.7px;
@@ -437,7 +477,9 @@
   padding: 0;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border: 0;
@@ -501,6 +543,7 @@
   color: var(--text-primary);
 
   font-size: 19px;
+
   font-weight: 850;
 
   line-height: 1.25;
@@ -549,8 +592,16 @@ html[data-theme="light"]
       repeat(3, minmax(0, 1fr));
   }
 
+
   .portfolio-video-wrap {
     width: min(100%, 1000px);
+  }
+
+
+  .portfolio-showreel-video {
+    transform:
+      translate(-50%, -50%)
+      scale(1.18);
   }
 }
 
@@ -590,11 +641,15 @@ html[data-theme="light"]
 
   .portfolio-video-wrap {
     width: 100%;
+
+    aspect-ratio: 16 / 8;
   }
 
 
   .portfolio-showreel-video {
-    aspect-ratio: 16 / 8;
+    transform:
+      translate(-50%, -50%)
+      scale(1.19);
   }
 }
 
@@ -641,12 +696,16 @@ html[data-theme="light"]
   .portfolio-video-wrap {
     width: 100%;
 
+    aspect-ratio: 16 / 9;
+
     border-radius: 20px;
   }
 
 
   .portfolio-showreel-video {
-    aspect-ratio: 16 / 9;
+    transform:
+      translate(-50%, -50%)
+      scale(1.2);
   }
 
 

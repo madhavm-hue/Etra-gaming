@@ -127,21 +127,25 @@ export default function Hero() {
             </p>
 
             <div className="hero-buttons">
+
+              {/* VIEW OUR WORK → PORTFOLIO PAGE */}
               <MagneticButton
-                href="#portfolio"
+                href="/portfolio"
                 className="hero-primary"
               >
                 View Our Work
                 <span aria-hidden="true">↗</span>
               </MagneticButton>
 
+              {/* DISCUSS A PROJECT → CONTACT PAGE */}
               <MagneticButton
-                href="#contact"
+                href="/contact"
                 className="hero-secondary"
               >
                 Discuss a Project
                 <span aria-hidden="true">↗</span>
               </MagneticButton>
+
             </div>
           </div>
 
@@ -200,7 +204,7 @@ export default function Hero() {
 
           {/* SCROLL */}
           <a
-            href="#portfolio"
+            href="/portfolio"
             className="scroll-explore"
           >
             <span className="scroll-mouse">

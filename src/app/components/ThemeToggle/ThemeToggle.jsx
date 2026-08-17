@@ -9,23 +9,40 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("etra-gaming-theme");
+
     const preferredTheme =
       savedTheme ||
       (window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light");
 
+    document.documentElement.setAttribute(
+      "data-theme",
+      preferredTheme
+    );
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(preferredTheme);
-    document.documentElement.setAttribute("data-theme", preferredTheme);
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme = theme === "light" ? "dark" : "light";
+    const nextTheme =
+      theme === "light" ? "dark" : "light";
 
     setTheme(nextTheme);
-    document.documentElement.setAttribute("data-theme", nextTheme);
-    localStorage.setItem("etra-gaming-theme", nextTheme);
+
+    document.documentElement.setAttribute(
+      "data-theme",
+      nextTheme
+    );
+
+    localStorage.setItem(
+      "etra-gaming-theme",
+      nextTheme
+    );
   };
 
   if (!mounted) {
@@ -37,15 +54,19 @@ export default function ThemeToggle() {
       type="button"
       className="theme-toggle"
       onClick={toggleTheme}
-      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-      title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      aria-label={`Switch to ${
+        theme === "light" ? "dark" : "light"
+      } mode`}
+      title={`Switch to ${
+        theme === "light" ? "dark" : "light"
+      } mode`}
     >
       <span className="theme-toggle-icon">
-        {theme === "light" ? "☀️" : "🌙"}
+        {theme === "light" ? "🌙" : "☀️"}
       </span>
 
       <span className="theme-toggle-label">
-        {theme === "light" ? "Light" : "Dark"}
+        {theme === "light" ? "Dark" : "Light"}
       </span>
     </button>
   );

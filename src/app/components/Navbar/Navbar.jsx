@@ -56,11 +56,12 @@ export default function Navbar() {
             <FiHome />
           </a>
 
-          {/* ETRA ANIMATION LOGO */}
+          {/* ETRA GAMING / ANIMATION LOGO */}
           <Link
             href="/"
             className="logo"
             onClick={closeMenu}
+            aria-label="Go to ETRA Gaming home"
           >
             <span>E</span>TRA
 
@@ -73,26 +74,28 @@ export default function Navbar() {
 
         {/* NAVIGATION */}
         <nav
-          className={`nav-menu ${
-            open ? "show-menu" : ""
-          }`}
+          className={`nav-menu ${open ? "show-menu" : ""}`}
+          aria-label="Primary navigation"
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={
-                pathname === link.href
-                  ? "active"
-                  : ""
-              }
-              onClick={closeMenu}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
 
-          {/* MOBILE CONTACT BUTTON */}
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={isActive ? "active" : ""}
+                onClick={closeMenu}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+
+          {/* MOBILE LET'S TALK */}
           <Link
             href="/contact"
             className="mobile-nav-button"
@@ -107,16 +110,18 @@ export default function Navbar() {
 
           <ThemeToggle />
 
+          {/* DESKTOP LET'S TALK */}
           <Link
             href="/contact"
             className="nav-button"
+            aria-label="Go to contact page"
           >
             Let&apos;s Talk
           </Link>
 
         </div>
 
-        {/* MOBILE MENU */}
+        {/* MOBILE MENU BUTTON */}
         <button
           type="button"
           className="mobile-menu-btn"
@@ -129,6 +134,7 @@ export default function Navbar() {
               : "Open navigation menu"
           }
           aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
           {open ? "✕" : "☰"}
         </button>

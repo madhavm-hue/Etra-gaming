@@ -97,9 +97,11 @@ export default function Footer() {
             <address>
               Etra Automotive Engineering and Technologies Private Limited
               <br />
-              No. 51, Dr. Ramasamy Salai,
+              1/400A North Street, Othaiyal
               <br />
-              K.K. Nagar, Chennai – 600078
+              O. Mettuppatti Post
+              <br />
+              Sattur, Tamil Nadu - 626 203, India
             </address>
           </div>
 

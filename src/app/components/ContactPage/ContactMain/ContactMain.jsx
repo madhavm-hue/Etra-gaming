@@ -2,6 +2,7 @@ import {
   FiPhone,
   FiMapPin,
   FiClock,
+  FiMail,
 } from "react-icons/fi";
 
 import {
@@ -68,6 +69,31 @@ export default function ContactMain() {
           creative partnerships.
         </p>
 
+        {/* EMAIL */}
+        <div className="info-item">
+          <FiMail />
+
+          <div>
+            <h4>Email</h4>
+
+            <div>
+              <strong>Gaming</strong>
+              <br />
+              <a href="mailto:etragameprod@etradreams.com">
+                etragameprod@etradreams.com
+              </a>
+            </div>
+
+            <div>
+              <strong>Animation</strong>
+              <br />
+              <a href="mailto:etraanim@etradreams.com">
+                etraanim@etradreams.com
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* PHONE */}
         <div className="info-item">
           <FiPhone />
@@ -91,9 +117,11 @@ export default function ContactMain() {
             <span>
               Etra Automotive Engineering and Technologies Private Limited
               <br />
-              No. 51, Dr. Ramasamy Salai,
+              1/400A North Street, Othaiyal
               <br />
-              K.K. Nagar, Chennai – 600078
+              O. Mettuppatti Post
+              <br />
+              Sattur, Tamil Nadu - 626203, India
             </span>
           </div>
         </div>

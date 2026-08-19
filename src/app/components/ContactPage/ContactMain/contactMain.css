@@ -3,23 +3,25 @@
   padding: 40px 7% 110px;
 
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
-  gap: 32px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.95fr);
+  gap: 48px;
 
   background: var(--background);
 }
+
 
 /* Shared Card */
 
 .contact-form-card,
 .contact-info-card {
-  padding: 34px;
+  padding: 36px;
 
   border: 1px solid var(--border-color);
   border-radius: 24px;
 
   background: var(--card-background);
 }
+
 
 .contact-form-card > span,
 .contact-info-card > span {
@@ -34,6 +36,7 @@
   letter-spacing: 2px;
 }
 
+
 /* Form */
 
 .form-row {
@@ -42,11 +45,13 @@
   gap: 16px;
 }
 
+
 .contact-form-card form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 
 .contact-form-card input,
 .contact-form-card select,
@@ -64,8 +69,9 @@
 
   outline: none;
 
-  transition: border-color .3s ease;
+  transition: border-color 0.3s ease;
 }
+
 
 .contact-form-card input:focus,
 .contact-form-card select:focus,
@@ -73,10 +79,12 @@
   border-color: #ff2f9f;
 }
 
+
 .contact-form-card textarea {
   resize: vertical;
   min-height: 170px;
 }
+
 
 .contact-form-card button {
   height: 56px;
@@ -84,7 +92,7 @@
   border: none;
   border-radius: 12px;
 
-  background: linear-gradient(90deg,#ff6534,#ff0a9d);
+  background: linear-gradient(90deg, #ff6534, #ff0a9d);
   color: #fff;
 
   font-weight: 700;
@@ -92,12 +100,14 @@
 
   cursor: pointer;
 
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
+
 
 .contact-form-card button:hover {
   transform: translateY(-3px);
 }
+
 
 .contact-form-card p {
   margin: 0;
@@ -106,29 +116,40 @@
 
   color: var(--text-secondary);
 
-  font-size: .85rem;
+  font-size: 0.85rem;
 }
+
 
 /* Info */
 
+.contact-info-card {
+  min-width: 0;
+}
+
+
 .contact-info-card > p {
-  margin: 0 0 28px;
+  max-width: 520px;
+  margin: 0 0 32px;
 
   color: var(--text-secondary);
+
+  line-height: 1.6;
 }
+
 
 .info-item {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 18px;
 
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
+
 .info-item svg {
-  width: 48px;
-  height: 48px;
-  padding: 12px;
+  width: 46px;
+  height: 46px;
+  padding: 11px;
 
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -138,28 +159,91 @@
   flex-shrink: 0;
 }
 
+
+.info-item > div {
+  min-width: 0;
+  flex: 1;
+}
+
+
 .info-item h4 {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
 
   color: var(--foreground);
 
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
+
 .info-item span {
+  display: block;
+
   color: var(--text-secondary);
 
   line-height: 1.7;
 }
 
+
+.info-item a {
+  color: var(--foreground);
+
+  text-decoration: none;
+
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+
+  transition: color 0.25s ease;
+}
+
+
+.info-item a:hover {
+  color: #ff2f9f;
+}
+
+
+/* Email block */
+
+.info-item > div > div {
+  margin-top: 12px;
+}
+
+
+.info-item > div > div:first-of-type {
+  margin-top: 4px;
+}
+
+
+.info-item strong {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: var(--foreground);
+
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+
+.info-item > div > div a {
+  display: inline-block;
+
+  color: var(--text-secondary);
+
+  font-size: 0.92rem;
+}
+
+
 /* Social */
 
 .social-links {
-  margin-top: 35px;
+  margin-top: 38px;
 
   display: flex;
   gap: 12px;
 }
+
 
 .social-links a {
   width: 46px;
@@ -176,8 +260,9 @@
 
   text-decoration: none;
 
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
+
 
 .social-links a:hover {
   transform: translateY(-3px);
@@ -188,36 +273,55 @@
   border-color: #ff2f9f;
 }
 
+
 /* Tablet */
 
-@media (max-width:1000px){
+@media (max-width: 1100px) {
+  .contact-main {
+    grid-template-columns: 1fr;
+    padding: 40px 6% 90px;
+    gap: 28px;
+  }
 
-.contact-main{
-grid-template-columns:1fr;
-padding:40px 6% 90px;
+  .contact-info-card {
+    width: 100%;
+  }
 }
 
-}
 
 /* Mobile */
 
-@media (max-width:600px){
+@media (max-width: 600px) {
+  .contact-main {
+    padding: 30px 20px 70px;
+  }
 
-.contact-main{
-padding:30px 20px 70px;
-}
+  .contact-form-card,
+  .contact-info-card {
+    padding: 24px;
+  }
 
-.contact-form-card,
-.contact-info-card{
-padding:24px;
-}
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 
-.form-row{
-grid-template-columns:1fr;
-}
+  .info-item {
+    gap: 14px;
+    margin-bottom: 24px;
+  }
 
-.social-links{
-flex-wrap:wrap;
-}
+  .info-item svg {
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+  }
 
+  .info-item > div > div {
+    margin-top: 10px;
+  }
+
+  .social-links {
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
 }

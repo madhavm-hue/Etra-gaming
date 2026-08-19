@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { FiHome } from "react-icons/fi";
 
 import "./navbar.css";
@@ -56,24 +57,39 @@ export default function Navbar() {
             <FiHome />
           </a>
 
-          {/* ETRA GAMING / ANIMATION LOGO */}
+          {/* THEME BASED LOGO */}
           <Link
             href="/"
             className="logo"
             onClick={closeMenu}
             aria-label="Go to ETRA Gaming home"
           >
-            <span>E</span>TRA
+            {/* DARK MODE LOGO */}
+            <Image
+              src="/images/hero/etra-dreams-logo (1).webp"
+              alt="ETRA Dreams"
+              width={484}
+              height={106}
+              priority
+              className="navbar-logo-image navbar-logo-dark"
+            />
 
-            <small>
-              animation &amp; game development
-            </small>
+            {/* LIGHT MODE LOGO */}
+            <Image
+              src="/images/hero/etra-dreams-logo-light.png"
+              alt="ETRA Dreams"
+              width={484}
+              height={106}
+              priority
+              className="navbar-logo-image navbar-logo-light"
+            />
           </Link>
 
         </div>
 
         {/* NAVIGATION */}
         <nav
+          id="mobile-navigation"
           className={`nav-menu ${open ? "show-menu" : ""}`}
           aria-label="Primary navigation"
         >

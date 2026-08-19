@@ -108,15 +108,12 @@ ETRA DREAMS HOME ICON
 
   color: var(--accent-pink);
 
-  border-color:
-    rgba(255, 44, 168, 0.42);
+  border-color: rgba(255, 44, 168, 0.42);
 
-  background:
-    rgba(255, 44, 168, 0.07);
+  background: rgba(255, 44, 168, 0.07);
 
   box-shadow:
-    0 12px 28px
-    rgba(255, 44, 168, 0.10);
+    0 12px 28px rgba(255, 44, 168, 0.10);
 }
 
 
@@ -153,8 +150,7 @@ ETRA DREAMS HOME ICON
 
   pointer-events: none;
 
-  transform:
-    translate(-50%, -4px);
+  transform: translate(-50%, -4px);
 
   transition:
     opacity 0.2s ease,
@@ -168,8 +164,7 @@ ETRA DREAMS HOME ICON
 
   visibility: visible;
 
-  transform:
-    translate(-50%, 0);
+  transform: translate(-50%, 0);
 }
 
 
@@ -178,45 +173,69 @@ LOGO
 ========================= */
 
 .logo {
+  display: inline-flex;
+
+  align-items: center;
+
   flex-shrink: 0;
-
-  color: var(--text-primary);
-
-  font-size: 38px;
-
-  font-weight: 900;
-
-  line-height: 0.85;
-
-  letter-spacing: -2px;
 
   text-decoration: none;
 
-  transition: color 0.35s ease;
+  line-height: 0;
 }
 
 
-.logo span {
-  color: var(--accent-orange);
-}
+.navbar-logo-image {
+  width: 210px;
+  height: auto;
 
-
-.logo small {
   display: block;
 
-  margin-top: 8px;
+  object-fit: contain;
 
-  font-size: 7px;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
 
-  font-weight: 700;
 
-  letter-spacing: 1.1px;
+.logo:hover .navbar-logo-image {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
 
-  line-height: 1.3;
 
-  text-transform: uppercase;
+/* =========================
+DARK / LIGHT LOGO SWITCH
+========================= */
 
-  color: var(--text-secondary);
+.navbar-logo-dark {
+  display: block;
+}
+
+
+.navbar-logo-light {
+  display: none;
+}
+
+
+html[data-theme="dark"] .navbar-logo-dark {
+  display: block;
+}
+
+
+html[data-theme="dark"] .navbar-logo-light {
+  display: none;
+}
+
+
+html[data-theme="light"] .navbar-logo-dark {
+  display: none;
+}
+
+
+html[data-theme="light"] .navbar-logo-light {
+  display: block;
 }
 
 
@@ -346,8 +365,7 @@ LET'S TALK
   text-decoration: none;
 
   box-shadow:
-    0 10px 30px
-    rgba(245, 0, 135, 0.2);
+    0 10px 30px rgba(245, 0, 135, 0.2);
 
   transition:
     transform 0.25s ease,
@@ -359,8 +377,7 @@ LET'S TALK
   transform: translateY(-2px);
 
   box-shadow:
-    0 16px 35px
-    rgba(245, 0, 135, 0.32);
+    0 16px 35px rgba(245, 0, 135, 0.32);
 }
 
 
@@ -383,8 +400,7 @@ MOBILE BUTTON DEFAULT
   align-items: center;
   justify-content: center;
 
-  border:
-    1px solid var(--card-border);
+  border: 1px solid var(--card-border);
 
   border-radius: 10px;
 
@@ -424,6 +440,11 @@ SMALL DESKTOP
   }
 
 
+  .navbar-logo-image {
+    width: 180px;
+  }
+
+
   .nav-menu {
     gap: 16px;
   }
@@ -448,11 +469,7 @@ TABLET / MOBILE NAV
 @media (max-width: 900px) {
 
   .nav-wrap {
-    width:
-      min(
-        100% - 32px,
-        1280px
-      );
+    width: min(100% - 32px, 1280px);
 
     min-height: 76px;
 
@@ -486,8 +503,8 @@ TABLET / MOBILE NAV
   }
 
 
-  .logo {
-    font-size: 32px;
+  .navbar-logo-image {
+    width: 170px;
   }
 
 
@@ -606,11 +623,7 @@ MOBILE
 @media (max-width: 600px) {
 
   .nav-wrap {
-    width:
-      min(
-        100% - 24px,
-        1280px
-      );
+    width: min(100% - 24px, 1280px);
 
     gap: 9px;
   }
@@ -637,15 +650,8 @@ MOBILE
   }
 
 
-  .logo {
-    font-size: 29px;
-  }
-
-
-  .logo small {
-    max-width: 145px;
-
-    font-size: 6px;
+  .navbar-logo-image {
+    width: 145px;
   }
 
 
@@ -663,11 +669,7 @@ VERY SMALL MOBILE
 @media (max-width: 390px) {
 
   .nav-wrap {
-    width:
-      min(
-        100% - 18px,
-        1280px
-      );
+    width: min(100% - 18px, 1280px);
   }
 
 
@@ -685,15 +687,8 @@ VERY SMALL MOBILE
   }
 
 
-  .logo {
-    font-size: 26px;
-  }
-
-
-  .logo small {
-    max-width: 125px;
-
-    font-size: 5.5px;
+  .navbar-logo-image {
+    width: 125px;
   }
 
 }

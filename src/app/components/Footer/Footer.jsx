@@ -95,7 +95,7 @@ export default function Footer() {
             <span className="footer-contact-label">Address</span>
 
             <address>
-              Etra Automotive Engineering and Technologies Private Limited
+             ETRA DREAMS ANIMATIONS PRIVATE LIMITED
               <br />
               1/400A North Street, Othaiyal
               <br />

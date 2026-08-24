@@ -61,7 +61,7 @@ export default function ContactStudios() {
               <h3>Sattur Studio</h3>
 
               <p>
-                Etra Automotive Engineering and Technologies Private Limited
+                ETRA DREAMS ANIMATIONS PRIVATE LIMITED
               </p>
 
               <address>

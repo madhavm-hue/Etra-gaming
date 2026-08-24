@@ -115,7 +115,7 @@ export default function ContactMain() {
             <h4>Location</h4>
 
             <span>
-              Etra Automotive Engineering and Technologies Private Limited
+              ETRA DREAMS ANIMATIONS PRIVATE LIMITED
               <br />
               1/400A North Street, Othaiyal
               <br />

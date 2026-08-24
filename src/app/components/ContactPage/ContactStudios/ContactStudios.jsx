@@ -16,17 +16,17 @@ export default function ContactStudios() {
         <h2>
           Visit Our
           <br />
-          Chennai Studio
+          Sattur Studio
         </h2>
 
         <p>
-          Our Chennai studio brings together artists, designers and
+          Our Sattur studio brings together artists, designers and
           developers to create immersive digital experiences.
         </p>
       </div>
 
 
-      {/* CHENNAI STUDIO */}
+      {/* SATTUR STUDIO */}
       <div className="contact-studios-grid">
 
         <article className="studio-card">
@@ -34,14 +34,14 @@ export default function ContactStudios() {
           {/* MAP */}
           <div className="studio-map">
             <iframe
-              src="https://www.google.com/maps?q=No.%2051%20Dr.%20Ramasamy%20Salai%20KK%20Nagar%20Chennai%20600078&output=embed"
+              src="https://www.google.com/maps?q=1%2F400A%20North%20Street%2C%20Othaiyal%2C%20O.%20Mettuppatti%20Post%2C%20Sattur%2C%20Tamil%20Nadu%20626203%2C%20India&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="ETRA Chennai Studio Location"
+              title="ETRA Sattur Studio Location"
             />
           </div>
 
@@ -50,7 +50,7 @@ export default function ContactStudios() {
           <div className="studio-location-badge">
             <FiMapPin />
 
-            <span>Chennai, India</span>
+            <span>Sattur, Tamil Nadu</span>
           </div>
 
 
@@ -58,28 +58,30 @@ export default function ContactStudios() {
           <div className="studio-content">
 
             <div>
-              <h3>Chennai Studio</h3>
+              <h3>Sattur Studio</h3>
 
               <p>
                 Etra Automotive Engineering and Technologies Private Limited
               </p>
 
               <address>
-                No. 51, Dr. Ramasamy Salai,
+                1/400A, North Street, Othaiyal,
                 <br />
-                K.K. Nagar,
+                O. Mettuppatti Post,
                 <br />
-                Chennai – 600078
+                Sattur, Tamil Nadu – 626203
+                <br />
+                India
               </address>
             </div>
 
 
             <a
-              href="https://www.google.com/maps/search/?api=1&query=No.+51,+Dr.+Ramasamy+Salai,+K.K.+Nagar,+Chennai+600078"
+              href="https://www.google.com/maps/search/?api=1&query=1%2F400A%2C%20North%20Street%2C%20Othaiyal%2C%20O.%20Mettuppatti%20Post%2C%20Sattur%2C%20Tamil%20Nadu%20626203%2C%20India"
               target="_blank"
               rel="noopener noreferrer"
               className="studio-direction-button"
-              aria-label="Get directions to Chennai studio"
+              aria-label="Get directions to Sattur studio"
             >
               <span>Get Directions</span>
 

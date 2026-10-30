@@ -1,4 +1,18 @@
+import { Anton, Manrope } from "next/font/google";
 import "./servicesProcess.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--service-process-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--service-process-body",
+});
 
 const processSteps = [
   {
@@ -53,34 +67,57 @@ const processSteps = [
 
 export default function ServicesProcess() {
   return (
-    <section className="services-process">
-      <div className="services-process-container">
+    <section
+      className={`etra-services-process ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-services-process-title"
+    >
+      <div className="etra-services-process__container">
+        <header className="etra-services-process__heading">
+          <p className="etra-services-process__eyebrow">
+            Our process
+          </p>
 
-        <div className="services-process-header">
-          <span>OUR PROCESS</span>
-
-          <h2>
-            A proven pipeline for exceptional results.
+          <h2
+            id="etra-services-process-title"
+            className="etra-services-process__title"
+          >
+            A proven pipeline
+            <span>for exceptional results.</span>
           </h2>
-        </div>
+        </header>
 
-        <div className="services-process-grid">
+        <ol className="etra-services-process__grid">
           {processSteps.map((step) => (
-            <article
-              className="process-card"
+            <li
               key={step.number}
+              className="etra-services-process__step"
             >
-              <div className="process-number">
-                {step.number}
+              <div className="etra-services-process__step-top">
+                <span
+                  className="etra-services-process__number"
+                  aria-hidden="true"
+                >
+                  {step.number}
+                </span>
+
+                <span
+                  className="etra-services-process__arrow"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
               </div>
 
-              <h3>{step.title}</h3>
+              <h3 className="etra-services-process__step-title">
+                {step.title}
+              </h3>
 
-              <p>{step.description}</p>
-            </article>
+              <p className="etra-services-process__description">
+                {step.description}
+              </p>
+            </li>
           ))}
-        </div>
-
+        </ol>
       </div>
     </section>
   );

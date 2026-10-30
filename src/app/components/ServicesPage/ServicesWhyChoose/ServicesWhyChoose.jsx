@@ -1,18 +1,29 @@
-"use client";
-
+import { Anton, Manrope } from "next/font/google";
 import "./servicesWhyChoose.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--why-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--why-body",
+});
 
 const reasons = [
   {
     title: "End-to-End Production",
-    description:
-      "Concept to final delivery, all under one roof.",
+    description: "Concept to final delivery, all under one roof.",
     icon: "◉",
   },
   {
     title: "Real-Time Expertise",
     description:
-      "Advanced real-time solutions with Unreal Engine & Unity.",
+      "Advanced real-time solutions for interactive experiences.",
     icon: "◈",
   },
   {
@@ -31,41 +42,58 @@ const reasons = [
 
 export default function ServicesWhyChoose() {
   return (
-    <section className="services-why-section">
-      <div className="services-why-container">
-        <div className="services-why-heading">
-          <p className="services-why-label">
-            WHY CHOOSE ETRA
+    <section
+      className={`etra-services-why ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-services-why-title"
+    >
+      <div className="etra-services-why__container">
+        <header className="etra-services-why__heading">
+          <p className="etra-services-why__eyebrow">
+            Why choose ETRA
           </p>
 
-          <h2>
-            A creative studio with production at our core.
+          <h2
+            id="etra-services-why-title"
+            className="etra-services-why__title"
+          >
+            A creative studio
+            <span>with production</span>
+            at our core.
           </h2>
-        </div>
+        </header>
 
-        <div className="services-why-grid">
-          {reasons.map((reason) => (
-            <article
-              className="services-why-card"
+        <ul className="etra-services-why__grid">
+          {reasons.map((reason, index) => (
+            <li
               key={reason.title}
+              className="etra-services-why__item"
             >
-              <div
-                className="services-why-icon"
-                aria-hidden="true"
-              >
-                {reason.icon}
+              <div className="etra-services-why__item-top">
+                <span
+                  className="etra-services-why__icon"
+                  aria-hidden="true"
+                >
+                  {reason.icon}
+                </span>
+
+                <span
+                  className="etra-services-why__number"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
 
-              <h3>
+              <h3 className="etra-services-why__item-title">
                 {reason.title}
               </h3>
 
-              <p>
+              <p className="etra-services-why__description">
                 {reason.description}
               </p>
-            </article>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

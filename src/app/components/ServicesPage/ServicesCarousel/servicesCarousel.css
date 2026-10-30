@@ -1,389 +1,435 @@
-.services-carousel {
-  width: 100%;
-  padding: 110px 7% 100px;
+.etra-service-catalogue {
+  --catalogue-gutter: clamp(24px, 4.44vw, 128px);
 
-  background: var(--background);
-  color: var(--foreground);
+  color: #ffffff;
 
-  overflow: hidden;
+  font-family: var(--catalogue-body), sans-serif;
 }
 
-.services-carousel-container {
-  width: 100%;
-  max-width: 1400px;
-
-  margin: 0 auto;
+.etra-service-catalogue,
+.etra-service-catalogue * {
+  box-sizing: border-box;
 }
 
-/* =========================
-   HEADING
-========================= */
+.etra-service-catalogue__division {
+  padding: 64px 0 72px;
+  scroll-margin-top: 100px;
 
-.services-carousel-header {
-  width: 100%;
+  background: var(--division-background);
+}
 
-  margin: 0 0 42px;
+.etra-service-catalogue__division--gaming {
+  --division-accent: #b17aff;
+  --division-background: #0c0925;
+  --division-line: rgb(177 122 255 / 25%);
+  --division-tint: rgb(177 122 255 / 5%);
+}
 
+.etra-service-catalogue__division--animation {
+  --division-accent: #ff641f;
+  --division-background: #180d1b;
+  --division-line: rgb(255 100 31 / 25%);
+  --division-tint: rgb(255 100 31 / 5%);
+}
+
+.etra-service-catalogue__container {
+  width: min(
+    calc(100% - var(--catalogue-gutter) - var(--catalogue-gutter)),
+    2560px
+  );
+
+  margin-inline: auto;
+}
+
+/* Division heading */
+
+.etra-service-catalogue__heading {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 32px;
 
-  gap: 40px;
-
-  text-align: left;
+  margin-bottom: 36px;
 }
 
-.services-carousel-header > div {
-  max-width: 880px;
+.etra-service-catalogue__heading > div {
+  min-width: 0;
 }
 
-.services-carousel-header > div > span {
-  display: inline-block;
+.etra-service-catalogue__eyebrow {
+  margin: 0 0 18px;
 
-  margin-bottom: 12px;
+  color: var(--division-accent);
 
-  color: #ff2f9f;
-
-  font-size: 0.88rem;
+  font-size: 11px;
   font-weight: 700;
-
-  letter-spacing: 3px;
-
+  line-height: 1.5;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.services-carousel-header h2 {
+.etra-service-catalogue__title {
   margin: 0;
 
-  color: var(--foreground);
+  color: #ffffff;
 
-  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
-  font-weight: 700;
-
-  line-height: 1.12;
+  font-family: var(--catalogue-display), sans-serif;
+  font-size: clamp(42px, 4.5vw, 96px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
 }
 
-/* =========================
-   VIEW ALL SERVICES
-========================= */
+.etra-service-catalogue__subtitle {
+  max-width: 340px;
+  margin: 0 0 4px;
 
-.services-view-all {
-  flex-shrink: 0;
+  color: #b8b5c8;
 
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Sidebar and service catalogue */
+
+.etra-service-catalogue__body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  align-items: start;
+  gap: clamp(32px, 4vw, 80px);
+
+  padding-top: 32px;
+
+  border-top: 1px solid var(--division-line);
+}
+
+.etra-service-catalogue__intro {
+  min-width: 0;
+}
+
+.etra-service-catalogue__scope-title {
+  max-width: 380px;
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: var(--catalogue-display), sans-serif;
+  font-size: clamp(26px, 2.3vw, 42px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.etra-service-catalogue__contact {
   display: inline-flex;
   align-items: center;
+  gap: 20px;
 
-  gap: 10px;
+  min-height: 44px;
+  margin-top: 24px;
 
-  padding-bottom: 4px;
+  color: var(--division-accent);
 
-  color: var(--accent-pink);
-
-  font-size: 0.78rem;
+  font-size: 11px;
   font-weight: 800;
-
-  letter-spacing: 0.5px;
-
+  line-height: 1.5;
+  letter-spacing: 0.04em;
   text-decoration: none;
   text-transform: uppercase;
-
-  transition:
-    gap 0.25s ease,
-    color 0.25s ease;
 }
 
-.services-view-all span {
-  font-size: 1.1rem;
+.etra-service-catalogue__contact span {
+  font-size: 20px;
 }
 
-.services-view-all:hover {
-  gap: 15px;
-
-  color: var(--accent-orange);
-}
-
-/* =========================
-   STATIC 5 CARD GRID
-========================= */
-
-.services-static-grid {
-  width: 100%;
-
+.etra-service-catalogue__services {
   display: grid;
-
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-
-  gap: 14px;
-}
-
-/* =========================
-   SERVICE CARD
-========================= */
-
-.service-card {
-  position: relative;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 28px;
 
   min-width: 0;
-  min-height: 390px;
-
-  overflow: hidden;
-
-  border: 1px solid var(--border-color);
-  border-radius: 18px;
-
-  background: var(--card-background);
-
-  box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.08);
-
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
 }
 
-.service-card::before {
+.etra-service-catalogue__column {
+  min-width: 0;
+}
+
+/* Expandable service details */
+
+.etra-service-catalogue__service {
+  border-bottom: 1px solid rgb(255 255 255 / 12%);
+}
+
+.etra-service-catalogue__summary {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 76px;
+  padding: 18px 0;
+
+  cursor: pointer;
+  list-style: none;
+}
+
+.etra-service-catalogue__summary::-webkit-details-marker {
+  display: none;
+}
+
+.etra-service-catalogue__number {
+  color: var(--division-accent);
+
+  font-size: 10px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.etra-service-catalogue__service-title {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(16px, 1.15vw, 22px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+
+.etra-service-catalogue__toggle {
+  position: relative;
+
+  width: 14px;
+  height: 14px;
+
+  color: var(--division-accent);
+}
+
+.etra-service-catalogue__toggle::before,
+.etra-service-catalogue__toggle::after {
   content: "";
 
   position: absolute;
-  top: -80px;
-  right: -80px;
+  top: 6px;
+  left: 1px;
 
-  width: 180px;
-  height: 180px;
+  width: 12px;
+  height: 1px;
 
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 47, 159, 0.14),
-      transparent 68%
-    );
-
-  opacity: 0;
-
-  transition:
-    opacity 0.35s ease,
-    transform 0.5s ease;
-
-  pointer-events: none;
+  background: currentColor;
 }
 
-.service-card:hover {
-  transform: translateY(-8px);
-
-  border-color: rgba(255, 47, 159, 0.4);
-
-  box-shadow:
-    0 24px 55px rgba(255, 47, 159, 0.12);
+.etra-service-catalogue__toggle::after {
+  transform: rotate(90deg);
 }
 
-.service-card:hover::before {
-  opacity: 1;
-
-  transform: scale(1.2);
+.etra-service-catalogue__service[open]
+  .etra-service-catalogue__toggle::after {
+  display: none;
 }
 
-/* =========================
-   CARD CONTENT
-========================= */
-
-.service-card-content {
-  position: relative;
-  z-index: 2;
-
-  min-height: 390px;
-
-  padding: 26px 20px 24px;
-
-  display: flex;
-  flex-direction: column;
+.etra-service-catalogue__service[open]
+  .etra-service-catalogue__service-title,
+.etra-service-catalogue__summary:hover
+  .etra-service-catalogue__service-title {
+  color: var(--division-accent);
 }
 
-/* =========================
-   ICON
-========================= */
+.etra-service-catalogue__scope {
+  padding: 0 20px 24px 36px;
+}
 
-.service-icon {
-  width: 56px;
-  height: 56px;
+.etra-service-catalogue__scope p {
+  margin: 0;
 
-  margin-bottom: 24px;
+  color: #b8b5c8;
 
-  display: flex;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.etra-service-catalogue__enquiry {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
 
-  border: 1px solid rgba(255, 47, 159, 0.3);
-  border-radius: 14px;
+  min-height: 44px;
+  margin-top: 12px;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 47, 159, 0.1),
-      rgba(109, 92, 255, 0.1)
-    );
+  color: var(--division-accent);
 
-  color: #ff2f9f;
-
-  font-size: 24px;
-
-  transition:
-    transform 0.35s ease,
-    background 0.35s ease;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
 }
 
-.service-card:hover .service-icon {
-  transform: rotate(-5deg) scale(1.08);
-
-  background:
-    rgba(255, 47, 159, 0.16);
+.etra-service-catalogue__enquiry span {
+  font-size: 18px;
 }
 
-/* =========================
-   TITLE
-========================= */
+/* Deliverables from the supplied service cards */
 
-.service-card-content h3 {
-  margin: 0 0 14px;
+.etra-service-catalogue__deliverables {
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  align-items: start;
+  gap: clamp(32px, 4vw, 80px);
 
-  color: var(--foreground);
+  margin-top: 40px;
+  padding-top: 28px;
 
-  font-size: 1.15rem;
-  font-weight: 800;
-
-  line-height: 1.25;
-
-  text-transform: none;
+  border-top: 1px solid var(--division-line);
 }
 
-/* =========================
-   DESCRIPTION
-========================= */
+.etra-service-catalogue__deliverables-title {
+  max-width: 320px;
+  margin: 0;
 
-.service-card-content > p {
-  margin: 0 0 22px;
+  color: var(--division-accent);
 
-  color: var(--text-secondary);
-
-  font-size: 0.9rem;
-  line-height: 1.65;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-/* =========================
-   FEATURES
-========================= */
+.etra-service-catalogue__deliverables-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 28px;
 
-.service-card-content ul {
   margin: 0;
   padding: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 10px;
 
   list-style: none;
 }
 
-.service-card-content li {
+.etra-service-catalogue__deliverables-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 12px;
 
-  gap: 8px;
+  padding: 12px 14px;
 
-  color: var(--text-secondary);
+  background: var(--division-tint);
+  color: #e3dfe9;
 
-  font-size: 0.85rem;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.65;
 }
 
-.service-card-content li span {
+.etra-service-catalogue__deliverables-list li > span {
   flex-shrink: 0;
 
-  color: #ff2f9f;
-
-  font-size: 0.55rem;
+  color: var(--division-accent);
 }
 
-/* =========================
-   TABLET
-========================= */
+/* Keyboard access */
 
-@media (max-width: 1150px) {
-  .services-carousel {
-    padding: 95px 6%;
+.etra-service-catalogue a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.etra-service-catalogue a:focus-visible,
+.etra-service-catalogue__summary:focus-visible {
+  outline: 2px solid var(--division-accent);
+  outline-offset: 4px;
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+  .etra-service-catalogue__body,
+  .etra-service-catalogue__deliverables {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
-  .services-static-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 18px;
+  .etra-service-catalogue__intro {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
   }
 
-  .service-card {
-    min-height: 360px;
+  .etra-service-catalogue__contact {
+    flex-shrink: 0;
+    margin-top: 0;
   }
 
-  .service-card-content {
-    min-height: 360px;
-
-    padding: 26px 24px;
+  .etra-service-catalogue__scope-title {
+    max-width: 560px;
   }
 }
 
-/* =========================
-   SMALL TABLET
-========================= */
+/* Mobile */
 
-@media (max-width: 850px) {
-  .services-carousel-header {
+@media (max-width: 650px) {
+  .etra-service-catalogue {
+    --catalogue-gutter: 24px;
+  }
+
+  .etra-service-catalogue__division {
+    padding: 48px 0;
+  }
+
+  .etra-service-catalogue__heading {
     align-items: flex-start;
     flex-direction: column;
+    gap: 18px;
 
+    margin-bottom: 28px;
+  }
+
+  .etra-service-catalogue__title {
+    font-size: clamp(36px, 8vw, 48px);
+  }
+
+  .etra-service-catalogue__subtitle {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  .etra-service-catalogue__intro {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .etra-service-catalogue__scope-title {
+    font-size: 28px;
+  }
+
+  .etra-service-catalogue__services {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .etra-service-catalogue__summary {
+    min-height: 70px;
+  }
+
+  .etra-service-catalogue__service-title {
+    font-size: 17px;
+  }
+
+  .etra-service-catalogue__deliverables {
+    margin-top: 32px;
     gap: 20px;
   }
 
-  .services-view-all {
-    align-self: flex-start;
-  }
-
-  .services-static-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .etra-service-catalogue__deliverables-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-  .services-carousel {
-    padding: 75px 20px;
-  }
-
-  .services-carousel-header {
-    margin-bottom: 32px;
-  }
-
-  .services-carousel-header h2 {
-    font-size: 2.15rem;
-  }
-
-  .services-static-grid {
-    grid-template-columns: 1fr;
-
-    gap: 16px;
-  }
-
-  .service-card {
-    min-height: auto;
-  }
-
-  .service-card-content {
-    min-height: auto;
-
-    padding: 26px 22px;
+@media (max-width: 390px) {
+  .etra-service-catalogue {
+    --catalogue-gutter: 20px;
   }
 }

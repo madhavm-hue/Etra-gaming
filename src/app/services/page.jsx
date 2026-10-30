@@ -8,7 +8,7 @@ import ServicesCarousel from "../components/ServicesPage/ServicesCarousel/Servic
 import ServicesIndustries from "../components/ServicesPage/ServicesIndustries/ServicesIndustries";
 import ServicesWhyChoose from "../components/ServicesPage/ServicesWhyChoose/ServicesWhyChoose";
 import ServicesProcess from "../components/ServicesPage/ServicesProcess/ServicesProcess";
-import ServicesTech from "../components/ServicesPage/ServicesTech/ServicesTech";
+// import ServicesTech from "../components/ServicesPage/ServicesTech/ServicesTech";
 import ServicesCTA from "../components/ServicesPage/ServicesCTA/ServicesCTA";
 
 import Footer from "../components/Footer/Footer";
@@ -38,7 +38,7 @@ export default function ServicesPage() {
         <ServicesProcess />
 
         {/* Technologies We Use */}
-        <ServicesTech />
+        {/* <ServicesTech /> */}
 
         {/* CTA */}
         <ServicesCTA />

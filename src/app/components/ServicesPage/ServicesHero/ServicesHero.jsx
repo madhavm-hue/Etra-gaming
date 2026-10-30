@@ -1,86 +1,128 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
+import { Anton, Manrope } from "next/font/google";
 import "./servicesHero.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--services-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--services-body",
+});
 
 export default function ServicesHero() {
   return (
-    <section className="services-hero">
+    <section
+      className={`etra-services-hero ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-services-title"
+    >
+      <div className="etra-services-hero__container">
+        <div className="etra-services-hero__main">
+          <div className="etra-services-hero__content">
+            <p className="etra-services-hero__eyebrow">
+              Our services
+            </p>
 
-      <div className="services-hero-container">
-
-        {/* LEFT CONTENT */}
-        <div className="services-hero-content">
-
-          <span className="services-hero-tag">
-            OUR SERVICES
-          </span>
-
-          <h1>
-            We build digital
-            <br />
-            experiences that{" "}
-            <span>move.</span>
-          </h1>
-
-          <p>
-            High-end 3D visualization, CGI, animation and real-time
-            interactive experiences for automotive, aerospace,
-            technology and industrial brands.
-          </p>
-
-          <div className="services-hero-buttons">
-
-            <Link
-              href="/portfolio"
-              className="services-hero-btn services-hero-primary"
+            <h1
+              id="etra-services-title"
+              className="etra-services-hero__title"
             >
-              VIEW OUR WORK
-              <span>→</span>
-            </Link>
+              We build digital
+              <span>experiences that</span>
+              <em>move.</em>
+            </h1>
 
-            <Link
-              href="/contact"
-              className="services-hero-btn services-hero-secondary"
-            >
-              DISCUSS A PROJECT
-              <span>→</span>
-            </Link>
+            <p className="etra-services-hero__description">
+              End-to-end game development, real-time interactive services
+              and CGI animation — from design and asset creation to
+              production and final delivery.
+            </p>
 
+            <div className="etra-services-hero__actions">
+              <Link
+                href="/portfolio"
+                className="etra-services-hero__primary"
+              >
+                View our work
+                <span aria-hidden="true">↗</span>
+              </Link>
+
+              <Link
+                href="/contact"
+                className="etra-services-hero__secondary"
+              >
+                Discuss a project
+                <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
           </div>
-        </div>
 
-
-        {/* RIGHT VISUAL */}
-        <div className="services-hero-visual">
-
-          <div className="services-hero-glow" />
-
-          <div className="services-hero-image-box">
-
-            <img
-              src="/images/hero/elephant.png"
-              alt="ETRA animation and digital experience"
-              className="services-hero-image"
+          <div className="etra-services-hero__visual">
+            <div
+              className="etra-services-hero__glow"
+              aria-hidden="true"
             />
 
+            <div className="etra-services-hero__art">
+              <Image
+                src="/images/hero/elephant.png"
+                alt="Stylized elephant character artwork from ETRA"
+                fill
+                priority
+                sizes="(max-width: 900px) 92vw, 46vw"
+                className="etra-services-hero__image"
+              />
+            </div>
           </div>
-
-
-          {/* DECORATIONS */}
-
-          <div className="hero-circle hero-circle-one" />
-
-          <div className="hero-circle hero-circle-two" />
-
-          <div className="hero-dot hero-dot-one" />
-
-          <div className="hero-dot hero-dot-two" />
-
         </div>
 
-      </div>
+        <nav
+          className="etra-services-hero__divisions"
+          aria-label="Explore services by division"
+        >
+          <a
+            href="#gaming-services"
+            className="etra-services-hero__division etra-services-hero__division--gaming"
+          >
+            <span className="etra-services-hero__division-number">
+              01 / ETRA Gaming
+            </span>
 
+            <span className="etra-services-hero__division-title">
+              Game development
+              <span aria-hidden="true">↓</span>
+            </span>
+
+            <span className="etra-services-hero__division-description">
+              Game development &amp; real-time interactive services
+            </span>
+          </a>
+
+          <a
+            href="#animation-services"
+            className="etra-services-hero__division etra-services-hero__division--animation"
+          >
+            <span className="etra-services-hero__division-number">
+              02 / ETRA Animation
+            </span>
+
+            <span className="etra-services-hero__division-title">
+              CGI animation
+              <span aria-hidden="true">↓</span>
+            </span>
+
+            <span className="etra-services-hero__division-description">
+              Core production pipeline &amp; technical services
+            </span>
+          </a>
+        </nav>
+      </div>
     </section>
   );
 }

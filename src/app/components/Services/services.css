@@ -1,410 +1,511 @@
-.home-services-section {
-  padding: 92px 0 110px;
-
-  background: var(--bg-primary);
-
-  transition: background-color 0.35s ease;
-}
-
-.home-services-container {
-  width: min(100% - 40px, 1280px);
-  margin: 0 auto;
-}
-
 /* =========================
-   Heading
+   V4 — SHARED FOUNDATION
 ========================= */
 
-.home-services-heading {
-  width: 100%;
-  margin: 0;
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-
-  gap: 40px;
-
-  text-align: left;
-}
-
-.home-services-heading-left {
-  max-width: 820px;
-}
-
-.home-services-label {
-  margin: 0;
-
-  color: var(--accent-pink);
-
-  font-size: 12px;
-  font-weight: 900;
-
-  letter-spacing: 1.6px;
-
-  text-transform: uppercase;
-}
-
-.home-services-title {
-  margin: 10px 0 0;
-
-  color: var(--text-primary);
-
-  font-size: clamp(30px, 4vw, 46px);
-  font-weight: 850;
-
-  line-height: 1.1;
-}
-
-/* =========================
-   View All Services
-========================= */
-
-.home-services-view-all {
-  flex-shrink: 0;
-
-  display: inline-flex;
-  align-items: center;
-
-  gap: 12px;
-
-  padding-bottom: 5px;
-
-  color: var(--accent-pink);
-
-  font-size: 12px;
-  font-weight: 900;
-
-  letter-spacing: 0.5px;
-
-  text-decoration: none;
-  text-transform: uppercase;
-
-  transition:
-    gap 0.25s ease,
-    color 0.25s ease;
-}
-
-.home-services-view-all span {
-  font-size: 20px;
-  line-height: 1;
-}
-
-.home-services-view-all:hover {
-  gap: 17px;
-
-  color: var(--accent-orange);
-}
-
-/* =========================
-   Services Grid
-   5 Cards - Single Row
-========================= */
-
-.home-services-grid {
-  width: 100%;
-
-  margin-top: 52px;
-
-  display: grid;
-
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-
-  gap: 14px;
-}
-
-/* =========================
-   Card
-========================= */
-
-.home-service-card {
-  position: relative;
+.etra-home-worlds {
+  --etra-worlds-bg: #07071b;
+  --etra-worlds-gaming-bg: #0c0925;
+  --etra-worlds-text: #ffffff;
+  --etra-worlds-muted: #b8b5c8;
+  --etra-worlds-violet: var(--accent-purple, #8a38ff);
+  --etra-worlds-pink: var(--accent-pink, #f50087);
+  --etra-worlds-rule: rgb(184 181 200 / 25%);
+  --etra-worlds-gutter: clamp(24px, 4.44vw, 128px);
 
   min-width: 0;
-  min-height: 340px;
+  color: var(--etra-worlds-text);
+  background: var(--etra-worlds-bg);
+  font-family:
+    var(--etra-services-body),
+    Arial,
+    sans-serif;
 
+  scroll-margin-top: 110px;
+}
+
+.etra-home-worlds,
+.etra-home-worlds *,
+.etra-home-worlds *::before,
+.etra-home-worlds *::after {
+  box-sizing: border-box;
+}
+
+.etra-worlds-container {
+  width: min(
+    calc(
+      100% -
+      var(--etra-worlds-gutter) -
+      var(--etra-worlds-gutter)
+    ),
+    2560px
+  );
+  margin-inline: auto;
+}
+
+/* =========================
+   SHARED STUDIO INTRO
+========================= */
+
+.etra-studio-intro {
+  padding-block: clamp(36px, 2.92vw, 72px);
+  background: var(--etra-worlds-bg);
+}
+
+.etra-studio-intro__inner {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(32px, 4.44vw, 96px);
+}
+
+.etra-studio-intro__title {
+  margin: 0;
+  color: var(--etra-worlds-text);
+  font-family:
+    var(--etra-services-display),
+    Impact,
+    sans-serif;
+  font-size: clamp(28px, 2.36vw, 52px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+
+.etra-studio-intro__title > span {
+  display: block;
+}
+
+.etra-studio-intro__description {
+  max-width: 760px;
+  margin: 0;
+  color: var(--etra-worlds-muted);
+  font-size: clamp(16px, 1.18vw, 23px);
+  line-height: 1.6;
+}
+
+/* =========================
+   GAMING SECTION
+========================= */
+
+.etra-gaming-section {
+  padding-block: clamp(48px, 4.44vw, 104px);
+  background: var(--etra-worlds-gaming-bg);
+  scroll-margin-top: 100px;
+}
+
+.etra-gaming-section__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 1.94vw, 48px);
+}
+
+/* =========================
+   SECTION HEADING
+========================= */
+
+.etra-gaming-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.etra-gaming-heading__title {
+  flex-shrink: 0;
+  margin: 0;
+  color: var(--etra-worlds-text);
+  font-family:
+    var(--etra-services-display),
+    Impact,
+    sans-serif;
+  font-size: clamp(44px, 4.31vw, 100px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.etra-gaming-heading__title > span {
+  display: block;
+}
+
+.etra-gaming-heading__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(42%, 650px);
+  padding-top: 6px;
+}
+
+.etra-gaming-heading__label {
+  margin: 0;
+  color: var(--etra-worlds-violet);
+  font-size: clamp(11px, 0.76vw, 16px);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.etra-gaming-heading__description {
+  margin: 0;
+  color: var(--etra-worlds-muted);
+  font-size: clamp(16px, 1.18vw, 23px);
+  line-height: 1.6;
+}
+
+.etra-gaming-heading__description > span {
+  display: block;
+}
+
+/* =========================
+   FEATURED PANORAMIC IMAGE
+========================= */
+
+.etra-gaming-feature {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  aspect-ratio: 1312 / 470;
+  margin: 0;
   overflow: hidden;
 
-  padding: 26px 20px;
-
-  border: 1px solid var(--card-border);
-  border-radius: 18px;
-
-  background: var(--card-bg);
-
-  box-shadow:
-    0 16px 40px var(--shadow-color);
-
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+  background: #151032;
 }
 
-.home-service-card::before {
-  content: "";
+.etra-gaming-feature__image {
+  object-fit: cover;
+  object-position: center;
+}
 
+.etra-gaming-feature__caption {
   position: absolute;
-  top: -70px;
-  right: -70px;
-
-  width: 160px;
-  height: 160px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 44, 168, 0.18),
-      transparent 68%
-    );
-
-  opacity: 0;
-
-  transition:
-    opacity 0.35s ease,
-    transform 0.5s ease;
-}
-
-.home-service-card:hover {
-  transform: translateY(-9px);
-
-  border-color: rgba(255, 44, 168, 0.4);
-
-  box-shadow:
-    0 26px 58px var(--shadow-color);
-}
-
-.home-service-card:hover::before {
-  opacity: 1;
-
-  transform: scale(1.25);
-}
-
-/* =========================
-   Icon
-========================= */
-
-.home-service-icon {
-  position: relative;
   z-index: 1;
+  right: clamp(16px, 2.22vw, 48px);
+  bottom: clamp(16px, 2.22vw, 48px);
+  left: clamp(16px, 2.22vw, 48px);
 
-  width: 54px;
-  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 
-  margin-bottom: 28px;
+  min-height: 54px;
+  padding: 14px 24px;
 
-  display: grid;
-  place-items: center;
-
-  border: 1px solid rgba(255, 44, 168, 0.22);
-  border-radius: 14px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 44, 168, 0.14),
-      rgba(109, 92, 255, 0.14)
-    );
-
-  color: var(--accent-pink);
-
-  font-size: 24px;
-
-  transition:
-    transform 0.35s ease,
-    background 0.35s ease,
-    color 0.35s ease;
+  background: var(--etra-worlds-gaming-bg);
+  color: var(--etra-worlds-text);
 }
 
-.home-service-card:hover .home-service-icon {
-  transform: rotate(-5deg) scale(1.08);
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff2ca8,
-      #6d5cff
-    );
-
-  color: #ffffff;
+.etra-gaming-feature__category {
+  font-size: clamp(12px, 1.11vw, 20px);
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
-/* =========================
-   Title
-========================= */
-
-.home-service-title {
-  position: relative;
-  z-index: 1;
-
-  margin: 0 0 14px;
-
-  color: var(--text-primary);
-
-  font-size: 18px;
-  font-weight: 850;
-
-  line-height: 1.25;
-}
-
-/* =========================
-   Description
-========================= */
-
-.home-service-description {
-  position: relative;
-  z-index: 1;
-
-  margin: 0;
-
-  color: var(--text-secondary);
-
-  font-size: 13px;
-
-  line-height: 1.7;
-}
-
-/* =========================
-   Card Arrow
-========================= */
-
-.home-service-link {
-  position: absolute;
-  right: 20px;
-  bottom: 24px;
-  z-index: 1;
-
+.etra-gaming-feature__link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
+  flex-shrink: 0;
 
-  color: var(--accent-pink);
-
-  font-size: 20px;
-  font-weight: 900;
-
+  min-height: 28px;
+  color: var(--etra-worlds-text);
+  font-size: clamp(11px, 0.83vw, 16px);
+  line-height: 1.5;
   text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color 180ms ease;
+}
+
+.etra-gaming-feature__link:hover {
+  color: #c8a4ff;
+}
+
+/* =========================
+   EDITORIAL SERVICE INDEX
+========================= */
+
+.etra-gaming-services {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.etra-gaming-services__item {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--etra-worlds-rule);
+}
+
+.etra-gaming-services__link {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    32px;
+  align-items: center;
+  gap: 32px;
+
+  min-height: 92px;
+  padding-block: 22px;
+
+  color: var(--etra-worlds-text);
+  text-decoration: none;
+}
+
+.etra-gaming-services__identity {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(16px, 1.67vw, 32px);
+  min-width: 0;
+}
+
+.etra-gaming-services__number {
+  flex-shrink: 0;
+  color: var(--etra-worlds-muted);
+  font-size: clamp(13px, 1.11vw, 20px);
+  line-height: 1.5;
+}
+
+.etra-gaming-services__title {
+  margin: 0;
+  color: var(--etra-worlds-text);
+  font-size: clamp(19px, 1.67vw, 34px);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.etra-gaming-services__description {
+  margin: 0;
+  color: var(--etra-worlds-muted);
+  font-size: clamp(14px, 0.98vw, 20px);
+  line-height: 1.6;
+}
+
+.etra-gaming-services__arrow {
+  justify-self: end;
+  color: var(--etra-worlds-violet);
+  font-size: 28px;
+  line-height: 1;
 
   transition:
-    transform 0.25s ease,
-    color 0.25s ease;
+    transform 180ms ease,
+    color 180ms ease;
 }
 
-.home-service-link:hover {
-  color: var(--accent-orange);
-
-  transform: translate(3px, -3px);
-}
-
-/* =========================
-   Smaller Desktop
-========================= */
-
-@media (max-width: 1180px) {
-  .home-services-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 18px;
-  }
-
-  .home-service-card {
-    min-height: 300px;
-
-    padding: 28px;
-  }
-
-  .home-service-link {
-    right: 28px;
-  }
+.etra-gaming-services__link:hover
+  .etra-gaming-services__arrow {
+  color: #c8a4ff;
+  transform: translateX(5px);
 }
 
 /* =========================
-   Tablet
+   CONTACT BUTTON
 ========================= */
 
-@media (max-width: 800px) {
-  .home-services-heading {
-    align-items: flex-start;
-    flex-direction: column;
+.etra-gaming-action {
+  display: flex;
+  align-items: flex-start;
+}
 
+.etra-gaming-action__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  min-height: 54px;
+  max-width: 100%;
+  padding: 16px 24px;
+
+  border: 1px solid transparent;
+  border-radius: 0;
+
+  background: linear-gradient(
+    110deg,
+    var(--etra-worlds-violet),
+    var(--etra-worlds-pink)
+  );
+
+  color: #ffffff;
+  font-family:
+    var(--etra-services-body),
+    Arial,
+    sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+
+  transition: filter 180ms ease;
+}
+
+.etra-gaming-action__button:hover {
+  filter: brightness(1.12);
+}
+
+.etra-gaming-feature__link:focus-visible,
+.etra-gaming-services__link:focus-visible,
+.etra-gaming-action__button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .etra-gaming-heading {
+    gap: 32px;
+  }
+
+  .etra-gaming-heading__copy {
+    width: 46%;
+  }
+
+  .etra-gaming-feature {
+    aspect-ratio: 2.4 / 1;
+  }
+
+  .etra-gaming-services__link {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 0.9fr)
+      24px;
+    gap: 20px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 760px) {
+  .etra-studio-intro {
+    padding-block: 36px;
+  }
+
+  .etra-studio-intro__inner {
+    grid-template-columns: minmax(0, 1fr);
     gap: 22px;
   }
 
-  .home-services-view-all {
-    align-self: flex-start;
+  .etra-studio-intro__title {
+    font-size: 32px;
   }
 
-  .home-services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .etra-studio-intro__description {
+    max-width: 560px;
+    font-size: 16px;
+  }
+
+  .etra-gaming-section {
+    padding-block: 44px;
+  }
+
+  .etra-gaming-section__inner {
+    gap: 28px;
+  }
+
+  .etra-gaming-heading {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .etra-gaming-heading__title {
+    font-size: clamp(44px, 9vw, 64px);
+  }
+
+  .etra-gaming-heading__copy {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .etra-gaming-heading__description {
+    font-size: 16px;
+  }
+
+  .etra-gaming-feature {
+    aspect-ratio: 4 / 3;
+  }
+
+  .etra-gaming-feature__caption {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    padding: 14px 16px;
+  }
+
+  .etra-gaming-feature__category {
+    font-size: 11px;
+  }
+
+  .etra-gaming-feature__link {
+    min-height: 32px;
+    font-size: 10px;
+  }
+
+  .etra-gaming-services__link {
+    grid-template-columns: minmax(0, 1fr) 28px;
+    gap: 12px 16px;
+    min-height: 0;
+    padding-block: 24px;
+  }
+
+  .etra-gaming-services__identity {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 14px;
+  }
+
+  .etra-gaming-services__title {
+    font-size: 20px;
+  }
+
+  .etra-gaming-services__number {
+    font-size: 13px;
+  }
+
+  .etra-gaming-services__description {
+    grid-column: 1;
+    grid-row: 2;
+    padding-left: 32px;
+    font-size: 14px;
+  }
+
+  .etra-gaming-services__arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
   }
 }
 
 /* =========================
-   Mobile
+   REDUCED MOTION
 ========================= */
 
-@media (max-width: 600px) {
-  .home-services-section {
-    padding: 70px 0 82px;
+@media (prefers-reduced-motion: reduce) {
+  .etra-gaming-feature__link,
+  .etra-gaming-services__arrow,
+  .etra-gaming-action__button {
+    transition: none;
   }
 
-  .home-services-container {
-    width: min(100% - 28px, 600px);
-  }
-
-  .home-services-title {
-    font-size: 30px;
-  }
-
-  .home-services-grid {
-    margin-top: 36px;
-
-    grid-template-columns: 1fr;
-
-    gap: 16px;
-  }
-
-  .home-service-card {
-    min-height: 280px;
-
-    padding: 26px;
-  }
-
-  .home-service-link {
-    right: 26px;
-    bottom: 24px;
-  }
-}
-
-/* =========================
-   Small Mobile
-========================= */
-
-@media (max-width: 390px) {
-  .home-services-container {
-    width: min(100% - 22px, 600px);
-  }
-
-  .home-services-title {
-    font-size: 29px;
-  }
-
-  .home-service-card {
-    min-height: 270px;
-
-    padding: 23px;
-  }
-
-  .home-service-icon {
-    width: 50px;
-    height: 50px;
-
-    margin-bottom: 23px;
-  }
-
-  .home-service-link {
-    right: 23px;
+  .etra-gaming-services__link:hover
+    .etra-gaming-services__arrow {
+    transform: none;
   }
 }

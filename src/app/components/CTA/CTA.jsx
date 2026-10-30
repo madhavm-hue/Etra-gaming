@@ -1,38 +1,54 @@
-import "./cta.css";
+import { Anton, Manrope } from "next/font/google";
 import MagneticButton from "../MagneticButton/MagneticButton";
+import "./cta.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--cta-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--cta-body",
+});
 
 export default function CTA() {
   return (
-    <section className="cta-section" id="contact">
-      <div className="cta-container">
-        <div className="cta-card">
-          <div className="cta-glow cta-glow-one" />
-          <div className="cta-glow cta-glow-two" />
+    <section
+      id="contact"
+      className={`etra-home-cta ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-cta-title"
+    >
+      <div className="etra-home-cta__container">
+        <div className="etra-home-cta__content">
+          <h2
+            id="etra-cta-title"
+            className="etra-home-cta__title"
+          >
+            Have a project
+            <span>in mind?</span>
+          </h2>
 
-          <div className="cta-content">
-            <div className="cta-text">
-              <h2>Have a project in mind?</h2>
-
-              <p>
-                Let&apos;s create something extraordinary together.
-              </p>
-            </div>
+          <div className="etra-home-cta__action">
+            <p className="etra-home-cta__description">
+              Let&apos;s create something extraordinary together.
+            </p>
 
             <MagneticButton
-             href="/contact"
-              className="cta-button"
+              href="/contact"
+              className="etra-home-cta__button"
             >
-              <span>DISCUSS A PROJECT</span>
-              <span className="cta-arrow" aria-hidden="true">
+              <span>Discuss a project</span>
+              <span
+                className="etra-home-cta__arrow"
+                aria-hidden="true"
+              >
                 ↗
               </span>
             </MagneticButton>
-          </div>
-
-          <div className="cta-decoration" aria-hidden="true">
-            <span className="cta-ring cta-ring-one" />
-            <span className="cta-ring cta-ring-two" />
-            <span className="cta-orb" />
           </div>
         </div>
       </div>

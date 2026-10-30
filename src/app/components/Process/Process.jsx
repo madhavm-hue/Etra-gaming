@@ -1,4 +1,18 @@
+import { Anton, Manrope } from "next/font/google";
 import "./process.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--process-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--process-body",
+});
 
 const processSteps = [
   {
@@ -29,45 +43,57 @@ const processSteps = [
 
 export default function Process() {
   return (
-    <section className="home-process-section" id="process">
-      <div className="home-process-container">
-
-        <div className="home-process-heading">
-          <p className="home-process-label">
-            OUR PROCESS
+    <section
+      id="process"
+      className={`etra-home-process ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-process-title"
+    >
+      <div className="etra-home-process__container">
+        <header className="etra-home-process__heading">
+          <p className="etra-home-process__eyebrow">
+            Our process
           </p>
 
-          <h2 className="home-process-title">
-            A simple process. Exceptional results.
+          <h2
+            id="etra-process-title"
+            className="etra-home-process__title"
+          >
+            A simple process.
+            <span>Exceptional results.</span>
           </h2>
-        </div>
+        </header>
 
-        <div className="home-process-grid">
+        <ol className="etra-home-process__steps">
           {processSteps.map((step) => (
-            <article
-              className="home-process-card"
+            <li
               key={step.number}
+              className="etra-home-process__step"
             >
-              <div className="home-process-number">
+              <span
+                className="etra-home-process__number"
+                aria-hidden="true"
+              >
                 {step.number}
-              </div>
+              </span>
 
               <div
-                className="home-process-dot"
+                className="etra-home-process__connector"
                 aria-hidden="true"
-              />
+              >
+                <span className="etra-home-process__dot" />
+                <span className="etra-home-process__arrow">→</span>
+              </div>
 
-              <h3 className="home-process-card-title">
+              <h3 className="etra-home-process__step-title">
                 {step.title}
               </h3>
 
-              <p className="home-process-card-description">
+              <p className="etra-home-process__description">
                 {step.description}
               </p>
-            </article>
+            </li>
           ))}
-        </div>
-
+        </ol>
       </div>
     </section>
   );

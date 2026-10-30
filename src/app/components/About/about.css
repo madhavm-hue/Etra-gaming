@@ -1,469 +1,351 @@
-.about-section {
-  padding: 90px 0;
+.etra-home-studio {
+  --studio-gutter: clamp(24px, 4.44vw, 128px);
+  --studio-pink: #f50087;
+  --studio-purple: #8a38ff;
 
-  background: var(--bg-primary);
+  padding: 80px 0;
+
+  background: #0c0925;
+  color: #ffffff;
+
+  font-family: var(--studio-body), sans-serif;
 }
 
-
-.about-container {
-  width: min(100% - 40px, 1280px);
-
-  margin: 0 auto;
+.etra-home-studio,
+.etra-home-studio * {
+  box-sizing: border-box;
 }
 
+.etra-home-studio__container {
+  width: min(
+    calc(100% - var(--studio-gutter) - var(--studio-gutter)),
+    2560px
+  );
+  margin-inline: auto;
 
-/* =========================
-SHOWREEL CARD
-========================= */
-
-.showreel-card {
-  overflow: hidden;
-
-  border: 1px solid var(--card-border);
-
-  border-radius: 24px;
-
-  background: var(--card-bg);
-
-  box-shadow:
-    0 22px 55px var(--shadow-color);
-}
-
-
-/* =========================
-VISUAL
-========================= */
-
-.about-visual {
-  position: relative;
-
-  min-height: 520px;
-
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: center;
-
-  padding: 60px;
-
-  overflow: hidden;
-
-  background:
-    url("/images/hero/Parrot.png")
-    right bottom / contain
-    no-repeat,
-
-    linear-gradient(
-      135deg,
-      #12122f 0%,
-      #1b1440 45%,
-      #ff2ca8 140%
-    );
+  gap: clamp(32px, 5vw, 100px);
 }
 
+/* Studio introduction */
 
-/* =========================
-OVERLAY
-========================= */
-
-.about-overlay {
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(8, 8, 25, 0.82),
-      rgba(8, 8, 25, 0.42),
-      rgba(8, 8, 25, 0.08)
-    );
-
-  pointer-events: none;
+.etra-home-studio__copy {
+  min-width: 0;
 }
 
+.etra-home-studio__eyebrow {
+  margin: 0 0 24px;
 
-/* =========================
-CONTENT
-========================= */
+  color: var(--studio-pink);
 
-.showreel-content {
-  position: relative;
-
-  z-index: 2;
-
-  max-width: 560px;
-}
-
-
-/* =========================
-LABEL
-========================= */
-
-.showreel-label {
-  margin: 0;
-
-  color: #ff2ca8;
-
-  font-size: 12px;
-  font-weight: 900;
-
-  letter-spacing: 2px;
-
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-
-/* =========================
-TITLE
-========================= */
-
-.showreel-content h2 {
-  margin: 16px 0;
+.etra-home-studio__title {
+  margin: 0;
 
   color: #ffffff;
 
-  font-size:
-    clamp(
-      42px,
-      5vw,
-      64px
-    );
-
-  line-height: 1.05;
-
-  font-weight: 900;
+  font-family: var(--studio-display), sans-serif;
+  font-size: clamp(40px, 4.3vw, 96px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
+.etra-home-studio__title span {
+  display: block;
+  margin-top: 8px;
 
-.showreel-content h2 span {
-  color: #ff2ca8;
+  color: var(--studio-pink);
 }
 
+.etra-home-studio__description {
+  max-width: 480px;
+  margin: 28px 0 0;
 
-/* =========================
-DESCRIPTION
-========================= */
+  color: #b8b5c8;
 
-.showreel-description {
-  max-width: 500px;
-
-  margin-bottom: 36px;
-
-  color:
-    rgba(255, 255, 255, 0.82);
-
-  font-size: 16px;
-
+  font-size: clamp(15px, 1.12vw, 19px);
   line-height: 1.8;
 }
 
+/* Navigation */
 
-/* =========================
-SHOWREEL BUTTON
-========================= */
+.etra-home-studio__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 
-.showreel-button {
+  margin-top: 32px;
+}
+
+.etra-home-studio__showreel {
   display: inline-flex;
   align-items: center;
+  gap: 16px;
 
-  gap: 18px;
+  min-height: 76px;
+  padding: 12px 20px 12px 12px;
 
-  padding: 15px 28px;
+  border: 1px solid rgb(255 255 255 / 18%);
 
-  border: none;
-
-  border-radius: 999px;
-
-  background: #ffffff;
-
-  color: #111111;
+  background: rgb(255 255 255 / 3%);
+  color: #ffffff;
 
   text-decoration: none;
 
-  cursor: pointer;
-
   transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+    border-color 200ms ease,
+    background-color 200ms ease;
 }
 
-
-.showreel-button:hover {
-  transform:
-    translateY(-4px);
-
-  box-shadow:
-    0 16px 38px
-    rgba(0, 0, 0, 0.20);
+.etra-home-studio__showreel:hover {
+  border-color: var(--studio-pink);
+  background: rgb(245 0 135 / 8%);
 }
 
-
-/* =========================
-PLAY ICON
-========================= */
-
-.play-icon {
-  width: 56px;
-  height: 56px;
+.etra-home-studio__play {
+  flex-shrink: 0;
 
   display: grid;
-
   place-items: center;
 
-  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  padding-left: 3px;
 
   border-radius: 50%;
 
-  background:
-    linear-gradient(
-      135deg,
-      #ff2ca8,
-      #6d5cff
-    );
-
+  background: linear-gradient(
+    135deg,
+    var(--studio-purple),
+    var(--studio-pink)
+  );
   color: #ffffff;
 
-  font-size: 18px;
-
-  box-shadow:
-    0 8px 24px
-    rgba(255, 44, 168, 0.25);
+  font-size: 15px;
 }
 
-
-/* =========================
-BUTTON TEXT
-========================= */
-
-.showreel-button small {
-  display: block;
-
-  color: #888888;
-
-  font-size: 11px;
-
-  font-weight: 700;
-}
-
-
-.showreel-button span:last-child {
+.etra-home-studio__button-copy {
   display: flex;
-
   flex-direction: column;
+  gap: 4px;
 
-  align-items: flex-start;
-
-  color: #111111;
-
-  font-weight: 800;
-
-  line-height: 1.25;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
+.etra-home-studio__button-copy small {
+  color: #b8b5c8;
 
-/* =========================
-ABOUT CONTENT
-========================= */
-
-.about-content {
-  display: grid;
-
-  grid-template-columns:
-    1.1fr 1fr;
-
-  gap: 50px;
-
-  padding: 55px;
-}
-
-
-.about-label {
-  margin: 0;
-
-  color: var(--accent-pink);
-
-  font-size: 12px;
-
-  font-weight: 900;
-
-  letter-spacing: 2px;
-
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
+.etra-home-studio__arrow {
+  margin-left: 16px;
 
-.about-copy h3 {
-  margin: 12px 0 18px;
-
-  color: var(--text-primary);
-
-  font-size: 38px;
-
-  line-height: 1.15;
+  color: var(--studio-pink);
+  font-size: 22px;
 }
 
+.etra-home-studio__about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
 
-.about-copy p:last-child {
-  color: var(--text-secondary);
+  min-height: 44px;
 
-  line-height: 1.8;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color 200ms ease;
 }
 
+.etra-home-studio__about-link span {
+  color: var(--studio-pink);
+  font-size: 20px;
+}
 
-/* =========================
-STATS
-========================= */
+.etra-home-studio__about-link:hover {
+  color: var(--studio-pink);
+}
 
-.stats-grid {
+.etra-home-studio__showreel:focus-visible,
+.etra-home-studio__about-link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}
+
+/* Three distinct studio photographs */
+
+.etra-home-studio__gallery {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 18px;
+  min-width: 0;
 }
 
+.etra-home-studio .etra-home-studio__main-photo,
+.etra-home-studio .etra-home-studio__small-photo {
+  position: relative;
 
-.stat-card {
-  padding: 24px;
+  min-width: 0;
+  overflow: hidden;
 
-  border:
-    1px solid var(--card-border);
-
-  border-radius: 18px;
-
-  background: var(--bg-secondary);
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease;
+  border: 1px solid rgb(255 255 255 / 10%);
+  background: #07071b;
 }
 
-
-.stat-card:hover {
-  transform:
-    translateY(-6px);
-
-  border-color:
-    rgba(255, 44, 168, 0.28);
+.etra-home-studio__main-photo {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
 }
 
-
-.stat-card strong {
-  display: block;
-
-  color: var(--accent-pink);
-
-  font-size: 34px;
-
-  font-weight: 900;
+.etra-home-studio__small-photo {
+  aspect-ratio: 16 / 9;
 }
 
-
-.stat-card span {
-  display: block;
-
-  margin-top: 8px;
-
-  color: var(--text-secondary);
-
-  font-size: 13px;
-
-  line-height: 1.5;
+.etra-home-studio .etra-home-studio__image {
+  object-fit: contain;
+  object-position: center;
 }
 
+/* Tablet */
 
-/* =========================
-TABLET
-========================= */
+@media (max-width: 1100px) {
+  .etra-home-studio__title {
+    font-size: clamp(38px, 4.5vw, 50px);
+  }
 
-@media (max-width: 1000px) {
+  .etra-home-studio__gallery {
+    gap: 12px;
+  }
+}
 
-  .about-content {
+@media (max-width: 900px) {
+  .etra-home-studio__container {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
+  .etra-home-studio__copy {
+    max-width: 680px;
+  }
+
+  .etra-home-studio__title {
+    font-size: clamp(40px, 6vw, 60px);
+  }
+
+  .etra-home-studio__description {
+    max-width: 560px;
+  }
 }
 
+/* Mobile */
 
-/* =========================
-MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-  .about-section {
-    padding: 70px 0;
+@media (max-width: 600px) {
+  .etra-home-studio {
+    --studio-gutter: 24px;
+    padding: 56px 0;
   }
 
-
-  .about-container {
-    width:
-      min(
-        100% - 28px,
-        600px
-      );
+  .etra-home-studio__eyebrow {
+    margin-bottom: 20px;
   }
 
-
-  .about-visual {
-    min-height: 480px;
-
-    padding:
-      34px 24px;
-
-    background-position:
-      center bottom;
-
-    background-size:
-      contain;
+  .etra-home-studio__title {
+    font-size: clamp(36px, 8vw, 48px);
   }
 
-
-  .about-overlay {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(8, 8, 25, 0.72),
-        rgba(8, 8, 25, 0.60),
-        rgba(8, 8, 25, 0.35)
-      );
+  .etra-home-studio__description {
+    margin-top: 24px;
+    font-size: 15px;
   }
 
-
-  .showreel-content h2 {
-    font-size: 42px;
+  .etra-home-studio__actions {
+    margin-top: 28px;
+    gap: 16px;
   }
 
+  .etra-home-studio__gallery {
+    gap: 10px;
+  }
+}
 
-  .showreel-description {
-    font-size: 14px;
+@media (max-width: 390px) {
+  .etra-home-studio {
+    --studio-gutter: 20px;
   }
 
-
-  .showreel-button {
-    padding:
-      13px 22px;
-
-    gap: 14px;
+  .etra-home-studio__showreel {
+    gap: 12px;
+    padding-right: 16px;
   }
 
+  .etra-home-studio__arrow {
+    margin-left: 8px;
+  }
+}
 
-  .play-icon {
-    width: 50px;
-    height: 50px;
+@media (prefers-reduced-motion: reduce) {
+  .etra-home-studio__showreel,
+  .etra-home-studio__about-link {
+    transition: none;
+  }
+}
+/* Match the gallery to the portrait studio photos */
+
+.etra-home-studio__gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 12px;
+}
+
+.etra-home-studio .etra-home-studio__main-photo,
+.etra-home-studio .etra-home-studio__small-photo {
+  grid-column: auto;
+  aspect-ratio: 3 / 4;
+  border: 0;
+}
+
+.etra-home-studio .etra-home-studio__image {
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .etra-home-studio__gallery {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .etra-home-studio__gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
-
-  .about-content {
-    padding:
-      32px 24px;
-
-    gap: 32px;
+  .etra-home-studio .etra-home-studio__main-photo {
+    grid-column: 1 / -1;
+    width: 65%;
+    justify-self: center;
   }
-
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
 }

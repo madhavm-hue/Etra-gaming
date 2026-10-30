@@ -1,415 +1,367 @@
-.footer {
-  position: relative;
-  overflow: hidden;
+.etra-site-footer {
+  --footer-gutter: clamp(24px, 4.44vw, 128px);
+  --footer-pink: #f50087;
+  --footer-purple: #8a38ff;
+  --footer-orange: #ff641f;
 
-  padding: 0;
+  border-top: 1px solid rgb(255 255 255 / 12%);
 
-  background: var(--bg-secondary);
+  background: #07071b;
+  color: #ffffff;
 
-  border-top: 1px solid var(--card-border);
+  font-family: var(--footer-body), sans-serif;
 }
 
-/* =========================
-   TOP GRADIENT LINE
-========================= */
+.etra-site-footer,
+.etra-site-footer * {
+  box-sizing: border-box;
+}
 
-.footer-top-line {
-  width: 100%;
-  height: 2px;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #ff2ca8,
-    #6d5cff,
-    #ff2ca8,
-    transparent
+.etra-site-footer__container {
+  width: min(
+    calc(100% - var(--footer-gutter) - var(--footer-gutter)),
+    2560px
   );
+
+  margin-inline: auto;
 }
 
-/* =========================
-   MAIN CONTAINER
-========================= */
+/* Four columns */
 
-.footer-container {
-  width: min(100% - 40px, 1280px);
-
-  margin: 0 auto;
-
-  padding: 70px 0 64px;
-
+.etra-site-footer__main {
   display: grid;
-
   grid-template-columns:
-    minmax(300px, 1.7fr)
-    minmax(120px, 0.7fr)
-    minmax(190px, 1fr)
-    minmax(280px, 1.3fr);
-
+    minmax(0, 1.3fr)
+    minmax(0, 0.6fr)
+    minmax(0, 1fr)
+    minmax(0, 1.2fr);
   align-items: start;
+  gap: clamp(24px, 3vw, 72px);
 
-  gap: 45px;
+  padding: 64px 0 48px;
 }
 
-/* =========================
-   BRAND
-========================= */
-
-.footer-brand h2 {
-  margin: 0;
-
-  color: var(--text-primary);
-
-  font-size: 40px;
-  font-weight: 900;
-  line-height: 1;
+.etra-site-footer__main > * {
+  min-width: 0;
 }
 
-.footer-brand p {
-  max-width: 410px;
+/* Brand */
 
-  margin: 26px 0 28px;
-
-  color: var(--text-secondary);
-
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-/* =========================
-   SOCIALS
-========================= */
-
-.footer-socials {
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 12px;
-}
-
-.footer-socials a {
-  padding: 10px 18px;
-
-  border: 1px solid var(--card-border);
-  border-radius: 999px;
-
-  color: var(--text-secondary);
-
-  font-size: 13px;
-  font-weight: 700;
-
-  text-decoration: none;
-
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease;
-}
-
-.footer-socials a:hover {
-  background: linear-gradient(
-    135deg,
-    #ff2ca8,
-    #6d5cff
-  );
-
-  border-color: transparent;
+.etra-site-footer__wordmark {
+  display: inline-block;
 
   color: #ffffff;
 
-  transform: translateY(-3px);
+  font-family: var(--footer-display), sans-serif;
+  font-size: clamp(56px, 5vw, 104px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-decoration: none;
 }
 
-/* =========================
-   HEADINGS
-========================= */
-
-.footer-links h4,
-.footer-contact h4 {
-  margin: 0 0 24px;
-
-  color: var(--text-primary);
-
-  font-size: 17px;
-  font-weight: 800;
-  line-height: 1.2;
+.etra-site-footer__wordmark span {
+  color: var(--footer-pink);
 }
 
-/* =========================
-   EXPLORE / SERVICES
-========================= */
+.etra-site-footer__description {
+  max-width: 360px;
+  margin: 24px 0;
 
-.footer-links ul {
+  color: #b8b5c8;
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Links to the two homepage divisions */
+
+.etra-site-footer__worlds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.etra-site-footer__world {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 44px;
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.etra-site-footer__world--gaming {
+  color: #b17aff;
+}
+
+.etra-site-footer__world--animation {
+  color: var(--footer-orange);
+}
+
+.etra-site-footer__world span {
+  font-size: 18px;
+}
+
+/* Column headings */
+
+.etra-site-footer__heading {
+  margin: 8px 0 24px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Navigation and service lists */
+
+.etra-site-footer__links,
+.etra-site-footer__services {
+  display: grid;
+  gap: 12px;
+
   margin: 0;
   padding: 0;
 
   list-style: none;
 }
 
-.footer-links li {
-  margin: 0 0 15px;
+.etra-site-footer__links li,
+.etra-site-footer__services li {
+  color: #b8b5c8;
 
-  color: var(--text-secondary);
-
-  font-size: 14px;
-  line-height: 1.5;
-
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-.footer-links a {
+.etra-site-footer__links a {
+  display: inline-block;
+
+  padding-block: 3px;
+
   color: inherit;
-
   text-decoration: none;
+
+  transition: color 200ms ease;
 }
 
-.footer-links li:hover {
-  color: var(--accent-pink);
-
-  transform: translateX(5px);
+.etra-site-footer__links a:hover {
+  color: var(--footer-pink);
 }
 
-/* =========================
-   CONTACT
-========================= */
-
-.footer-contact {
-  min-width: 0;
+.etra-site-footer__service-group
+  + .etra-site-footer__service-group {
+  margin-top: 24px;
 }
 
-.footer-contact-item {
+.etra-site-footer__group-label {
+  margin: 0 0 12px;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.etra-site-footer__group-label--gaming {
+  color: #b17aff;
+}
+
+.etra-site-footer__group-label--animation {
+  color: var(--footer-orange);
+}
+
+/* Contact */
+
+.etra-site-footer__contact-item {
   margin-bottom: 20px;
 }
 
-.footer-contact-label {
-  display: block;
-
-  margin-bottom: 6px;
-
-  color: var(--text-primary);
-
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.3;
-}
-
-/* Phone */
-
-.footer-phone {
-  display: inline-block;
-
-  color: var(--text-secondary);
-
-  font-size: 14px;
-  line-height: 1.6;
-
-  text-decoration: none;
-
-  transition: color 0.25s ease;
-}
-
-.footer-phone:hover {
-  color: var(--accent-pink);
-}
-
-/* Address */
-
-.footer-contact address {
-  margin: 0;
-
-  color: var(--text-secondary);
-
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-
-  line-height: 1.65;
-}
-
-/* =========================
-   BACK TO TOP
-========================= */
-
-.scroll-top {
-  margin-top: 8px;
-
-  padding: 12px 22px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 8px;
-
-  border: none;
-  border-radius: 999px;
-
-  background: linear-gradient(
-    135deg,
-    #ff2ca8,
-    #6d5cff
-  );
+.etra-site-footer__contact-label {
+  margin: 0 0 8px;
 
   color: #ffffff;
 
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.etra-site-footer__phone {
+  display: inline-block;
+
+  color: #b8b5c8;
+
   font-size: 13px;
-  font-weight: 800;
+  line-height: 1.7;
+  text-decoration: none;
+
+  transition: color 200ms ease;
+}
+
+.etra-site-footer__phone:hover {
+  color: var(--footer-pink);
+}
+
+.etra-site-footer__address {
+  margin: 0;
+
+  color: #b8b5c8;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+/* Back to top */
+
+.etra-site-footer__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+
+  min-height: 44px;
+  margin-top: 4px;
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 
   cursor: pointer;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
 }
 
-.scroll-top span {
-  font-size: 16px;
-  line-height: 1;
+.etra-site-footer__back span {
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 50%;
+
+  color: var(--footer-pink);
+
+  font-size: 18px;
+
+  transition: border-color 200ms ease;
 }
 
-.scroll-top:hover {
-  transform: translateY(-4px);
-
-  box-shadow:
-    0 16px 35px rgba(255, 44, 168, 0.35);
+.etra-site-footer__back:hover span {
+  border-color: var(--footer-pink);
 }
 
-/* =========================
-   FOOTER BOTTOM
-========================= */
+/* Bottom row */
 
-.footer-bottom {
-  width: min(100% - 40px, 1280px);
-
-  margin: 0 auto;
-
-  padding: 24px 0 34px;
-
+.etra-site-footer__bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 
-  gap: 30px;
+  padding: 24px 0 28px;
 
-  border-top: 1px solid var(--card-border);
+  border-top: 1px solid rgb(255 255 255 / 12%);
 
-  color: var(--text-secondary);
+  color: #b8b5c8;
 
-  font-size: 13px;
+  font-size: 11px;
+  line-height: 1.7;
 }
 
-.footer-bottom strong {
-  color: var(--accent-pink);
+.etra-site-footer__bottom strong {
+  color: #ffffff;
+  font-weight: 600;
 }
 
-/* =========================
-   SMALL DESKTOP
-========================= */
+/* Keyboard focus */
 
-@media (max-width: 1150px) {
-  .footer-container {
-    grid-template-columns:
-      1.5fr
-      0.75fr
-      1fr
-      1.25fr;
-
-    gap: 30px;
-  }
-
-  .footer-brand p {
-    max-width: 350px;
-  }
+.etra-site-footer a:focus-visible,
+.etra-site-footer button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
 }
 
-/* =========================
-   TABLET
-========================= */
+/* Tablet */
 
-@media (max-width: 950px) {
-  .footer-container {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    gap: 48px 40px;
-  }
-
-  .footer-brand p {
-    max-width: 440px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-
-    gap: 14px;
-
-    text-align: center;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-  .footer-container {
-    width: min(100% - 28px, 600px);
-
-    padding: 55px 0;
-
-    grid-template-columns: 1fr;
-
+@media (max-width: 1050px) {
+  .etra-site-footer__main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 40px;
   }
+}
 
-  .footer-brand h2 {
-    font-size: 36px;
+/* Mobile */
+
+@media (max-width: 600px) {
+  .etra-site-footer {
+    --footer-gutter: 24px;
   }
 
-  .footer-brand p {
-    max-width: 100%;
+  .etra-site-footer__main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 20px;
+
+    padding: 48px 0 36px;
   }
 
-  .footer-socials {
-    justify-content: flex-start;
+  .etra-site-footer__brand,
+  .etra-site-footer__contact {
+    grid-column: 1 / -1;
   }
 
-  .footer-contact {
-    max-width: 100%;
+  .etra-site-footer__wordmark {
+    font-size: 64px;
   }
 
-  .footer-bottom {
-    width: min(100% - 28px, 600px);
+  .etra-site-footer__description {
+    max-width: 420px;
+  }
 
-    padding: 22px 0 28px;
+  .etra-site-footer__heading {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .etra-site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    padding: 22px 0 24px;
   }
 }
 
-/* =========================
-   SMALL MOBILE
-========================= */
-
 @media (max-width: 390px) {
-  .footer-container,
-  .footer-bottom {
-    width: min(100% - 22px, 600px);
+  .etra-site-footer {
+    --footer-gutter: 20px;
   }
+}
 
-  .footer-socials {
-    gap: 8px;
-  }
-
-  .footer-socials a {
-    padding: 9px 14px;
-
-    font-size: 12px;
-  }
-
-  .footer-contact address,
-  .footer-phone {
-    font-size: 13px;
+@media (prefers-reduced-motion: reduce) {
+  .etra-site-footer__links a,
+  .etra-site-footer__phone,
+  .etra-site-footer__back span {
+    transition: none;
   }
 }

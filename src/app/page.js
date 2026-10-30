@@ -8,6 +8,7 @@ import Services from "./components/Services/Services";
 import Projects from "./components/FeaturedWork/Projects";
 import Process from "./components/Process/Process";
 import CTA from "./components/CTA/CTA";
+import HomeAnimation from "./components/HomeAnimation/HomeAnimation";
 import Loader from "./components/Loader/Loader";
 import Footer from "./components/Footer/Footer";
 
@@ -27,6 +28,11 @@ export default function Home() {
       <Reveal delay={0.05}>
         <Services />
       </Reveal>
+
+      {/* Animation */}
+        <Reveal delay={0.08}>
+        <HomeAnimation />
+        </Reveal>
 
       {/* Selected Work */}
       <Reveal delay={0.1}>

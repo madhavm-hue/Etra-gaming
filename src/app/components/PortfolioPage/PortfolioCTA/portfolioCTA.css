@@ -1,483 +1,213 @@
-/* =========================
-PORTFOLIO CTA SECTION
-========================= */
+.etra-portfolio-cta {
+  --cta-gutter: clamp(24px, 4.44vw, 128px);
 
-.portfolio-cta-section {
   position: relative;
-
-  padding: 110px 0;
-
-  background: var(--bg-primary);
-
-  transition: background-color 0.35s ease;
-}
-
-
-/* =========================
-CTA CONTAINER
-========================= */
-
-.portfolio-cta-container {
-  position: relative;
-
-  width: min(100% - 40px, 1280px);
-  min-height: 500px;
-
-  margin: 0 auto;
-
-  overflow: hidden;
-
-  display: flex;
-  align-items: center;
-
-  padding: 80px 72px;
-
-  border: 1px solid var(--card-border);
-  border-radius: 32px;
-
-  background: #050518;
-
-  box-shadow:
-    0 30px 80px var(--shadow-color);
-
-  isolation: isolate;
-}
-
-
-/* =========================
-BACKGROUND IMAGE
-FLIPPED HORIZONTALLY
-========================= */
-
-.portfolio-cta-container::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-
-  /*
-    Because scaleX(-1) is used,
-    give the image extra width so
-    there are no empty edges.
-  */
-
-  left: -1px;
-  right: -1px;
-
-  z-index: 0;
-
-  background-image:
-    url("/images/hero/cubeSpaceStation_matte04.jpg");
-
-  background-size: cover;
-
-  background-position: center;
-
-  background-repeat: no-repeat;
-
-  transform: scaleX(-1);
-
-  transform-origin: center;
-
-  pointer-events: none;
-}
-
-
-/* =========================
-DARK CONTENT OVERLAY
-========================= */
-
-.portfolio-cta-container::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 1;
-
-  background:
-    radial-gradient(
-      circle at 18% 80%,
-      rgba(255, 44, 168, 0.12),
-      transparent 35%
-    ),
-
-    linear-gradient(
-      90deg,
-      rgba(5, 5, 24, 0.98) 0%,
-      rgba(5, 5, 24, 0.94) 28%,
-      rgba(5, 5, 24, 0.82) 48%,
-      rgba(5, 5, 24, 0.50) 68%,
-      rgba(5, 5, 24, 0.18) 100%
-    );
-
-  pointer-events: none;
-}
-
-
-/* =========================
-CONTENT
-========================= */
-
-.portfolio-cta-content {
-  position: relative;
-
-  z-index: 3;
-
   width: 100%;
-  max-width: 720px;
-}
+  padding: 0 0 80px;
 
-
-/* =========================
-LABEL
-========================= */
-
-.portfolio-cta-label {
-  margin: 0;
-
-  color: var(--accent-pink);
-
-  font-size: 12px;
-  font-weight: 900;
-
-  letter-spacing: 1.8px;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================
-TITLE
-========================= */
-
-.portfolio-cta-title {
-  margin: 18px 0 0;
-
+  background: #07071b;
   color: #ffffff;
 
-  font-size: clamp(42px, 5vw, 72px);
-  font-weight: 950;
+  font-family: var(--portfolio-cta-body), sans-serif;
+}
 
-  line-height: 1;
+.etra-portfolio-cta,
+.etra-portfolio-cta * {
+  box-sizing: border-box;
+}
 
-  letter-spacing: -2.5px;
+.etra-portfolio-cta__container {
+  width: min(
+    calc(100% - var(--cta-gutter) - var(--cta-gutter)),
+    2560px
+  );
 
+  margin: 0 auto;
+  padding-top: 48px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(0, 0.85fr);
+
+  align-items: center;
+  gap: clamp(36px, 6vw, 150px);
+
+  border-top: 1px solid rgba(177, 122, 255, 0.2);
+}
+
+.etra-portfolio-cta__heading,
+.etra-portfolio-cta__content {
+  min-width: 0;
+}
+
+.etra-portfolio-cta__label {
+  margin: 0 0 22px;
+
+  color: #f50087;
+
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 1.3px;
   text-transform: uppercase;
 }
 
+.etra-portfolio-cta__heading h2 {
+  margin: 0;
 
-.portfolio-cta-title span {
-  background:
-    linear-gradient(
-      90deg,
-      var(--accent-orange),
-      var(--accent-pink)
-    );
-
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  color: transparent;
-
-  -webkit-text-fill-color: transparent;
+  font-family: var(--portfolio-cta-display), sans-serif;
+  font-size: clamp(42px, 4.5vw, 128px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
 }
 
-
-/* =========================
-DESCRIPTION
-========================= */
-
-.portfolio-cta-description {
-  max-width: 620px;
-
-  margin: 26px 0 0;
-
-  color: rgba(255, 255, 255, 0.72);
-
-  font-size: 15px;
-
-  line-height: 1.8;
+.etra-portfolio-cta__heading h2 > span {
+  display: block;
 }
 
+.etra-portfolio-cta__heading h2 > span:last-child {
+  color: #f50087;
+}
 
-/* =========================
-ACTIONS
-========================= */
+.etra-portfolio-cta__description {
+  max-width: 520px;
+  margin: 0;
 
-.portfolio-cta-actions {
-  margin-top: 34px;
+  color: #b8b5c8;
+
+  font-size: clamp(15px, 1vw, 20px);
+  line-height: 1.85;
+}
+
+.etra-portfolio-cta__actions {
+  margin-top: 28px;
 
   display: flex;
   align-items: center;
-
-  gap: 16px;
-
   flex-wrap: wrap;
+  gap: 16px 26px;
 }
 
-
-/* =========================
-BUTTON BASE
-========================= */
-
-.portfolio-cta-primary,
-.portfolio-cta-secondary {
-  min-height: 56px;
-
-  padding: 0 26px;
+.etra-portfolio-cta__primary,
+.etra-portfolio-cta__secondary {
+  min-height: 54px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 24px;
 
-  gap: 12px;
+  color: #ffffff;
 
-  border-radius: 11px;
-
-  font-size: 12px;
-  font-weight: 900;
-
-  letter-spacing: 0.5px;
-
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.25px;
   text-decoration: none;
-
   text-transform: uppercase;
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
 }
 
+.etra-portfolio-cta__primary {
+  padding: 16px 24px;
 
-/* =========================
-PRIMARY BUTTON
-========================= */
-
-.portfolio-cta-primary {
-  border: 1px solid transparent;
-
-  background:
-    linear-gradient(
-      100deg,
-      var(--accent-orange),
-      var(--accent-pink)
-    );
-
-  color: #ffffff;
-
-  box-shadow:
-    0 16px 34px rgba(255, 44, 168, 0.25);
+  background: linear-gradient(
+    110deg,
+    #8a38ff,
+    #f50087
+  );
 }
 
-
-.portfolio-cta-primary:hover {
-  transform: translateY(-4px);
-
-  box-shadow:
-    0 24px 48px rgba(255, 44, 168, 0.35);
+.etra-portfolio-cta__secondary {
+  padding: 12px 0;
 }
 
+.etra-portfolio-cta__primary > span:last-child,
+.etra-portfolio-cta__secondary > span:last-child {
+  flex-shrink: 0;
 
-/* =========================
-SECONDARY BUTTON
-========================= */
+  font-size: 20px;
+  font-weight: 400;
 
-.portfolio-cta-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-
-  background: rgba(5, 5, 24, 0.42);
-
-  color: #ffffff;
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  transition: transform 0.25s ease;
 }
 
-
-.portfolio-cta-secondary:hover {
-  transform: translateY(-4px);
-
-  border-color: rgba(255, 44, 168, 0.45);
-
-  background: rgba(255, 44, 168, 0.08);
+.etra-portfolio-cta__primary:hover > span:last-child,
+.etra-portfolio-cta__secondary:hover > span:last-child {
+  transform: translate(3px, -3px);
 }
 
-
-/* =========================
-LIGHT MODE
-========================= */
-
-html[data-theme="light"] .portfolio-cta-container {
-  box-shadow:
-    0 30px 80px rgba(20, 15, 40, 0.14);
+.etra-portfolio-cta__secondary:hover {
+  color: #b17aff;
 }
 
-
-html[data-theme="light"] .portfolio-cta-container::after {
-  background:
-    radial-gradient(
-      circle at 18% 80%,
-      rgba(255, 44, 168, 0.14),
-      transparent 35%
-    ),
-
-    linear-gradient(
-      90deg,
-      rgba(5, 5, 24, 0.96) 0%,
-      rgba(5, 5, 24, 0.91) 30%,
-      rgba(5, 5, 24, 0.74) 52%,
-      rgba(5, 5, 24, 0.38) 76%,
-      rgba(5, 5, 24, 0.14) 100%
-    );
+.etra-portfolio-cta a:focus-visible {
+  outline: 2px solid #b17aff;
+  outline-offset: 6px;
 }
 
-
-/* =========================
-LAPTOP
-========================= */
-
-@media (max-width: 1100px) {
-
-  .portfolio-cta-container {
-    min-height: 480px;
-
-    padding: 70px 55px;
-  }
-
-
-  .portfolio-cta-container::before {
-    background-position: center;
-  }
-
-
-  .portfolio-cta-content {
-    max-width: 650px;
-  }
-
-}
-
-
-/* =========================
-TABLET
-========================= */
+/* Tablet */
 
 @media (max-width: 900px) {
-
-  .portfolio-cta-section {
-    padding: 90px 0;
+  .etra-portfolio-cta {
+    padding-bottom: 64px;
   }
 
-
-  .portfolio-cta-container {
-    min-height: 470px;
-
-    padding: 70px 50px;
+  .etra-portfolio-cta__container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding-top: 38px;
   }
 
-
-  .portfolio-cta-container::before {
-    /*
-      After flipping, this controls
-      which part of the image is visible.
-    */
-
-    background-position: 42% center;
+  .etra-portfolio-cta__heading h2 {
+    font-size: clamp(42px, 7vw, 68px);
   }
 
-
-  .portfolio-cta-container::after {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(5, 5, 24, 0.97) 0%,
-        rgba(5, 5, 24, 0.91) 52%,
-        rgba(5, 5, 24, 0.55) 100%
-      );
-  }
-
-
-  .portfolio-cta-content {
+  .etra-portfolio-cta__description {
     max-width: 620px;
   }
-
 }
 
+/* Mobile */
 
-/* =========================
-MOBILE
-========================= */
+@media (max-width: 480px) {
+  .etra-portfolio-cta {
+    --cta-gutter: 20px;
 
-@media (max-width: 600px) {
-
-  .portfolio-cta-section {
-    padding: 76px 0;
+    padding-bottom: 52px;
   }
 
-
-  .portfolio-cta-container {
-    width: min(100% - 28px, 600px);
-
-    min-height: auto;
-
-    padding: 60px 24px;
-
-    border-radius: 24px;
+  .etra-portfolio-cta__label {
+    margin-bottom: 18px;
+    font-size: 10px;
   }
 
-
-  .portfolio-cta-container::before {
-    /*
-      Keep some of the planet visible
-      on smaller screens.
-    */
-
-    background-position: 38% center;
+  .etra-portfolio-cta__heading h2 {
+    font-size: clamp(36px, 9vw, 44px);
   }
 
-
-  .portfolio-cta-container::after {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(5, 5, 24, 0.48) 0%,
-        rgba(5, 5, 24, 0.82) 45%,
-        rgba(5, 5, 24, 0.98) 100%
-      );
-  }
-
-
-  .portfolio-cta-title {
-    font-size:
-      clamp(
-        38px,
-        12vw,
-        54px
-      );
-
-    letter-spacing: -2px;
-  }
-
-
-  .portfolio-cta-description {
+  .etra-portfolio-cta__description {
     font-size: 14px;
+    line-height: 1.8;
   }
 
-
-  .portfolio-cta-actions {
-    align-items: stretch;
-
+  .etra-portfolio-cta__actions {
+    align-items: flex-start;
     flex-direction: column;
+    gap: 12px;
   }
 
-
-  .portfolio-cta-primary,
-  .portfolio-cta-secondary {
+  .etra-portfolio-cta__primary {
     width: 100%;
+    justify-content: space-between;
   }
+}
 
+@media (prefers-reduced-motion: reduce) {
+  .etra-portfolio-cta__primary > span:last-child,
+  .etra-portfolio-cta__secondary > span:last-child {
+    transition: none;
+  }
 }

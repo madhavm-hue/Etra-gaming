@@ -1,80 +1,82 @@
-"use client";
-
 import Link from "next/link";
+import { Anton, Manrope } from "next/font/google";
 import "./portfolioHero.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--portfolio-hero-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--portfolio-hero-body",
+});
 
 export default function PortfolioHero() {
   return (
-    <section className="portfolio-hero">
-      <div className="portfolio-hero-container">
-
-        {/* LEFT CONTENT */}
-        <div className="portfolio-hero-content">
-
-          <p className="portfolio-hero-label">
+    <section
+      className={`etra-portfolio-hero ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-portfolio-hero-title"
+    >
+      <div className="etra-portfolio-hero__container">
+        <div className="etra-portfolio-hero__content">
+          <p className="etra-portfolio-hero__label">
             Our Portfolio
           </p>
 
-          <h1 className="portfolio-hero-title">
-            <span className="portfolio-title-line">
-              Creating Worlds.
-            </span>
-
-            <span className="portfolio-title-line">
+          <h1
+            className="etra-portfolio-hero__title"
+            id="etra-portfolio-hero-title"
+          >
+            <span>Creating Worlds.</span>
+            <span>
               Delivering{" "}
-              <span className="portfolio-title-gradient">
-                Impact.
-              </span>
+              <em>Impact.</em>
             </span>
           </h1>
 
-          <p className="portfolio-hero-description">
+          <p className="etra-portfolio-hero__description">
             Explore our diverse portfolio of projects across games,
             animation, cinematics, environments and more. Each project
             is a story of creativity, collaboration and uncompromising
             quality.
           </p>
 
-          <div className="portfolio-hero-actions">
+          <div className="etra-portfolio-hero__actions">
             <Link
               href="/contact"
-              className="portfolio-primary-button"
+              className="etra-portfolio-hero__button"
             >
-              Start a Project
-              <span aria-hidden="true">→</span>
+              <span>Start a Project</span>
+              <span aria-hidden="true">↗</span>
             </Link>
 
             <Link
               href="/services"
-              className="portfolio-secondary-button"
+              className="etra-portfolio-hero__link"
             >
-              Our Services
-              <span aria-hidden="true">▦</span>
+              <span>Our Services</span>
+              <span aria-hidden="true">↗</span>
             </Link>
           </div>
-
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="portfolio-hero-visual">
-          <div className="portfolio-image-shape">
+        <div className="etra-portfolio-hero__visual">
+          <div
+            className="etra-portfolio-hero__halo"
+            aria-hidden="true"
+          />
 
-            <div className="portfolio-image-glow" />
-
-            <img
-              src="/images/hero/ride1.png"
-              alt="ETRA portfolio showcase"
-              className="portfolio-hero-image active"
-            />
-
-          </div>
-
-          {/* DECORATIONS */}
-          <div className="portfolio-floating-circle portfolio-circle-one" />
-          <div className="portfolio-floating-circle portfolio-circle-two" />
-          <div className="portfolio-floating-dot" />
+          <img
+            src="/images/hero/ride1.png"
+            alt="ETRA portfolio showcase"
+            className="etra-portfolio-hero__image"
+            fetchPriority="high"
+          />
         </div>
-
       </div>
     </section>
   );

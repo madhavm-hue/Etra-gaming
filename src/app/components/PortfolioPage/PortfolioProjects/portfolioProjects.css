@@ -1,761 +1,358 @@
-/* =========================================
-   PORTFOLIO PROJECTS
-========================================= */
+.etra-portfolio-work {
+  --work-gutter: clamp(24px, 4.44vw, 128px);
+  --work-border: rgba(184, 181, 200, 0.16);
 
-.portfolio-projects-section {
   position: relative;
   width: 100%;
-  padding: 105px 0 120px;
-  overflow: hidden;
-  background: var(--bg-primary);
+  padding: 80px 0 100px;
 
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease;
+  background: #0c0925;
+  color: #ffffff;
+
+  font-family: var(--portfolio-work-body), sans-serif;
 }
 
+.etra-portfolio-work,
+.etra-portfolio-work * {
+  box-sizing: border-box;
+}
 
-/* =========================================
-   CONTAINER
-========================================= */
-
-.portfolio-projects-container {
-  position: relative;
-  z-index: 2;
-
-  width: min(100% - 40px, 1380px);
+.etra-portfolio-work__container {
+  width: min(
+    calc(100% - var(--work-gutter) - var(--work-gutter)),
+    2560px
+  );
   margin: 0 auto;
 }
 
+/* Heading */
 
-/* =========================================
-   HEADING
-========================================= */
-
-.portfolio-projects-heading {
-  margin-bottom: 55px;
-
+.etra-portfolio-work__heading {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.3fr)
-    minmax(300px, 0.7fr);
-
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   align-items: end;
+  gap: clamp(32px, 6vw, 140px);
 
-  gap: 60px;
+  margin-bottom: 48px;
 }
 
+.etra-portfolio-work__label {
+  margin: 0 0 22px;
+  color: #f50087;
 
-.portfolio-projects-label {
-  margin: 0 0 14px;
-
-  color: var(--accent-pink);
-
-  font-size: 12px;
-  font-weight: 900;
-
-  letter-spacing: 1.8px;
-
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
 }
 
-
-.portfolio-projects-title {
-  max-width: 700px;
-
+.etra-portfolio-work__heading h2 {
   margin: 0;
 
-  color: var(--text-primary);
-
-  font-size: clamp(2.4rem, 4vw, 4.2rem);
-  font-weight: 900;
-
-  line-height: 1.05;
-
-  letter-spacing: -2px;
-
+  font-family: var(--portfolio-work-display), sans-serif;
+  font-size: clamp(40px, 4.2vw, 110px);
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
+.etra-portfolio-work__heading h2 span {
+  color: #f50087;
+}
 
-.portfolio-projects-description {
+.etra-portfolio-work__intro {
   max-width: 520px;
+  margin: 0 0 4px;
 
+  color: #b8b5c8;
+  font-size: clamp(14px, 1vw, 19px);
+  line-height: 1.85;
+}
+
+/* Showreel */
+
+.etra-portfolio-work__showreel {
+  scroll-margin-top: 120px;
+}
+
+.etra-portfolio-work__reel-heading,
+.etra-portfolio-work__gallery-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 18px 0;
+  border-top: 1px solid var(--work-border);
+}
+
+.etra-portfolio-work__reel-heading h3,
+.etra-portfolio-work__gallery-heading h3 {
   margin: 0;
 
-  color: var(--text-secondary);
-
-  font-size: 15px;
-
-  line-height: 1.8;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-
-/* =========================================
-   FEATURED VIDEO
-========================================= */
-
-.portfolio-video-section {
-  width: 100%;
-
-  margin-bottom: 54px;
-
-  display: flex;
-
-  justify-content: center;
+.etra-portfolio-work__reel-heading > span {
+  color: #b17aff;
+  font-size: 24px;
 }
 
+.etra-portfolio-work__video-wrap {
+  width: min(100%, 1500px);
+  margin: 0 auto;
+  background: #07071b;
+}
 
-.portfolio-video-wrap {
+.etra-portfolio-work .etra-portfolio-work__video {
   position: relative;
+  display: block;
 
-  width: min(100%, 1120px);
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
 
-  aspect-ratio: 16 / 7;
-
-  overflow: hidden;
-
-  border: 1px solid var(--card-border);
-
-  border-radius: 26px;
-
-  background: #07071a;
-
-  box-shadow:
-    0 25px 65px rgba(0, 0, 0, 0.18);
+  object-fit: contain;
 }
 
+.etra-portfolio-work__video:focus-visible {
+  outline: 2px solid #b17aff;
+  outline-offset: 5px;
+}
 
-.portfolio-showreel-video {
-  position: absolute;
+/* Gallery */
 
-  top: 50%;
-  left: 50%;
+.etra-portfolio-work__gallery-heading {
+  margin-top: clamp(48px, 5vw, 100px);
+  margin-bottom: 18px;
+}
+
+.etra-portfolio-work__gallery-heading > span {
+  color: #b8b5c8;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.etra-portfolio-work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 24px;
+}
+
+.etra-portfolio-work__project {
+  min-width: 0;
+}
+
+/* First two visuals receive more space */
+
+.etra-portfolio-work__project:nth-child(-n + 2) {
+  grid-column: span 3;
+}
+
+@media (min-width: 901px) {
+  .etra-portfolio-work__grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .etra-portfolio-work__project {
+    grid-column: span 2;
+  }
+}
+
+.etra-portfolio-work__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #07071b;
+}
+
+.etra-portfolio-work .etra-portfolio-work__image {
+  position: relative;
+  display: block;
 
   width: 100%;
   height: 100%;
 
-  display: block;
-
-  object-fit: cover;
-
-  object-position: center center;
-
-  transform:
-    translate(-50%, -50%)
-    scale(1.17);
-
-  transform-origin: center center;
-
-  pointer-events: none;
-
-  will-change: transform;
-}
-
-
-/* =========================================
-   FILTER
-========================================= */
-
-.portfolio-filter {
-  margin-bottom: 32px;
-
-  display: flex;
-
-  align-items: center;
-}
-
-
-.portfolio-filter-button {
-  min-height: 44px;
-
-  padding: 0 22px;
-
-  border: 1px solid var(--card-border);
-
-  border-radius: 999px;
-
-  background: transparent;
-
-  color: var(--text-secondary);
-
-  font-size: 11px;
-
-  font-weight: 900;
-
-  letter-spacing: 0.7px;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition:
-    color 0.3s ease,
-    border-color 0.3s ease,
-    background 0.3s ease,
-    transform 0.3s ease;
-}
-
-
-.portfolio-filter-button:hover,
-.portfolio-filter-button.active {
-  color: #ffffff;
-
-  border-color: rgba(255, 44, 168, 0.5);
-
-  background:
-    linear-gradient(
-      100deg,
-      rgba(255, 91, 35, 0.14),
-      rgba(255, 44, 168, 0.16)
-    );
-}
-
-
-.portfolio-filter-button:hover {
-  transform: translateY(-2px);
-}
-
-
-/* =========================================
-   PROJECT GRID
-========================================= */
-
-.portfolio-projects-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
-
-  gap: 24px;
-}
-
-
-/* =========================================
-   PROJECT CARD
-========================================= */
-
-.portfolio-project-card {
-  position: relative;
-
-  min-width: 0;
-
-  overflow: hidden;
-
-  border: 1px solid var(--card-border);
-
-  border-radius: 22px;
-
-  background: var(--card-bg);
-
-  box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.08);
-
-  transition:
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-
-.portfolio-project-card:hover {
-  transform: translateY(-7px);
-
-  border-color:
-    rgba(255, 44, 168, 0.32);
-
-  box-shadow:
-    0 28px 65px rgba(0, 0, 0, 0.18),
-    0 0 35px rgba(255, 44, 168, 0.06);
-}
-
-
-/* =========================================
-   IMAGE WRAPPER
-========================================= */
-
-.portfolio-project-image-wrap {
-  position: relative;
-
-  width: 100%;
-
-  aspect-ratio: 16 / 9;
-
-  overflow: hidden;
-
-  background: var(--card-bg);
-}
-
-
-/* =========================================
-   PROJECT IMAGE
-========================================= */
-
-.portfolio-project-image {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: 124%;
-  height: 124%;
-
-  display: block;
-
-  object-fit: cover;
-
+  object-fit: contain;
   object-position: center;
-
-  transform:
-    translate(-50%, -50%)
-    scale(1);
-
-  filter:
-    saturate(1.04)
-    contrast(1.03)
-    brightness(1.01);
-
-  transition:
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.5s ease;
-
-  will-change: transform;
 }
 
+.etra-portfolio-work__project-content {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 14px;
 
-/* Project Orion */
-
-.portfolio-project-card:nth-child(2)
-.portfolio-project-image {
-  width: 132%;
-  height: 132%;
+  padding-top: 20px;
 }
 
+.etra-portfolio-work__number {
+  padding-top: 5px;
 
-/* Echoes Of Legend */
-
-.portfolio-project-card:nth-child(5)
-.portfolio-project-image {
-  width: 128%;
-  height: 128%;
-}
-
-
-/* Wasteland Explorer */
-
-.portfolio-project-card:nth-child(6)
-.portfolio-project-image {
-  width: 127%;
-  height: 127%;
-}
-
-
-/* The Last Stand */
-
-.portfolio-project-card:nth-child(7)
-.portfolio-project-image {
-  width: 128%;
-  height: 128%;
-}
-
-
-/* Next Gen Arena */
-
-.portfolio-project-card:nth-child(8)
-.portfolio-project-image {
-  width: 128%;
-  height: 128%;
-}
-
-
-/* =========================================
-   IMAGE HOVER
-========================================= */
-
-.portfolio-project-card:hover
-.portfolio-project-image {
-  transform:
-    translate(-50%, -50%)
-    scale(1.055);
-
-  filter:
-    saturate(1.11)
-    contrast(1.05)
-    brightness(1.03);
-}
-
-
-/* =========================================
-   IMAGE OVERLAY
-========================================= */
-
-.portfolio-project-overlay {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 1;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(4, 4, 20, 0.02) 0%,
-      rgba(4, 4, 20, 0.02) 45%,
-      rgba(4, 4, 20, 0.18) 75%,
-      rgba(4, 4, 20, 0.42) 100%
-    );
-
-  pointer-events: none;
-}
-
-
-/* =========================================
-   CATEGORY BADGE
-========================================= */
-
-.portfolio-project-category {
-  position: absolute;
-
-  top: 16px;
-  left: 16px;
-
-  z-index: 3;
-
-  min-height: 32px;
-
-  padding: 0 14px;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border:
-    1px solid rgba(255, 255, 255, 0.18);
-
-  border-radius: 999px;
-
-  background:
-    rgba(7, 6, 25, 0.62);
-
-  color: #ffffff;
-
-  backdrop-filter: blur(12px);
-
-  -webkit-backdrop-filter: blur(12px);
-
+  color: #b17aff;
   font-size: 10px;
-
-  font-weight: 900;
-
-  letter-spacing: 0.7px;
-
-  text-transform: uppercase;
-
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.12);
+  font-weight: 700;
+  line-height: 1.5;
 }
 
-
-/* =========================================
-   ARROW
-========================================= */
-
-.portfolio-project-arrow {
-  position: absolute;
-
-  right: 16px;
-  bottom: 16px;
-
-  z-index: 3;
-
-  width: 44px;
-  height: 44px;
-
-  padding: 0;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border: 0;
-
-  border-radius: 50%;
-
-  background: #ffffff;
-
-  color: #111111;
-
-  font-size: 20px;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 10px 26px rgba(0, 0, 0, 0.2);
-
-  transition:
-    transform 0.35s ease,
-    color 0.35s ease,
-    background 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-
-.portfolio-project-card:hover
-.portfolio-project-arrow {
-  transform:
-    translateY(-3px)
-    rotate(45deg);
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--accent-orange),
-      var(--accent-pink)
-    );
-
-  color: #ffffff;
-
-  box-shadow:
-    0 15px 30px
-    rgba(255, 44, 168, 0.28);
-}
-
-
-/* =========================================
-   CARD CONTENT
-========================================= */
-
-.portfolio-project-content {
-  position: relative;
-
-  padding: 21px 22px 25px;
-}
-
-
-.portfolio-project-content h3 {
+.etra-portfolio-work__project-content h3 {
   margin: 0;
 
-  color: var(--text-primary);
-
-  font-size: 19px;
-
-  font-weight: 850;
-
-  line-height: 1.25;
-
-  letter-spacing: -0.4px;
+  font-size: clamp(18px, 1.3vw, 28px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
 }
 
+.etra-portfolio-work__project-content p {
+  max-width: 520px;
+  margin: 10px 0 0;
 
-.portfolio-project-content p {
-  margin: 12px 0 0;
+  color: #b8b5c8;
 
-  color: var(--text-secondary);
-
-  font-size: 13.5px;
-
-  line-height: 1.7;
+  font-size: clamp(13px, 0.85vw, 17px);
+  line-height: 1.8;
 }
 
-
-/* =========================================
-   LIGHT MODE
-========================================= */
-
-html[data-theme="light"]
-.portfolio-project-card {
-  box-shadow:
-    0 16px 40px rgba(20, 15, 40, 0.07);
-}
-
-
-html[data-theme="light"]
-.portfolio-project-card:hover {
-  box-shadow:
-    0 28px 60px rgba(20, 15, 40, 0.12);
-}
-
-
-/* =========================================
-   SMALL DESKTOP
-========================================= */
-
-@media (max-width: 1200px) {
-
-  .portfolio-projects-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-  }
-
-
-  .portfolio-video-wrap {
-    width: min(100%, 1000px);
-  }
-
-
-  .portfolio-showreel-video {
-    transform:
-      translate(-50%, -50%)
-      scale(1.18);
-  }
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
+/* Tablet */
 
 @media (max-width: 900px) {
-
-  .portfolio-projects-section {
-    padding: 90px 0 100px;
+  .etra-portfolio-work {
+    padding: 64px 0 76px;
   }
 
-
-  .portfolio-projects-heading {
-    grid-template-columns: 1fr;
-
-    gap: 22px;
-
-    margin-bottom: 42px;
+  .etra-portfolio-work__heading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    margin-bottom: 36px;
   }
 
-
-  .portfolio-projects-description {
+  .etra-portfolio-work__intro {
     max-width: 620px;
   }
 
-
-  .portfolio-projects-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    gap: 20px;
+  .etra-portfolio-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 20px;
   }
 
-
-  .portfolio-video-wrap {
-    width: 100%;
-
-    aspect-ratio: 16 / 8;
-  }
-
-
-  .portfolio-showreel-video {
-    transform:
-      translate(-50%, -50%)
-      scale(1.19);
+  .etra-portfolio-work__project,
+  .etra-portfolio-work__project:nth-child(-n + 2) {
+    grid-column: auto;
   }
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
+/* Mobile */
 
 @media (max-width: 600px) {
+  .etra-portfolio-work {
+    --work-gutter: 20px;
 
-  .portfolio-projects-section {
-    padding: 75px 0 85px;
+    padding: 56px 0 64px;
   }
 
-
-  .portfolio-projects-container {
-    width:
-      min(
-        100% - 28px,
-        600px
-      );
+  .etra-portfolio-work__heading h2 {
+    font-size: clamp(34px, 8.5vw, 48px);
   }
 
-
-  .portfolio-projects-title {
-    font-size:
-      clamp(
-        2rem,
-        10vw,
-        3rem
-      );
-
-    letter-spacing: -1.3px;
+  .etra-portfolio-work__label {
+    margin-bottom: 18px;
+    font-size: 10px;
   }
 
-
-  .portfolio-projects-grid {
-    grid-template-columns: 1fr;
-
-    gap: 20px;
+  .etra-portfolio-work__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
   }
 
-
-  .portfolio-video-wrap {
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    border-radius: 20px;
+  .etra-portfolio-work__project-content {
+    padding-top: 16px;
+    gap: 10px;
   }
+}
+/* SHOWREEL — trim top / bottom bars */
 
+.etra-portfolio-work__video-wrap {
+  position: relative;
+  aspect-ratio: 2.39 / 1;
+  overflow: hidden;
+}
 
-  .portfolio-showreel-video {
-    transform:
-      translate(-50%, -50%)
-      scale(1.2);
-  }
+.etra-portfolio-work .etra-portfolio-work__video {
+  position: absolute;
+  inset: 0;
 
+  width: 100%;
+  height: 100%;
+  max-height: none;
 
-  .portfolio-project-image-wrap {
-    aspect-ratio: 16 / 9;
-  }
+  object-fit: cover;
+  object-position: center;
+}
 
+/* PROJECT IMAGES — individual framing */
 
-  .portfolio-project-image {
-    width: 124%;
-    height: 124%;
-  }
+.etra-portfolio-work__image-wrap {
+  overflow: hidden;
+}
 
+.etra-portfolio-work .etra-portfolio-work__image {
+  object-fit: cover;
+  object-position: center;
+}
 
-  .portfolio-project-card:hover
-  .portfolio-project-image {
-    transform:
-      translate(-50%, -50%)
-      scale(1.035);
-  }
+/* Beyond The Horizon */
+.etra-portfolio-work__project:nth-child(1)
+.etra-portfolio-work__image {
+  transform: scale(1.12);
+}
 
+/* Project Orion */
+.etra-portfolio-work__project:nth-child(2)
+.etra-portfolio-work__image {
+  transform: scale(1.21);
+}
 
-  .portfolio-project-category {
-    top: 14px;
-    left: 14px;
-  }
+/* Forgotten Realms */
+.etra-portfolio-work__project:nth-child(3)
+.etra-portfolio-work__image {
+  transform: scale(1.025);
+}
 
+/* Velocity Unbound */
+.etra-portfolio-work__project:nth-child(4)
+.etra-portfolio-work__image {
+  transform: scale(1.12);
+}
 
-  .portfolio-project-arrow {
-    right: 14px;
-    bottom: 14px;
+/* Echoes Of Legend */
+.etra-portfolio-work__project:nth-child(5)
+.etra-portfolio-work__image {
+  transform: scale(1.30);
+}
 
-    width: 42px;
-    height: 42px;
+/* Wasteland Explorer */
+.etra-portfolio-work__project:nth-child(6)
+.etra-portfolio-work__image {
+  transform: scale(1.12);
+}
 
-    font-size: 19px;
-  }
+/* The Last Stand */
+.etra-portfolio-work__project:nth-child(7)
+.etra-portfolio-work__image {
+  transform: scale(1.12);
+}
 
-
-  .portfolio-project-content {
-    padding: 20px 20px 23px;
-  }
-
-
-  .portfolio-project-content h3 {
-    font-size: 18px;
-  }
-
-
-  .portfolio-project-content p {
-    font-size: 13px;
-  }
+/* Next Gen Arena */
+.etra-portfolio-work__project:nth-child(8)
+.etra-portfolio-work__image {
+  transform: scale(1.30);
 }

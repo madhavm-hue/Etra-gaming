@@ -1,7 +1,21 @@
 "use client";
 
 import { useRef } from "react";
+import { Anton, Manrope } from "next/font/google";
 import "./portfolioProjects.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--portfolio-work-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--portfolio-work-body",
+});
 
 const projects = [
   {
@@ -59,117 +73,141 @@ const SHOWREEL_START_TIME = 4;
 export default function PortfolioProjects() {
   const videoRef = useRef(null);
 
+  const seekToStart = (video) => {
+    const start =
+      Number.isFinite(video.duration) &&
+      video.duration > SHOWREEL_START_TIME
+        ? SHOWREEL_START_TIME
+        : 0;
+
+    video.currentTime = start;
+  };
+
   const handleLoadedMetadata = () => {
     const video = videoRef.current;
 
     if (!video) return;
 
-    video.currentTime = SHOWREEL_START_TIME;
+    seekToStart(video);
 
-    video.play().catch(() => {});
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!reducedMotion) {
+      video.play().catch(() => {});
+    }
   };
 
-  const handleTimeUpdate = () => {
+  const handleEnded = () => {
     const video = videoRef.current;
 
     if (!video) return;
 
-    /*
-      When the video reaches the end,
-      restart from the point after the intro.
-    */
-    if (
-      video.duration &&
-      video.currentTime >= video.duration - 0.15
-    ) {
-      video.currentTime = SHOWREEL_START_TIME;
+    seekToStart(video);
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!reducedMotion) {
       video.play().catch(() => {});
     }
   };
 
   return (
-    <section className="portfolio-projects-section">
-      <div className="portfolio-projects-container">
-
-        {/* HEADING */}
-        <div className="portfolio-projects-heading">
+    <section
+      className={`etra-portfolio-work ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-portfolio-work-title"
+    >
+      <div className="etra-portfolio-work__container">
+        <div className="etra-portfolio-work__heading">
           <div>
-            <p className="portfolio-projects-label">
+            <p className="etra-portfolio-work__label">
               Selected Work
             </p>
 
-            <h2 className="portfolio-projects-title">
-              Projects that bring ideas to life
+            <h2 id="etra-portfolio-work-title">
+              Projects that bring
+              <br />
+              <span>ideas to life</span>
             </h2>
           </div>
 
-          <p className="portfolio-projects-description">
+          <p className="etra-portfolio-work__intro">
             Explore a collection of games, animation, cinematics and visual
             experiences created with creativity and technical precision.
           </p>
         </div>
 
-        {/* FEATURED VIDEO */}
         <div
           id="showreel"
-          className="portfolio-video-section"
-          style={{ scrollMarginTop: "120px" }}
+          className="etra-portfolio-work__showreel"
         >
-          <div className="portfolio-video-wrap">
+          <div className="etra-portfolio-work__reel-heading">
+            <h3>Studio Showreel</h3>
+            <span aria-hidden="true">↘</span>
+          </div>
+
+          <div className="etra-portfolio-work__video-wrap">
             <video
               ref={videoRef}
-              className="portfolio-showreel-video"
-              autoPlay
+              className="etra-portfolio-work__video"
+              aria-label="ETRA studio showreel"
+              controls
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               onLoadedMetadata={handleLoadedMetadata}
-              onTimeUpdate={handleTimeUpdate}
+              onEnded={handleEnded}
             >
               <source
                 src="/images/hero/showreel_2.mp4"
                 type="video/mp4"
               />
+
+              Your browser does not support this video.
             </video>
           </div>
         </div>
 
-        {/* ALL WORK */}
-        <div className="portfolio-filter">
-          <button
-            type="button"
-            className="portfolio-filter-button active"
-          >
-            All Work
-          </button>
+        <div className="etra-portfolio-work__gallery-heading">
+          <h3>All Work</h3>
+          <span>{String(projects.length).padStart(2, "0")} Projects</span>
         </div>
 
-        {/* PROJECT GRID */}
-        <div className="portfolio-projects-grid">
-          {projects.map((project) => (
+        <div className="etra-portfolio-work__grid">
+          {projects.map((project, index) => (
             <article
-              className="portfolio-project-card"
+              className="etra-portfolio-work__project"
               key={project.title}
             >
-              <div className="portfolio-project-image-wrap">
+              <div className="etra-portfolio-work__image-wrap">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="portfolio-project-image"
+                  className="etra-portfolio-work__image"
+                  loading="lazy"
+                  decoding="async"
                 />
-
-                <div className="portfolio-project-overlay" />
               </div>
 
-              <div className="portfolio-project-content">
-                <h3>{project.title}</h3>
+              <div className="etra-portfolio-work__project-content">
+                <span
+                  className="etra-portfolio-work__number"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-                <p>{project.description}</p>
+                <div>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </div>
               </div>
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );

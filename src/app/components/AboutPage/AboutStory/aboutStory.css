@@ -1,341 +1,207 @@
-.about-story {
-  position: relative;
+.etra-about-story {
+  --story-gutter: clamp(24px, 4.44vw, 128px);
+  --story-pink: #f50087;
 
-  width: 100%;
-  padding: 110px 8%;
+  padding: 72px 0;
+  scroll-margin-top: 100px;
 
-  background: var(--background);
-  color: var(--foreground);
+  background: #07071b;
+  color: #ffffff;
 
-  overflow: hidden;
+  font-family: var(--story-body), sans-serif;
 }
 
-.about-story::before {
-  content: "";
-
-  position: absolute;
-  top: 50%;
-  left: -180px;
-
-  width: 380px;
-  height: 380px;
-
-  border-radius: 50%;
-
-  background: rgba(255, 47, 159, 0.08);
-  filter: blur(120px);
-
-  transform: translateY(-50%);
-
-  pointer-events: none;
+.etra-about-story,
+.etra-about-story * {
+  box-sizing: border-box;
 }
 
-.about-story-container {
-  position: relative;
-  z-index: 2;
+.etra-about-story__container {
+  width: min(
+    calc(100% - var(--story-gutter) - var(--story-gutter)),
+    2560px
+  );
 
-  width: 100%;
-  max-width: 1400px;
-
-  margin: 0 auto;
+  margin-inline: auto;
 
   display: grid;
-  grid-template-columns: minmax(520px, 0.95fr) minmax(0, 1.35fr);
-
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: "visual content";
   align-items: center;
-
-  gap: 70px;
+  gap: clamp(32px, 5vw, 100px);
 }
 
-/* Left content */
+/* Story content */
 
-.about-story-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  width: 100%;
+.etra-about-story__content {
+  grid-area: content;
+  min-width: 0;
 }
 
-.story-tag {
-  display: inline-block;
+.etra-about-story__eyebrow {
+  margin: 0 0 24px;
 
-  margin-bottom: 18px;
+  color: var(--story-pink);
 
-  color: #ff2f9f;
-
-  font-size: 0.88rem;
-  font-weight: 700;
-
-  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.about-story-content h2 {
-  width: 100%;
-
-  margin: 0 0 26px;
-
-  color: var(--foreground);
-
-  font-size: clamp(2.6rem, 3.2vw, 3.45rem);
-  font-weight: 800;
-
-  line-height: 1.14;
-
-  letter-spacing: -1px;
-}
-
-/* Keep each intended line intact on desktop */
-
-.about-story-content h2 br {
-  display: block;
-}
-
-.about-story-content p {
-  max-width: 580px;
-
-  margin: 0 0 28px;
-
-  color: var(--text-secondary);
-
-  font-size: 1.05rem;
-
-  line-height: 1.85;
-}
-
-.about-story-content p:last-of-type {
-  margin-bottom: 36px;
-}
-
-.story-btn {
-  width: fit-content;
-  min-height: 54px;
-
-  padding: 0 30px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border: none;
-  border-radius: 999px;
-
-  background: linear-gradient(90deg, #ff6534, #ff2f9f);
+.etra-about-story__title {
+  margin: 0;
 
   color: #ffffff;
 
-  font-size: 1rem;
-  font-weight: 700;
-
-  text-decoration: none;
-
-  cursor: pointer;
-
-  box-shadow: 0 14px 35px rgba(255, 47, 159, 0.2);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  font-family: var(--story-display), sans-serif;
+  font-size: clamp(36px, 3.6vw, 80px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
-.story-btn:hover {
-  transform: translateY(-4px);
+.etra-about-story__title span {
+  display: block;
+  margin-top: 8px;
 
-  box-shadow: 0 20px 45px rgba(255, 47, 159, 0.34);
+  color: var(--story-pink);
 }
 
-/* Right image / video placeholder */
+.etra-about-story__description {
+  max-width: 640px;
+  margin-top: 28px;
+}
 
-.about-story-image {
+.etra-about-story__description p {
+  margin: 0;
+
+  color: #b8b5c8;
+
+  font-size: clamp(15px, 1.12vw, 20px);
+  line-height: 1.85;
+}
+
+.etra-about-story__description p + p {
+  margin-top: 20px;
+}
+
+/* Character artwork */
+
+.etra-about-story__visual {
+  grid-area: visual;
+
   position: relative;
+  isolation: isolate;
 
   width: 100%;
-  max-width: 760px;
-  min-height: 420px;
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-
-  border: 1px solid var(--border-color);
-  border-radius: 28px;
-
-  background:
-    radial-gradient(
-      circle at 50% 25%,
-      rgba(255, 47, 159, 0.16),
-      transparent 48%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(255, 47, 159, 0.07),
-      rgba(112, 70, 255, 0.05)
-    ),
-    var(--card-background);
-
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.14);
-
-  overflow: hidden;
-  isolation: isolate;
+  min-width: 0;
 }
 
-.about-story-image::before {
-  content: "";
-
-  position: absolute;
-  inset: auto 8% 0;
-
-  height: 42%;
-
-  border-radius: 50% 50% 0 0;
-
-  background: rgba(255, 47, 159, 0.08);
-
-  filter: blur(45px);
-
-  pointer-events: none;
-}
-
-.about-story-image::after {
-  content: "";
-
+.etra-about-story__glow {
   position: absolute;
   inset: 0;
+  z-index: -1;
 
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.35),
-    transparent 46%
+  background: radial-gradient(
+    ellipse at center,
+    rgb(138 56 255 / 12%),
+    rgb(245 0 135 / 5%) 45%,
+    transparent 72%
   );
 
   pointer-events: none;
 }
 
-.about-story-image img {
+.etra-about-story .etra-about-story__art {
   position: relative;
-  z-index: 1;
 
   width: 100%;
-  height: 420px;
+  aspect-ratio: 4 / 3;
+}
 
-  display: block;
-
+.etra-about-story .etra-about-story__image {
   object-fit: contain;
-  object-position: center bottom;
-
-  filter: drop-shadow(0 25px 28px rgba(0, 0, 0, 0.22));
-
-  transition: transform 0.45s ease;
-}
-
-.about-story-image:hover img {
-  transform: scale(1.045);
-}
-
-/* Light mode */
-
-[data-theme="light"] .about-story-image,
-.light .about-story-image {
-  box-shadow: 0 24px 60px rgba(25, 25, 35, 0.1);
-}
-
-[data-theme="light"] .about-story-image::after,
-.light .about-story-image::after {
-  background: linear-gradient(
-    to top,
-    rgba(20, 20, 30, 0.1),
-    transparent 48%
-  );
+  object-position: center;
 }
 
 /* Tablet */
 
 @media (max-width: 1100px) {
-  .about-story-container {
-    grid-template-columns: minmax(460px, 1fr) minmax(0, 1.15fr);
-
-    gap: 50px;
+  .etra-about-story__container {
+    gap: 32px;
   }
 
-  .about-story-content h2 {
-    font-size: clamp(2.35rem, 3.4vw, 3rem);
+  .etra-about-story__title {
+    font-size: clamp(34px, 3.8vw, 44px);
   }
 }
 
-@media (max-width: 992px) {
-  .about-story {
-    padding: 95px 6%;
-  }
-
-  .about-story-container {
+@media (max-width: 900px) {
+  .etra-about-story__container {
     grid-template-columns: 1fr;
-
-    gap: 55px;
+    grid-template-areas:
+      "content"
+      "visual";
+    gap: 32px;
   }
 
-  .about-story-content {
-    align-items: center;
-
-    text-align: center;
-  }
-
-  .about-story-content h2 {
+  .etra-about-story__content {
     max-width: 720px;
   }
 
-  .about-story-content p {
-    max-width: 720px;
+  .etra-about-story__title {
+    font-size: clamp(38px, 5.5vw, 56px);
   }
 
-  .about-story-image {
-    max-width: 700px;
-    min-height: 420px;
-
-    margin: 0 auto;
+  .etra-about-story__visual {
+    max-width: 640px;
+    justify-self: center;
   }
 
-  .about-story-image img {
-    height: 420px;
+  .etra-about-story__description {
+    max-width: 680px;
   }
 }
 
 /* Mobile */
 
 @media (max-width: 600px) {
-  .about-story {
-    padding: 80px 20px;
+  .etra-about-story {
+    --story-gutter: 24px;
+    padding: 48px 0;
   }
 
-  .about-story-container {
-    gap: 42px;
+  .etra-about-story__eyebrow {
+    margin-bottom: 20px;
   }
 
-  .about-story-content h2 {
-    font-size: 2.15rem;
+  .etra-about-story__title {
+    font-size: clamp(34px, 7.5vw, 44px);
   }
 
-  .about-story-content h2 br {
-    display: none;
+  .etra-about-story__description {
+    margin-top: 24px;
   }
 
-  .about-story-content p {
-    font-size: 0.98rem;
-
-    line-height: 1.75;
+  .etra-about-story__description p {
+    font-size: 15px;
+    line-height: 1.8;
   }
 
-  .story-btn {
-    width: 100%;
+  .etra-about-story__description p + p {
+    margin-top: 18px;
   }
 
-  .about-story-image {
-    min-height: 320px;
-
-    border-radius: 22px;
+  .etra-about-story__container {
+    gap: 24px;
   }
+}
 
-  .about-story-image img {
-    height: 320px;
+@media (max-width: 390px) {
+  .etra-about-story {
+    --story-gutter: 20px;
   }
 }

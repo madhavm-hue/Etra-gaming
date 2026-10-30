@@ -1,62 +1,107 @@
-"use client";
-
-import "./aboutValues.css";
+import { Anton, Manrope } from "next/font/google";
 import {
   FaLightbulb,
   FaHeart,
   FaUsers,
   FaStar,
 } from "react-icons/fa";
+import "./aboutValues.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--values-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--values-body",
+});
 
 const values = [
   {
-    icon: <FaLightbulb />,
+    icon: FaLightbulb,
     title: "Innovation",
-    desc: "We embrace creativity and emerging technologies to create unique experiences.",
+    description:
+      "We embrace creativity and emerging technologies to create unique experiences.",
   },
   {
-    icon: <FaHeart />,
+    icon: FaHeart,
     title: "Passion",
-    desc: "Every project is crafted with dedication and love for what we do.",
+    description:
+      "Every project is crafted with dedication and love for what we do.",
   },
   {
-    icon: <FaUsers />,
+    icon: FaUsers,
     title: "Collaboration",
-    desc: "We believe teamwork and open communication lead to exceptional results.",
+    description:
+      "We believe teamwork and open communication lead to exceptional results.",
   },
   {
-    icon: <FaStar />,
+    icon: FaStar,
     title: "Excellence",
-    desc: "We constantly refine our skills to deliver the highest quality in every detail.",
+    description:
+      "We constantly refine our skills to deliver the highest quality in every detail.",
   },
 ];
 
 export default function AboutValues() {
   return (
-    <section className="about-values">
-      <div className="about-values-container">
+    <section
+      className={`etra-about-values ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-values-title"
+    >
+      <div className="etra-about-values__container">
+        <header className="etra-about-values__heading">
+          <p className="etra-about-values__eyebrow">
+            Our values
+          </p>
 
-        <div className="about-values-heading">
-          <span>OUR VALUES</span>
-          <h2>The principles that drive us forward.</h2>
-        </div>
+          <h2
+            id="etra-values-title"
+            className="etra-about-values__title"
+          >
+            The principles that
+            <span>drive us forward.</span>
+          </h2>
+        </header>
 
-        <div className="about-values-grid">
-          {values.map((item, index) => (
-            <div className="value-card" key={index}>
+        <ul className="etra-about-values__grid">
+          {values.map((value, index) => {
+            const Icon = value.icon;
 
-              <div className="value-icon">
-                {item.icon}
-              </div>
+            return (
+              <li
+                key={value.title}
+                className="etra-about-values__item"
+              >
+                <div className="etra-about-values__item-top">
+                  <Icon
+                    className="etra-about-values__icon"
+                    aria-hidden="true"
+                  />
 
-              <h3>{item.title}</h3>
+                  <span
+                    className="etra-about-values__number"
+                    aria-hidden="true"
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
 
-              <p>{item.desc}</p>
+                <h3 className="etra-about-values__item-title">
+                  {value.title}
+                </h3>
 
-            </div>
-          ))}
-        </div>
-
+                <p className="etra-about-values__description">
+                  {value.description}
+                </p>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

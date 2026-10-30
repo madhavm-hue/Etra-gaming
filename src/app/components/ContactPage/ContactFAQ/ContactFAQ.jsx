@@ -1,9 +1,22 @@
 "use client";
 
-import { useState } from "react";
-import { FiChevronDown } from "react-icons/fi";
-
+import { useId, useState } from "react";
+import { Anton, Manrope } from "next/font/google";
+import { FiPlus, FiMinus } from "react-icons/fi";
 import "./contactFAQ.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--contact-faq-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--contact-faq-body",
+});
 
 const faqs = [
   {
@@ -40,48 +53,84 @@ const faqs = [
 
 export default function ContactFAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+  const instanceId = useId();
 
   return (
-    <section className="contact-faq">
-      <div className="contact-faq-header">
-        <span>FAQ</span>
-        <h2>Frequently Asked Questions</h2>
+    <section
+      className={`etra-contact-faq ${anton.variable} ${manrope.variable}`}
+      aria-labelledby={`${instanceId}-title`}
+    >
+      <div className="etra-contact-faq__container">
+        <div className="etra-contact-faq__heading">
+          <p className="etra-contact-faq__label">FAQ</p>
 
-        <p>
-          Find quick answers to common questions about our services, process and
-          project collaboration.
-        </p>
-      </div>
+          <h2 id={`${instanceId}-title`}>
+            Frequently Asked
+            <br />
+            <span>Questions</span>
+          </h2>
 
-      <div className="contact-faq-grid">
-        {faqs.map((faq, index) => {
-          const isOpen = activeIndex === index;
+          <p className="etra-contact-faq__intro">
+            Find quick answers to common questions about our services,
+            process and project collaboration.
+          </p>
+        </div>
 
-          return (
-            <article
-              className={`faq-item ${isOpen ? "faq-item-open" : ""}`}
-              key={faq.question}
-            >
-              <button
-                type="button"
-                className="faq-question"
-                onClick={() => toggleFAQ(index)}
-                aria-expanded={isOpen}
+        <div className="etra-contact-faq__list">
+          {faqs.map((faq, index) => {
+            const isOpen = activeIndex === index;
+            const questionId = `${instanceId}-question-${index}`;
+            const answerId = `${instanceId}-answer-${index}`;
+
+            return (
+              <article
+                className={`etra-contact-faq__item ${
+                  isOpen ? "etra-contact-faq__item--open" : ""
+                }`}
+                key={faq.question}
               >
-                <span>{faq.question}</span>
-                <FiChevronDown />
-              </button>
+                <h3 className="etra-contact-faq__question">
+                  <button
+                    id={questionId}
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={answerId}
+                    onClick={() =>
+                      setActiveIndex((current) =>
+                        current === index ? null : index
+                      )
+                    }
+                  >
+                    <span
+                      className="etra-contact-faq__number"
+                      aria-hidden="true"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-              <div className="faq-answer">
-                <p>{faq.answer}</p>
-              </div>
-            </article>
-          );
-        })}
+                    <span>{faq.question}</span>
+
+                    {isOpen ? (
+                      <FiMinus aria-hidden="true" />
+                    ) : (
+                      <FiPlus aria-hidden="true" />
+                    )}
+                  </button>
+                </h3>
+
+                <div
+                  id={answerId}
+                  className="etra-contact-faq__answer"
+                  role="region"
+                  aria-labelledby={questionId}
+                  hidden={!isOpen}
+                >
+                  <p>{faq.answer}</p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

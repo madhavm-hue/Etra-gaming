@@ -1,258 +1,216 @@
-.contact-faq {
-  position: relative;
-  width: 100%;
-  padding: 110px 7%;
-
-  background: var(--background);
-  color: var(--foreground);
-
-  overflow: hidden;
-}
-
-/* Background glow */
-
-.contact-faq::before {
-  content: "";
-  position: absolute;
-  top: 10%;
-  left: -170px;
-
-  width: 380px;
-  height: 380px;
-
-  border-radius: 50%;
-
-  background: rgba(255, 47, 159, 0.08);
-  filter: blur(115px);
-
-  pointer-events: none;
-}
-
-.contact-faq::after {
-  content: "";
-  position: absolute;
-  right: -160px;
-  bottom: 0;
-
-  width: 360px;
-  height: 360px;
-
-  border-radius: 50%;
-
-  background: rgba(112, 70, 255, 0.08);
-  filter: blur(110px);
-
-  pointer-events: none;
-}
-
-/* Header */
-
-.contact-faq-header {
-  position: relative;
-  z-index: 2;
-
-  max-width: 760px;
-  margin: 0 auto 60px;
-
-  text-align: center;
-}
-
-.contact-faq-header > span {
-  display: inline-block;
-
-  margin-bottom: 14px;
-
-  color: #ff2f9f;
-
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-}
-
-.contact-faq-header h2 {
-  margin: 0 0 18px;
-
-  color: var(--foreground);
-
-  font-size: clamp(2.2rem, 4vw, 3.7rem);
-  line-height: 1.15;
-}
-
-.contact-faq-header p {
-  max-width: 650px;
-  margin: 0 auto;
-
-  color: var(--text-secondary);
-
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-/* FAQ grid */
-
-.contact-faq-grid {
-  position: relative;
-  z-index: 2;
+.etra-contact-faq {
+  --faq-gutter: clamp(24px, 4.44vw, 128px);
+  --faq-border: rgba(184, 181, 200, 0.18);
 
   width: 100%;
-  max-width: 1450px;
+  padding: 80px 0;
 
+  background: #0c0925;
+  color: #ffffff;
+
+  font-family: var(--contact-faq-body), sans-serif;
+}
+
+.etra-contact-faq,
+.etra-contact-faq * {
+  box-sizing: border-box;
+}
+
+.etra-contact-faq__container {
+  width: min(
+    calc(100% - var(--faq-gutter) - var(--faq-gutter)),
+    2560px
+  );
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px 20px;
-
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   align-items: start;
+  gap: clamp(40px, 6vw, 140px);
 }
 
-/* FAQ item */
-
-.faq-item {
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-
-  background: var(--card-background);
-
-  overflow: hidden;
-
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
+.etra-contact-faq__heading,
+.etra-contact-faq__list {
+  min-width: 0;
 }
 
-.faq-item:hover {
-  border-color: rgba(255, 47, 159, 0.4);
+.etra-contact-faq__label {
+  margin: 0 0 24px;
 
-  box-shadow: 0 14px 35px rgba(255, 47, 159, 0.08);
+  color: #f50087;
+
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 
-.faq-item-open {
-  border-color: rgba(255, 47, 159, 0.55);
+.etra-contact-faq__heading h2 {
+  margin: 0;
 
-  box-shadow: 0 18px 42px rgba(255, 47, 159, 0.1);
+  font-family: var(--contact-faq-display), sans-serif;
+  font-size: clamp(40px, 3.8vw, 100px);
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
 }
 
-/* Question */
+.etra-contact-faq__heading h2 span {
+  color: #f50087;
+}
 
-.faq-question {
+.etra-contact-faq__intro {
+  max-width: 480px;
+  margin: 26px 0 0;
+
+  color: #b8b5c8;
+
+  font-size: clamp(14px, 1vw, 19px);
+  line-height: 1.85;
+}
+
+/* Accordion */
+
+.etra-contact-faq__list {
+  border-top: 1px solid var(--faq-border);
+}
+
+.etra-contact-faq__item {
+  border-bottom: 1px solid var(--faq-border);
+}
+
+.etra-contact-faq__question {
+  margin: 0;
+  font: inherit;
+}
+
+.etra-contact-faq__question button {
   width: 100%;
-  min-height: 66px;
-  padding: 18px 20px;
+  min-height: 80px;
+  padding: 24px 0;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 22px;
   align-items: center;
-  justify-content: space-between;
   gap: 18px;
 
-  border: none;
+  border: 0;
 
   background: transparent;
-  color: var(--foreground);
+  color: #ffffff;
 
+  font: inherit;
+  font-size: clamp(15px, 1.15vw, 24px);
+  font-weight: 600;
+  line-height: 1.55;
   text-align: left;
 
   cursor: pointer;
 }
 
-.faq-question span {
-  font-size: 0.98rem;
-  font-weight: 600;
-  line-height: 1.5;
+.etra-contact-faq__number {
+  color: #b17aff;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
 }
 
-.faq-question svg {
-  flex-shrink: 0;
-
-  color: #ff2f9f;
-
-  font-size: 1.2rem;
-
-  transition: transform 0.35s ease;
+.etra-contact-faq__question svg {
+  width: 20px;
+  height: 20px;
+  color: #b17aff;
 }
 
-.faq-item-open .faq-question svg {
-  transform: rotate(180deg);
+.etra-contact-faq__question button:hover,
+.etra-contact-faq__item--open .etra-contact-faq__question button {
+  color: #b17aff;
 }
 
-/* Answer animation */
-
-.faq-answer {
-  display: grid;
-  grid-template-rows: 0fr;
-
-  transition: grid-template-rows 0.35s ease;
+.etra-contact-faq__question button:focus-visible {
+  outline: 2px solid #b17aff;
+  outline-offset: 4px;
 }
 
-.faq-item-open .faq-answer {
-  grid-template-rows: 1fr;
+.etra-contact-faq__answer {
+  padding: 0 40px 26px 46px;
 }
 
-.faq-answer p {
-  min-height: 0;
-  overflow: hidden;
+.etra-contact-faq__answer[hidden] {
+  display: none;
+}
 
+.etra-contact-faq__answer p {
+  max-width: 760px;
   margin: 0;
-  padding: 0 20px;
 
-  color: var(--text-secondary);
+  color: #b8b5c8;
 
-  font-size: 0.92rem;
-  line-height: 1.75;
-
-  transition: padding 0.35s ease;
-}
-
-.faq-item-open .faq-answer p {
-  padding: 0 20px 20px;
+  font-size: clamp(14px, 0.95vw, 18px);
+  line-height: 1.85;
 }
 
 /* Tablet */
 
-@media (max-width: 950px) {
-  .contact-faq {
-    padding: 95px 6%;
+@media (max-width: 900px) {
+  .etra-contact-faq {
+    padding: 64px 0;
   }
 
-  .contact-faq-grid {
-    grid-template-columns: 1fr;
+  .etra-contact-faq__container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .etra-contact-faq__intro {
+    max-width: 620px;
+  }
+
+  .etra-contact-faq__question button {
+    font-size: 16px;
   }
 }
 
 /* Mobile */
 
 @media (max-width: 600px) {
-  .contact-faq {
-    padding: 80px 20px;
+  .etra-contact-faq {
+    --faq-gutter: 20px;
+
+    padding: 56px 0;
   }
 
-  .contact-faq-header {
-    margin-bottom: 42px;
+  .etra-contact-faq__label {
+    margin-bottom: 18px;
+    font-size: 10px;
   }
 
-  .contact-faq-header h2 {
-    font-size: 2.2rem;
+  .etra-contact-faq__heading h2 {
+    font-size: clamp(34px, 8.5vw, 48px);
   }
 
-  .contact-faq-grid {
-    gap: 14px;
+  .etra-contact-faq__intro {
+    margin-top: 22px;
+    font-size: 14px;
   }
 
-  .faq-question {
-    min-height: 62px;
-    padding: 16px 17px;
+  .etra-contact-faq__question button {
+    min-height: 76px;
+    padding: 20px 0;
+
+    grid-template-columns: 20px minmax(0, 1fr) 20px;
+    gap: 12px;
+
+    font-size: 14px;
   }
 
-  .faq-question span {
-    font-size: 0.93rem;
+  .etra-contact-faq__answer {
+    padding: 0 32px 22px;
   }
 
-  .faq-answer p {
-    padding: 0 17px;
-  }
-
-  .faq-item-open .faq-answer p {
-    padding: 0 17px 18px;
+  .etra-contact-faq__answer p {
+    font-size: 13px;
   }
 }

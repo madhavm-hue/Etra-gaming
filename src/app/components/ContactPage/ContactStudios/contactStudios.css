@@ -1,568 +1,217 @@
-.contact-studios {
-  position: relative;
+.etra-contact-studio {
+  --studio-gutter: clamp(24px, 4.44vw, 128px);
 
   width: 100%;
+  padding: 80px 0;
 
-  padding: 110px 7%;
+  background: #07071b;
+  color: #ffffff;
 
-  overflow: hidden;
-
-  background: var(--background);
-
-  color: var(--foreground);
+  font-family: var(--contact-studio-body), sans-serif;
 }
 
-
-/* =========================
-BACKGROUND GLOW
-========================= */
-
-.contact-studios::before {
-  content: "";
-
-  position: absolute;
-
-  top: 12%;
-  right: -180px;
-
-  width: 420px;
-  height: 420px;
-
-  border-radius: 50%;
-
-  background: rgba(255, 47, 159, 0.08);
-
-  filter: blur(120px);
-
-  pointer-events: none;
+.etra-contact-studio,
+.etra-contact-studio * {
+  box-sizing: border-box;
 }
 
+.etra-contact-studio__container {
+  width: min(
+    calc(100% - var(--studio-gutter) - var(--studio-gutter)),
+    2560px
+  );
+  margin: 0 auto;
 
-.contact-studios::after {
-  content: "";
-
-  position: absolute;
-
-  left: -160px;
-  bottom: -40px;
-
-  width: 360px;
-  height: 360px;
-
-  border-radius: 50%;
-
-  background: rgba(112, 70, 255, 0.08);
-
-  filter: blur(110px);
-
-  pointer-events: none;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 140px);
 }
 
-
-/* =========================
-HEADER
-========================= */
-
-.contact-studios-heading,
-.contact-studios-header {
-  position: relative;
-
-  z-index: 2;
-
-  max-width: 760px;
-
-  margin: 0 auto 56px;
-
-  text-align: center;
+.etra-contact-studio__content {
+  min-width: 0;
 }
 
+.etra-contact-studio__label {
+  margin: 0 0 24px;
+  color: #f50087;
 
-.contact-studios-heading > span,
-.contact-studios-header > span {
-  display: inline-block;
-
-  margin-bottom: 14px;
-
-  color: #ff2f9f;
-
-  font-size: 0.88rem;
-  font-weight: 700;
-
-  letter-spacing: 3px;
-
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
 }
 
-
-.contact-studios-heading h2,
-.contact-studios-header h2 {
-  margin: 0 0 18px;
-
-  color: var(--foreground);
-
-  font-size: clamp(2.3rem, 4vw, 3.8rem);
-
-  line-height: 1.15;
-
-  letter-spacing: -1.5px;
-}
-
-
-.contact-studios-heading > p,
-.contact-studios-header > p {
-  max-width: 680px;
-
-  margin: 0 auto;
-
-  color: var(--text-secondary);
-
-  font-size: 1rem;
-
-  line-height: 1.8;
-}
-
-
-/* =========================
-SINGLE CHENNAI CARD AREA
-========================= */
-
-.contact-studios-grid {
-  position: relative;
-
-  z-index: 2;
-
-  width: 100%;
-  max-width: 1050px;
-
-  margin: 0 auto;
-
-  display: block;
-}
-
-
-/* =========================
-CARD
-========================= */
-
-.studio-card {
-  position: relative;
-
-  width: 100%;
-
-  overflow: hidden;
-
-  border: 1px solid var(--border-color);
-
-  border-radius: 26px;
-
-  background: var(--card-background);
-
-  box-shadow:
-    0 24px 65px rgba(0, 0, 0, 0.12);
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
-}
-
-
-.studio-card:hover {
-  transform: translateY(-6px);
-
-  border-color:
-    rgba(255, 47, 159, 0.38);
-
-  box-shadow:
-    0 30px 75px rgba(255, 47, 159, 0.10);
-}
-
-
-/* =========================
-MAP
-========================= */
-
-.studio-map {
-  position: relative;
-
-  width: 100%;
-
-  height: 400px;
-
-  overflow: hidden;
-
-  background: #0c0b1c;
-}
-
-
-.studio-map iframe {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  border: 0;
-
-  filter:
-    saturate(0.82)
-    contrast(1.03);
-
-  transition:
-    filter 0.35s ease,
-    transform 0.45s ease;
-}
-
-
-.studio-card:hover .studio-map iframe {
-  filter:
-    saturate(1)
-    contrast(1.03);
-}
-
-
-/* =========================
-LOCATION BADGE
-========================= */
-
-.studio-location-badge {
-  position: absolute;
-
-  top: 374px;
-  left: 32px;
-
-  z-index: 4;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  min-height: 42px;
-
-  padding: 0 16px;
-
-  border:
-    1px solid rgba(255, 255, 255, 0.16);
-
-  border-radius: 999px;
-
-  background:
-    rgba(8, 7, 25, 0.82);
-
-  color: #ffffff;
-
-  font-size: 0.82rem;
-
-  font-weight: 700;
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.18);
-}
-
-
-.studio-location-badge svg {
-  color: #ff2f9f;
-
-  font-size: 16px;
-}
-
-
-/* =========================
-CONTENT
-========================= */
-
-.studio-content {
-  position: relative;
-
-  padding:
-    42px 34px 34px;
-
-  display: flex;
-
-  align-items: flex-end;
-
-  justify-content: space-between;
-
-  gap: 32px;
-}
-
-
-.studio-content > div {
-  max-width: 700px;
-}
-
-
-.studio-content h3 {
-  margin: 0 0 10px;
-
-  color: var(--foreground);
-
-  font-size: clamp(1.5rem, 2vw, 2rem);
-
-  font-weight: 800;
-
-  line-height: 1.2;
-}
-
-
-.studio-content p {
-  margin: 0 0 12px;
-
-  color: var(--foreground);
-
-  font-size: 0.95rem;
-
-  font-weight: 650;
-
-  line-height: 1.6;
-}
-
-
-/* =========================
-ADDRESS
-========================= */
-
-.studio-content address {
+.etra-contact-studio__content h2 {
   margin: 0;
 
-  color: var(--text-secondary);
+  font-family: var(--contact-studio-display), sans-serif;
+  font-size: clamp(42px, 4.2vw, 110px);
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
 
-  font-size: 0.95rem;
+.etra-contact-studio__content h2 span {
+  color: #f50087;
+}
 
-  font-style: normal;
+.etra-contact-studio__intro {
+  max-width: 540px;
+  margin: 26px 0 30px;
 
+  color: #b8b5c8;
+  font-size: clamp(15px, 1vw, 20px);
+  line-height: 1.85;
+}
+
+.etra-contact-studio__location {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 16px;
+
+  padding-top: 24px;
+  border-top: 1px solid rgba(184, 181, 200, 0.18);
+}
+
+.etra-contact-studio__location > svg {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  color: #b17aff;
+}
+
+.etra-contact-studio__location h3 {
+  margin: 0 0 12px;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.etra-contact-studio__location p {
+  margin: 0 0 10px;
+
+  color: #d9d6e4;
+  font-size: 12px;
+  font-weight: 600;
   line-height: 1.8;
 }
 
+.etra-contact-studio__location address {
+  margin: 0;
 
-/* =========================
-DIRECTIONS BUTTON
-========================= */
+  color: #b8b5c8;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.85;
+}
 
-.studio-direction-button {
-  min-height: 52px;
-
-  padding: 0 20px;
-
-  flex-shrink: 0;
+.etra-contact-studio__directions {
+  min-height: 48px;
+  margin-top: 24px;
 
   display: inline-flex;
-
   align-items: center;
+  gap: 28px;
 
-  justify-content: center;
+  color: #b17aff;
 
-  gap: 10px;
-
-  border:
-    1px solid rgba(255, 47, 159, 0.35);
-
-  border-radius: 12px;
-
-  background:
-    rgba(255, 47, 159, 0.06);
-
-  color: var(--foreground);
-
-  font-size: 0.82rem;
-
+  font-size: 11px;
   font-weight: 800;
-
-  letter-spacing: 0.3px;
-
+  line-height: 1.5;
+  letter-spacing: 0.4px;
   text-decoration: none;
-
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  text-transform: uppercase;
 }
 
-
-.studio-direction-button svg {
-  font-size: 18px;
-
-  transition: transform 0.3s ease;
+.etra-contact-studio__directions svg {
+  width: 21px;
+  height: 21px;
+  transition: transform 0.25s ease;
 }
 
-
-.studio-direction-button:hover {
-  transform: translateY(-3px);
-
-  border-color: #ff2f9f;
-
-  background: #ff2f9f;
-
-  color: #ffffff;
-
-  box-shadow:
-    0 14px 32px rgba(255, 47, 159, 0.22);
+.etra-contact-studio__directions:hover svg {
+  transform: translate(3px, -3px);
 }
 
-
-.studio-direction-button:hover svg {
-  transform:
-    translate(2px, -2px);
+.etra-contact-studio__directions:focus-visible {
+  outline: 2px solid #b17aff;
+  outline-offset: 6px;
 }
 
+/* Map */
 
-/* =========================
-TABLET
-========================= */
+.etra-contact-studio__map {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  height: clamp(420px, 33vw, 680px);
 
-@media (max-width: 1100px) {
-
-  .contact-studios {
-    padding: 95px 6%;
-  }
-
-
-  .contact-studios-grid {
-    max-width: 900px;
-  }
-
-
-  .studio-map {
-    height: 360px;
-  }
-
-
-  .studio-location-badge {
-    top: 334px;
-  }
-
+  background: #0c0925;
+  border: 1px solid rgba(184, 181, 200, 0.18);
 }
 
-
-/* =========================
-SMALL TABLET
-========================= */
-
-@media (max-width: 800px) {
-
-  .contact-studios {
-    padding: 82px 24px;
-  }
-
-
-  .contact-studios-heading,
-  .contact-studios-header {
-    margin-bottom: 44px;
-  }
-
-
-  .studio-map {
-    height: 320px;
-  }
-
-
-  .studio-location-badge {
-    top: 294px;
-
-    left: 24px;
-  }
-
-
-  .studio-content {
-    padding:
-      40px 26px 28px;
-
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 24px;
-  }
-
-
-  .studio-direction-button {
-    align-self: flex-start;
-  }
-
+.etra-contact-studio__map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
+/* Tablet */
 
-/* =========================
-MOBILE
-========================= */
+@media (max-width: 900px) {
+  .etra-contact-studio {
+    padding: 64px 0;
+  }
+
+  .etra-contact-studio__container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .etra-contact-studio__intro {
+    max-width: 620px;
+  }
+
+  .etra-contact-studio__map {
+    height: 420px;
+  }
+}
+
+/* Mobile */
 
 @media (max-width: 600px) {
+  .etra-contact-studio {
+    --studio-gutter: 20px;
 
-  .contact-studios {
-    padding:
-      72px 16px;
+    padding: 56px 0;
   }
 
-
-  .contact-studios-heading h2,
-  .contact-studios-header h2 {
-    font-size:
-      clamp(
-        2rem,
-        10vw,
-        2.8rem
-      );
-
-    letter-spacing: -1px;
+  .etra-contact-studio__label {
+    margin-bottom: 18px;
+    font-size: 10px;
   }
 
-
-  .contact-studios-heading > p,
-  .contact-studios-header > p {
-    font-size: 0.92rem;
+  .etra-contact-studio__content h2 {
+    font-size: clamp(36px, 9vw, 48px);
   }
 
-
-  .studio-card {
-    border-radius: 20px;
+  .etra-contact-studio__intro {
+    margin-top: 22px;
+    font-size: 14px;
   }
 
-
-  .studio-map {
-    height: 280px;
+  .etra-contact-studio__map {
+    height: 320px;
   }
+}
 
-
-  .studio-location-badge {
-    top: 256px;
-
-    left: 18px;
-
-    min-height: 38px;
-
-    padding: 0 13px;
-
-    font-size: 0.76rem;
+@media (prefers-reduced-motion: reduce) {
+  .etra-contact-studio__directions svg {
+    transition: none;
   }
-
-
-  .studio-content {
-    padding:
-      38px 20px 24px;
-  }
-
-
-  .studio-content h3 {
-    font-size: 1.45rem;
-  }
-
-
-  .studio-content p,
-  .studio-content address {
-    font-size: 0.88rem;
-  }
-
-
-  .studio-direction-button {
-    width: 100%;
-
-    min-height: 50px;
-  }
-
 }

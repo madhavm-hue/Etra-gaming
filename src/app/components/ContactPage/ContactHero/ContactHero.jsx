@@ -1,71 +1,72 @@
 import Link from "next/link";
+import { Anton, Manrope } from "next/font/google";
 import { FiArrowUpRight, FiCalendar } from "react-icons/fi";
-
 import "./contactHero.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--contact-hero-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--contact-hero-body",
+});
 
 export default function ContactHero() {
   return (
-    <section className="contact-hero">
-      <div className="contact-hero-content">
+    <section
+      className={`etra-contact-hero ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-contact-hero-title"
+    >
+      <div className="etra-contact-hero__container">
+        <div className="etra-contact-hero__copy">
+          <p className="etra-contact-hero__label">
+            Contact Us
+          </p>
 
-        {/* LEFT CONTENT */}
-        <div className="contact-hero-copy">
-          <span className="contact-hero-label">
-            CONTACT US
-          </span>
+          <h1 id="etra-contact-hero-title">
+            <span>Let&apos;s Create</span>
+            <span>Something</span>
+            <span>Extraordinary</span>
+          </h1>
 
-        <h1>
-  <span className="contact-title-line">
-    Let&apos;s Create
-  </span>
-
-  <span className="contact-title-line">
-    Something
-  </span>
-
-  <span className="contact-title-gradient">
-    Extraordinary
-  </span>
-</h1>
-          <p>
+          <p className="etra-contact-hero__description">
             Have a project in mind? We&apos;d love to hear about it.
             Let&apos;s collaborate and craft immersive experiences
             that captivate your audience.
           </p>
 
-          <div className="contact-hero-actions">
+          <div className="etra-contact-hero__actions">
             <Link
               href="#contact-form"
-              className="contact-primary-btn"
+              className="etra-contact-hero__primary"
             >
-              Start a Project
-              <FiArrowUpRight />
+              <span>Start a Project</span>
+              <FiArrowUpRight aria-hidden="true" />
             </Link>
 
             <Link
               href="#contact-form"
-              className="contact-call-btn"
+              className="etra-contact-hero__secondary"
             >
-              <FiCalendar />
-              Schedule a Call
+              <FiCalendar aria-hidden="true" />
+              <span>Schedule a Call</span>
             </Link>
           </div>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="contact-hero-visual">
-          <div className="contact-hero-image">
-            <img
-              src="/images/hero/Image27.jpg"
-              alt="ETRA gaming contact"
-            />
-          </div>
-
-          <span className="contact-orbit contact-orbit-one" />
-          <span className="contact-orbit contact-orbit-two" />
-          <span className="contact-dot" />
+        <div className="etra-contact-hero__visual">
+          <img
+            src="/images/hero/Image27.jpg"
+            alt="ETRA gaming contact"
+            className="etra-contact-hero__image"
+            fetchPriority="high"
+          />
         </div>
-
       </div>
     </section>
   );

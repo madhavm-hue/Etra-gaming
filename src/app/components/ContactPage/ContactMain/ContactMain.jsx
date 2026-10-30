@@ -1,169 +1,268 @@
+"use client";
+
+import { useState } from "react";
+import { Anton, Manrope } from "next/font/google";
 import {
+  FiArrowUpRight,
   FiPhone,
   FiMapPin,
   FiClock,
-  FiMail,
 } from "react-icons/fi";
-
-import {
-  FaLinkedinIn,
-  FaInstagram,
-  FaYoutube,
-  FaDiscord,
-  FaXTwitter,
-} from "react-icons/fa6";
-
 import "./contactMain.css";
 
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--contact-main-display",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--contact-main-body",
+});
+
+const recipients = {
+  gaming: "etragameprod@etradreams.com",
+  animation: "etraanim@etradreams.com",
+};
+
 export default function ContactMain() {
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+    const division = data.get("division");
+    const recipient = recipients[division];
+
+    if (!recipient) return;
+
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const company = String(data.get("company") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    const subject = `ETRA ${
+      division === "gaming" ? "Gaming" : "Animation"
+    } — Project Enquiry`;
+
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Company / Studio: ${company || "Not provided"}`,
+      "",
+      message,
+    ].join("\n");
+
+    window.location.href =
+      `mailto:${recipient}` +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    setStatus(
+      "Your email app should open with a draft. Send it from there to complete your enquiry."
+    );
+  };
+
   return (
-    <section className="contact-main">
-
-      {/* LEFT - CONTACT FORM */}
-      <div className="contact-form-card">
-
-        <span>SEND US A MESSAGE</span>
-
-        <form>
-
-          <div className="form-row">
-            <input
-              type="text"
-              placeholder="Your Name"
-            />
-
-            <input
-              type="email"
-              placeholder="Your Email"
-            />
-          </div>
-
-          <input
-            type="text"
-            placeholder="Company / Studio"
-          />
-
-          <textarea
-            rows="6"
-            placeholder="Tell us about your project"
-          />
-
-          <button type="submit">
-            SEND MESSAGE
-          </button>
-
-          <p>
-            We respect your privacy. Your information will never be shared.
+    <section
+      className={`etra-contact-main ${anton.variable} ${manrope.variable}`}
+      aria-labelledby="etra-contact-main-title"
+    >
+      <div className="etra-contact-main__container">
+        <div
+          id="contact-form"
+          className="etra-contact-main__form-panel"
+        >
+          <p className="etra-contact-main__label">
+            Send Us a Message
           </p>
 
-        </form>
-      </div>
+          <h2 id="etra-contact-main-title">
+            Tell us about
+            <br />
+            <span>your project.</span>
+          </h2>
 
-      {/* RIGHT - CONTACT INFORMATION */}
-      <div className="contact-info-card">
+          <form
+            className="etra-contact-main__form"
+            onSubmit={handleSubmit}
+          >
+            <fieldset className="etra-contact-main__division">
+              <legend>I&apos;m interested in</legend>
 
-        <span>GET IN TOUCH</span>
+              <div className="etra-contact-main__division-options">
+                <label>
+                  <input
+                    type="radio"
+                    name="division"
+                    value="gaming"
+                    defaultChecked
+                    required
+                  />
+                  <span>Gaming</span>
+                </label>
 
-        <p>
-          Reach out to us for project enquiries, collaborations and
-          creative partnerships.
-        </p>
+                <label>
+                  <input
+                    type="radio"
+                    name="division"
+                    value="animation"
+                    required
+                  />
+                  <span>Animation</span>
+                </label>
+              </div>
+            </fieldset>
 
-        {/* EMAIL */}
-        <div className="info-item">
-          <FiMail />
+            <div className="etra-contact-main__row">
+              <label className="etra-contact-main__field">
+                <span>Your Name *</span>
+                <input
+                  type="text"
+                  name="name"
+                  autoComplete="name"
+                  placeholder="Your name"
+                  required
+                  maxLength={120}
+                />
+              </label>
 
-          <div>
-            <h4>Email</h4>
-
-            <div>
-              <strong>Gaming</strong>
-              <br />
-              <a href="mailto:etragameprod@etradreams.com">
-                etragameprod@etradreams.com
-              </a>
+              <label className="etra-contact-main__field">
+                <span>Your Email *</span>
+                <input
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  placeholder="you@company.com"
+                  required
+                  maxLength={254}
+                />
+              </label>
             </div>
 
-            <div>
-              <strong>Animation</strong>
-              <br />
-              <a href="mailto:etraanim@etradreams.com">
-                etraanim@etradreams.com
-              </a>
+            <label className="etra-contact-main__field">
+              <span>Company / Studio</span>
+              <input
+                type="text"
+                name="company"
+                autoComplete="organization"
+                placeholder="Company or studio name"
+                maxLength={160}
+              />
+            </label>
+
+            <label className="etra-contact-main__field">
+              <span>Tell us about your project *</span>
+              <textarea
+                name="message"
+                rows={5}
+                placeholder="Share your idea, requirements and timeline."
+                required
+                maxLength={5000}
+              />
+            </label>
+
+            <div className="etra-contact-main__submit-row">
+              <button type="submit">
+                <span>Send Message</span>
+                <FiArrowUpRight aria-hidden="true" />
+              </button>
+
+              <p>Opens a draft in your email app.</p>
             </div>
-          </div>
+
+            <p
+              className="etra-contact-main__status"
+              role="status"
+            >
+              {status}
+            </p>
+
+            <p className="etra-contact-main__privacy">
+              We respect your privacy. Your information will never be shared.
+            </p>
+          </form>
         </div>
 
-        {/* PHONE */}
-        <div className="info-item">
-          <FiPhone />
+        <aside
+          className="etra-contact-main__info"
+          aria-labelledby="etra-contact-info-title"
+        >
+          <h2
+            className="etra-contact-main__label"
+            id="etra-contact-info-title"
+          >
+            Get In Touch
+          </h2>
 
-          <div>
-            <h4>Phone</h4>
+          <p className="etra-contact-main__intro">
+            Reach out to us for project enquiries, collaborations and
+            creative partnerships.
+          </p>
 
-            <a href="tel:+919500622644">
-              +91 95006 22644
+          <div className="etra-contact-main__email-group">
+            <a
+              href="mailto:etragameprod@etradreams.com"
+              className="etra-contact-main__email etra-contact-main__email--gaming"
+            >
+              <span className="etra-contact-main__email-heading">
+                <strong>Gaming</strong>
+                <FiArrowUpRight aria-hidden="true" />
+              </span>
+              <span>etragameprod@etradreams.com</span>
+            </a>
+
+            <a
+              href="mailto:etraanim@etradreams.com"
+              className="etra-contact-main__email etra-contact-main__email--animation"
+            >
+              <span className="etra-contact-main__email-heading">
+                <strong>Animation</strong>
+                <FiArrowUpRight aria-hidden="true" />
+              </span>
+              <span>etraanim@etradreams.com</span>
             </a>
           </div>
-        </div>
 
-        {/* LOCATION */}
-        <div className="info-item">
-          <FiMapPin />
-
-          <div>
-            <h4>Location</h4>
-
-            <span>
-              ETRA DREAMS ANIMATIONS PRIVATE LIMITED
-              <br />
-              1/400A North Street, Othaiyal
-              <br />
-              O. Mettuppatti Post
-              <br />
-              Sattur, Tamil Nadu - 626203, India
-            </span>
+          <div className="etra-contact-main__detail">
+            <FiPhone aria-hidden="true" />
+            <div>
+              <h3>Phone</h3>
+              <a href="tel:+919500622644">
+                +91 95006 22644
+              </a>
+            </div>
           </div>
-        </div>
 
-        {/* WORKING HOURS */}
-        <div className="info-item">
-          <FiClock />
-
-          <div>
-            <h4>Working Hours</h4>
-
-            <span>
-              Mon - Fri : 9:00 AM - 6:00 PM
-            </span>
+          <div className="etra-contact-main__detail">
+            <FiMapPin aria-hidden="true" />
+            <div>
+              <h3>Location</h3>
+              <address>
+                ETRA DREAMS ANIMATIONS PRIVATE LIMITED
+                <br />
+                1/400A North Street, Othaiyal
+                <br />
+                O. Mettuppatti Post
+                <br />
+                Sattur, Tamil Nadu - 626203, India
+              </address>
+            </div>
           </div>
-        </div>
 
-        {/* SOCIAL LINKS */}
-        <div className="social-links">
-          <a href="#" aria-label="LinkedIn">
-            <FaLinkedinIn />
-          </a>
-
-          <a href="#" aria-label="Instagram">
-            <FaInstagram />
-          </a>
-
-          <a href="#" aria-label="YouTube">
-            <FaYoutube />
-          </a>
-
-          <a href="#" aria-label="Discord">
-            <FaDiscord />
-          </a>
-
-          <a href="#" aria-label="X">
-            <FaXTwitter />
-          </a>
-        </div>
-
+          <div className="etra-contact-main__detail">
+            <FiClock aria-hidden="true" />
+            <div>
+              <h3>Working Hours</h3>
+              <p>Mon - Fri : 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </aside>
       </div>
-
     </section>
   );
 }
